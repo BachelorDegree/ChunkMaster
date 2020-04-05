@@ -1,5 +1,5 @@
 #include "ChunkMasterServiceImpl.hpp"
-int ChunkMasterServiceImpl::AllocatedUploadSlices(const ::chunkmaster::AllocateUploadSlicesReq & oReq, ::chunkmaster::AllocateUploadSlicesRsp & oResp) {
+int ChunkMasterServiceImpl::AllocateUploadSlices(const ::chunkmaster::AllocateUploadSlicesReq & oReq, ::chunkmaster::AllocateUploadSlicesRsp & oResp) {
     return -1;
 }
 int ChunkMasterServiceImpl::FinishUploadSlice(const ::chunkmaster::FinishUploadSliceReq & oReq, ::chunkmaster::FinishUploadSliceRsp & oResp) {

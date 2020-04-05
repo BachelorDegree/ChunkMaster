@@ -33,7 +33,7 @@ void EXPORT_OnWorkerThreadStart(grpc::ServerCompletionQueue *cq)
 {
   // Bind handlers
 
-    new AllocatedUploadSlicesHandler(&service, cq);
+    new AllocateUploadSlicesHandler(&service, cq);
     new FinishUploadSliceHandler(&service, cq);
     new ReportChunkInformationHandler(&service, cq);
 }

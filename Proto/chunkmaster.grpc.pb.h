@@ -38,12 +38,12 @@ class ChunkMasterService final {
    public:
     virtual ~StubInterface() {}
     // rpc  (Req) returns (Rsp);
-    virtual ::grpc::Status AllocatedUploadSlices(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq& request, ::chunkmaster::AllocateUploadSlicesRsp* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::AllocateUploadSlicesRsp>> AsyncAllocatedUploadSlices(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::AllocateUploadSlicesRsp>>(AsyncAllocatedUploadSlicesRaw(context, request, cq));
+    virtual ::grpc::Status AllocateUploadSlices(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq& request, ::chunkmaster::AllocateUploadSlicesRsp* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::AllocateUploadSlicesRsp>> AsyncAllocateUploadSlices(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::AllocateUploadSlicesRsp>>(AsyncAllocateUploadSlicesRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::AllocateUploadSlicesRsp>> PrepareAsyncAllocatedUploadSlices(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::AllocateUploadSlicesRsp>>(PrepareAsyncAllocatedUploadSlicesRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::AllocateUploadSlicesRsp>> PrepareAsyncAllocateUploadSlices(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::AllocateUploadSlicesRsp>>(PrepareAsyncAllocateUploadSlicesRaw(context, request, cq));
     }
     virtual ::grpc::Status FinishUploadSlice(::grpc::ClientContext* context, const ::chunkmaster::FinishUploadSliceReq& request, ::chunkmaster::FinishUploadSliceRsp* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::FinishUploadSliceRsp>> AsyncFinishUploadSlice(::grpc::ClientContext* context, const ::chunkmaster::FinishUploadSliceReq& request, ::grpc::CompletionQueue* cq) {
@@ -64,8 +64,8 @@ class ChunkMasterService final {
      public:
       virtual ~experimental_async_interface() {}
       // rpc  (Req) returns (Rsp);
-      virtual void AllocatedUploadSlices(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq* request, ::chunkmaster::AllocateUploadSlicesRsp* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void AllocatedUploadSlices(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::chunkmaster::AllocateUploadSlicesRsp* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void AllocateUploadSlices(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq* request, ::chunkmaster::AllocateUploadSlicesRsp* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void AllocateUploadSlices(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::chunkmaster::AllocateUploadSlicesRsp* response, std::function<void(::grpc::Status)>) = 0;
       virtual void FinishUploadSlice(::grpc::ClientContext* context, const ::chunkmaster::FinishUploadSliceReq* request, ::chunkmaster::FinishUploadSliceRsp* response, std::function<void(::grpc::Status)>) = 0;
       virtual void FinishUploadSlice(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::chunkmaster::FinishUploadSliceRsp* response, std::function<void(::grpc::Status)>) = 0;
       // For ChunkServer
@@ -74,8 +74,8 @@ class ChunkMasterService final {
     };
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::AllocateUploadSlicesRsp>* AsyncAllocatedUploadSlicesRaw(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::AllocateUploadSlicesRsp>* PrepareAsyncAllocatedUploadSlicesRaw(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::AllocateUploadSlicesRsp>* AsyncAllocateUploadSlicesRaw(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::AllocateUploadSlicesRsp>* PrepareAsyncAllocateUploadSlicesRaw(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::FinishUploadSliceRsp>* AsyncFinishUploadSliceRaw(::grpc::ClientContext* context, const ::chunkmaster::FinishUploadSliceReq& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::FinishUploadSliceRsp>* PrepareAsyncFinishUploadSliceRaw(::grpc::ClientContext* context, const ::chunkmaster::FinishUploadSliceReq& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::ReportChunkInformationRsp>* AsyncReportChunkInformationRaw(::grpc::ClientContext* context, const ::chunkmaster::ReportChunkInformationReq& request, ::grpc::CompletionQueue* cq) = 0;
@@ -84,12 +84,12 @@ class ChunkMasterService final {
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
-    ::grpc::Status AllocatedUploadSlices(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq& request, ::chunkmaster::AllocateUploadSlicesRsp* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chunkmaster::AllocateUploadSlicesRsp>> AsyncAllocatedUploadSlices(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chunkmaster::AllocateUploadSlicesRsp>>(AsyncAllocatedUploadSlicesRaw(context, request, cq));
+    ::grpc::Status AllocateUploadSlices(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq& request, ::chunkmaster::AllocateUploadSlicesRsp* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chunkmaster::AllocateUploadSlicesRsp>> AsyncAllocateUploadSlices(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chunkmaster::AllocateUploadSlicesRsp>>(AsyncAllocateUploadSlicesRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chunkmaster::AllocateUploadSlicesRsp>> PrepareAsyncAllocatedUploadSlices(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chunkmaster::AllocateUploadSlicesRsp>>(PrepareAsyncAllocatedUploadSlicesRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chunkmaster::AllocateUploadSlicesRsp>> PrepareAsyncAllocateUploadSlices(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chunkmaster::AllocateUploadSlicesRsp>>(PrepareAsyncAllocateUploadSlicesRaw(context, request, cq));
     }
     ::grpc::Status FinishUploadSlice(::grpc::ClientContext* context, const ::chunkmaster::FinishUploadSliceReq& request, ::chunkmaster::FinishUploadSliceRsp* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chunkmaster::FinishUploadSliceRsp>> AsyncFinishUploadSlice(::grpc::ClientContext* context, const ::chunkmaster::FinishUploadSliceReq& request, ::grpc::CompletionQueue* cq) {
@@ -108,8 +108,8 @@ class ChunkMasterService final {
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
-      void AllocatedUploadSlices(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq* request, ::chunkmaster::AllocateUploadSlicesRsp* response, std::function<void(::grpc::Status)>) override;
-      void AllocatedUploadSlices(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::chunkmaster::AllocateUploadSlicesRsp* response, std::function<void(::grpc::Status)>) override;
+      void AllocateUploadSlices(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq* request, ::chunkmaster::AllocateUploadSlicesRsp* response, std::function<void(::grpc::Status)>) override;
+      void AllocateUploadSlices(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::chunkmaster::AllocateUploadSlicesRsp* response, std::function<void(::grpc::Status)>) override;
       void FinishUploadSlice(::grpc::ClientContext* context, const ::chunkmaster::FinishUploadSliceReq* request, ::chunkmaster::FinishUploadSliceRsp* response, std::function<void(::grpc::Status)>) override;
       void FinishUploadSlice(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::chunkmaster::FinishUploadSliceRsp* response, std::function<void(::grpc::Status)>) override;
       void ReportChunkInformation(::grpc::ClientContext* context, const ::chunkmaster::ReportChunkInformationReq* request, ::chunkmaster::ReportChunkInformationRsp* response, std::function<void(::grpc::Status)>) override;
@@ -125,13 +125,13 @@ class ChunkMasterService final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class experimental_async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::chunkmaster::AllocateUploadSlicesRsp>* AsyncAllocatedUploadSlicesRaw(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::chunkmaster::AllocateUploadSlicesRsp>* PrepareAsyncAllocatedUploadSlicesRaw(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::chunkmaster::AllocateUploadSlicesRsp>* AsyncAllocateUploadSlicesRaw(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::chunkmaster::AllocateUploadSlicesRsp>* PrepareAsyncAllocateUploadSlicesRaw(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::chunkmaster::FinishUploadSliceRsp>* AsyncFinishUploadSliceRaw(::grpc::ClientContext* context, const ::chunkmaster::FinishUploadSliceReq& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::chunkmaster::FinishUploadSliceRsp>* PrepareAsyncFinishUploadSliceRaw(::grpc::ClientContext* context, const ::chunkmaster::FinishUploadSliceReq& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::chunkmaster::ReportChunkInformationRsp>* AsyncReportChunkInformationRaw(::grpc::ClientContext* context, const ::chunkmaster::ReportChunkInformationReq& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::chunkmaster::ReportChunkInformationRsp>* PrepareAsyncReportChunkInformationRaw(::grpc::ClientContext* context, const ::chunkmaster::ReportChunkInformationReq& request, ::grpc::CompletionQueue* cq) override;
-    const ::grpc::internal::RpcMethod rpcmethod_AllocatedUploadSlices_;
+    const ::grpc::internal::RpcMethod rpcmethod_AllocateUploadSlices_;
     const ::grpc::internal::RpcMethod rpcmethod_FinishUploadSlice_;
     const ::grpc::internal::RpcMethod rpcmethod_ReportChunkInformation_;
   };
@@ -142,28 +142,28 @@ class ChunkMasterService final {
     Service();
     virtual ~Service();
     // rpc  (Req) returns (Rsp);
-    virtual ::grpc::Status AllocatedUploadSlices(::grpc::ServerContext* context, const ::chunkmaster::AllocateUploadSlicesReq* request, ::chunkmaster::AllocateUploadSlicesRsp* response);
+    virtual ::grpc::Status AllocateUploadSlices(::grpc::ServerContext* context, const ::chunkmaster::AllocateUploadSlicesReq* request, ::chunkmaster::AllocateUploadSlicesRsp* response);
     virtual ::grpc::Status FinishUploadSlice(::grpc::ServerContext* context, const ::chunkmaster::FinishUploadSliceReq* request, ::chunkmaster::FinishUploadSliceRsp* response);
     // For ChunkServer
     virtual ::grpc::Status ReportChunkInformation(::grpc::ServerContext* context, const ::chunkmaster::ReportChunkInformationReq* request, ::chunkmaster::ReportChunkInformationRsp* response);
   };
   template <class BaseClass>
-  class WithAsyncMethod_AllocatedUploadSlices : public BaseClass {
+  class WithAsyncMethod_AllocateUploadSlices : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithAsyncMethod_AllocatedUploadSlices() {
+    WithAsyncMethod_AllocateUploadSlices() {
       ::grpc::Service::MarkMethodAsync(0);
     }
-    ~WithAsyncMethod_AllocatedUploadSlices() override {
+    ~WithAsyncMethod_AllocateUploadSlices() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status AllocatedUploadSlices(::grpc::ServerContext* context, const ::chunkmaster::AllocateUploadSlicesReq* request, ::chunkmaster::AllocateUploadSlicesRsp* response) override {
+    ::grpc::Status AllocateUploadSlices(::grpc::ServerContext* context, const ::chunkmaster::AllocateUploadSlicesReq* request, ::chunkmaster::AllocateUploadSlicesRsp* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestAllocatedUploadSlices(::grpc::ServerContext* context, ::chunkmaster::AllocateUploadSlicesReq* request, ::grpc::ServerAsyncResponseWriter< ::chunkmaster::AllocateUploadSlicesRsp>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestAllocateUploadSlices(::grpc::ServerContext* context, ::chunkmaster::AllocateUploadSlicesReq* request, ::grpc::ServerAsyncResponseWriter< ::chunkmaster::AllocateUploadSlicesRsp>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -207,31 +207,31 @@ class ChunkMasterService final {
       ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_AllocatedUploadSlices<WithAsyncMethod_FinishUploadSlice<WithAsyncMethod_ReportChunkInformation<Service > > > AsyncService;
+  typedef WithAsyncMethod_AllocateUploadSlices<WithAsyncMethod_FinishUploadSlice<WithAsyncMethod_ReportChunkInformation<Service > > > AsyncService;
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_AllocatedUploadSlices : public BaseClass {
+  class ExperimentalWithCallbackMethod_AllocateUploadSlices : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    ExperimentalWithCallbackMethod_AllocatedUploadSlices() {
+    ExperimentalWithCallbackMethod_AllocateUploadSlices() {
       ::grpc::Service::experimental().MarkMethodCallback(0,
         new ::grpc::internal::CallbackUnaryHandler< ::chunkmaster::AllocateUploadSlicesReq, ::chunkmaster::AllocateUploadSlicesRsp>(
           [this](::grpc::ServerContext* context,
                  const ::chunkmaster::AllocateUploadSlicesReq* request,
                  ::chunkmaster::AllocateUploadSlicesRsp* response,
                  ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->AllocatedUploadSlices(context, request, response, controller);
+                   return this->AllocateUploadSlices(context, request, response, controller);
                  }));
     }
-    ~ExperimentalWithCallbackMethod_AllocatedUploadSlices() override {
+    ~ExperimentalWithCallbackMethod_AllocateUploadSlices() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status AllocatedUploadSlices(::grpc::ServerContext* context, const ::chunkmaster::AllocateUploadSlicesReq* request, ::chunkmaster::AllocateUploadSlicesRsp* response) override {
+    ::grpc::Status AllocateUploadSlices(::grpc::ServerContext* context, const ::chunkmaster::AllocateUploadSlicesReq* request, ::chunkmaster::AllocateUploadSlicesRsp* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void AllocatedUploadSlices(::grpc::ServerContext* context, const ::chunkmaster::AllocateUploadSlicesReq* request, ::chunkmaster::AllocateUploadSlicesRsp* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    virtual void AllocateUploadSlices(::grpc::ServerContext* context, const ::chunkmaster::AllocateUploadSlicesReq* request, ::chunkmaster::AllocateUploadSlicesRsp* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_FinishUploadSlice : public BaseClass {
@@ -283,20 +283,20 @@ class ChunkMasterService final {
     }
     virtual void ReportChunkInformation(::grpc::ServerContext* context, const ::chunkmaster::ReportChunkInformationReq* request, ::chunkmaster::ReportChunkInformationRsp* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  typedef ExperimentalWithCallbackMethod_AllocatedUploadSlices<ExperimentalWithCallbackMethod_FinishUploadSlice<ExperimentalWithCallbackMethod_ReportChunkInformation<Service > > > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_AllocateUploadSlices<ExperimentalWithCallbackMethod_FinishUploadSlice<ExperimentalWithCallbackMethod_ReportChunkInformation<Service > > > ExperimentalCallbackService;
   template <class BaseClass>
-  class WithGenericMethod_AllocatedUploadSlices : public BaseClass {
+  class WithGenericMethod_AllocateUploadSlices : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithGenericMethod_AllocatedUploadSlices() {
+    WithGenericMethod_AllocateUploadSlices() {
       ::grpc::Service::MarkMethodGeneric(0);
     }
-    ~WithGenericMethod_AllocatedUploadSlices() override {
+    ~WithGenericMethod_AllocateUploadSlices() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status AllocatedUploadSlices(::grpc::ServerContext* context, const ::chunkmaster::AllocateUploadSlicesReq* request, ::chunkmaster::AllocateUploadSlicesRsp* response) override {
+    ::grpc::Status AllocateUploadSlices(::grpc::ServerContext* context, const ::chunkmaster::AllocateUploadSlicesReq* request, ::chunkmaster::AllocateUploadSlicesRsp* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -336,22 +336,22 @@ class ChunkMasterService final {
     }
   };
   template <class BaseClass>
-  class WithRawMethod_AllocatedUploadSlices : public BaseClass {
+  class WithRawMethod_AllocateUploadSlices : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithRawMethod_AllocatedUploadSlices() {
+    WithRawMethod_AllocateUploadSlices() {
       ::grpc::Service::MarkMethodRaw(0);
     }
-    ~WithRawMethod_AllocatedUploadSlices() override {
+    ~WithRawMethod_AllocateUploadSlices() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status AllocatedUploadSlices(::grpc::ServerContext* context, const ::chunkmaster::AllocateUploadSlicesReq* request, ::chunkmaster::AllocateUploadSlicesRsp* response) override {
+    ::grpc::Status AllocateUploadSlices(::grpc::ServerContext* context, const ::chunkmaster::AllocateUploadSlicesReq* request, ::chunkmaster::AllocateUploadSlicesRsp* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestAllocatedUploadSlices(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestAllocateUploadSlices(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -396,29 +396,29 @@ class ChunkMasterService final {
     }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_AllocatedUploadSlices : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_AllocateUploadSlices : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    ExperimentalWithRawCallbackMethod_AllocatedUploadSlices() {
+    ExperimentalWithRawCallbackMethod_AllocateUploadSlices() {
       ::grpc::Service::experimental().MarkMethodRawCallback(0,
         new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
           [this](::grpc::ServerContext* context,
                  const ::grpc::ByteBuffer* request,
                  ::grpc::ByteBuffer* response,
                  ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->AllocatedUploadSlices(context, request, response, controller);
+                   this->AllocateUploadSlices(context, request, response, controller);
                  }));
     }
-    ~ExperimentalWithRawCallbackMethod_AllocatedUploadSlices() override {
+    ~ExperimentalWithRawCallbackMethod_AllocateUploadSlices() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status AllocatedUploadSlices(::grpc::ServerContext* context, const ::chunkmaster::AllocateUploadSlicesReq* request, ::chunkmaster::AllocateUploadSlicesRsp* response) override {
+    ::grpc::Status AllocateUploadSlices(::grpc::ServerContext* context, const ::chunkmaster::AllocateUploadSlicesReq* request, ::chunkmaster::AllocateUploadSlicesRsp* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void AllocatedUploadSlices(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    virtual void AllocateUploadSlices(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_FinishUploadSlice : public BaseClass {
@@ -471,24 +471,24 @@ class ChunkMasterService final {
     virtual void ReportChunkInformation(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_AllocatedUploadSlices : public BaseClass {
+  class WithStreamedUnaryMethod_AllocateUploadSlices : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithStreamedUnaryMethod_AllocatedUploadSlices() {
+    WithStreamedUnaryMethod_AllocateUploadSlices() {
       ::grpc::Service::MarkMethodStreamed(0,
-        new ::grpc::internal::StreamedUnaryHandler< ::chunkmaster::AllocateUploadSlicesReq, ::chunkmaster::AllocateUploadSlicesRsp>(std::bind(&WithStreamedUnaryMethod_AllocatedUploadSlices<BaseClass>::StreamedAllocatedUploadSlices, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::chunkmaster::AllocateUploadSlicesReq, ::chunkmaster::AllocateUploadSlicesRsp>(std::bind(&WithStreamedUnaryMethod_AllocateUploadSlices<BaseClass>::StreamedAllocateUploadSlices, this, std::placeholders::_1, std::placeholders::_2)));
     }
-    ~WithStreamedUnaryMethod_AllocatedUploadSlices() override {
+    ~WithStreamedUnaryMethod_AllocateUploadSlices() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status AllocatedUploadSlices(::grpc::ServerContext* context, const ::chunkmaster::AllocateUploadSlicesReq* request, ::chunkmaster::AllocateUploadSlicesRsp* response) override {
+    ::grpc::Status AllocateUploadSlices(::grpc::ServerContext* context, const ::chunkmaster::AllocateUploadSlicesReq* request, ::chunkmaster::AllocateUploadSlicesRsp* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedAllocatedUploadSlices(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::chunkmaster::AllocateUploadSlicesReq,::chunkmaster::AllocateUploadSlicesRsp>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedAllocateUploadSlices(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::chunkmaster::AllocateUploadSlicesReq,::chunkmaster::AllocateUploadSlicesRsp>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_FinishUploadSlice : public BaseClass {
@@ -530,9 +530,9 @@ class ChunkMasterService final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedReportChunkInformation(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::chunkmaster::ReportChunkInformationReq,::chunkmaster::ReportChunkInformationRsp>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_AllocatedUploadSlices<WithStreamedUnaryMethod_FinishUploadSlice<WithStreamedUnaryMethod_ReportChunkInformation<Service > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_AllocateUploadSlices<WithStreamedUnaryMethod_FinishUploadSlice<WithStreamedUnaryMethod_ReportChunkInformation<Service > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_AllocatedUploadSlices<WithStreamedUnaryMethod_FinishUploadSlice<WithStreamedUnaryMethod_ReportChunkInformation<Service > > > StreamedService;
+  typedef WithStreamedUnaryMethod_AllocateUploadSlices<WithStreamedUnaryMethod_FinishUploadSlice<WithStreamedUnaryMethod_ReportChunkInformation<Service > > > StreamedService;
 };
 
 }  // namespace chunkmaster

@@ -49,7 +49,7 @@ message ReportChunkInformationRsp {
 
 service ChunkMasterService {
     // rpc  (Req) returns (Rsp);
-    rpc AllocatedUploadSlices (AllocateUploadSlicesReq) returns (AllocateUploadSlicesRsp);
+    rpc AllocateUploadSlices (AllocateUploadSlicesReq) returns (AllocateUploadSlicesRsp);
     rpc FinishUploadSlice (FinishUploadSliceReq) returns (FinishUploadSliceRsp);
 
     // For ChunkServer
