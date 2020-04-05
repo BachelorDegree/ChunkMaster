@@ -6,6 +6,7 @@ SET(CMAKE_CXX_FLAGS "-Wall")
 
 ADD_SUBDIRECTORY(PaxosKVServiceClient)
 ADD_SUBDIRECTORY(IdAllocatorServiceClient)
+ADD_SUBDIRECTORY(ChunkServerServiceClient)
 
 INCLUDE_DIRECTORIES(/usr/local/include)
 INCLUDE_DIRECTORIES(.)
@@ -19,4 +20,4 @@ FILE(GLOB APP_SOURCES ${APP_SOURCES} "./*.cpp")
 INCLUDE_DIRECTORIES(".")
 ADD_LIBRARY(chunkmaster SHARED ${APP_SOURCES})
 TARGET_LINK_LIBRARIES(chunkmaster coredeps)
-TARGET_LINK_LIBRARIES(chunkmaster paxoskvclient idallocatorclient)
+TARGET_LINK_LIBRARIES(chunkmaster paxoskvclient idallocatorclient chunkserverclient)

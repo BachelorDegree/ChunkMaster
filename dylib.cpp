@@ -1,7 +1,8 @@
 #include "dylib_export.h"
 #include "Proto/chunkmaster.grpc.pb.h"
 #include "ChunkMasterServiceImpl.hpp"
-#include "Handler/AllocateUploadSlicesHandler.hpp"
+#include "Handler/CalculateUploadSliceLengthsHandler.hpp"
+#include "Handler/AllocateUploadSliceHandler.hpp"
 #include "Handler/FinishUploadSliceHandler.hpp"
 #include "Handler/ReportChunkInformationHandler.hpp"
 
@@ -33,7 +34,8 @@ void EXPORT_OnWorkerThreadStart(grpc::ServerCompletionQueue *cq)
 {
   // Bind handlers
 
-    new AllocateUploadSlicesHandler(&service, cq);
+    new CalculateUploadSliceLengthsHandler(&service, cq);
+    new AllocateUploadSliceHandler(&service, cq);
     new FinishUploadSliceHandler(&service, cq);
     new ReportChunkInformationHandler(&service, cq);
 }

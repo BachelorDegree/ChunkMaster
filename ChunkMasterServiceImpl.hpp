@@ -11,7 +11,8 @@ public:
     int BeforeWorkerStart() {
         return 0;
     }
-    int AllocateUploadSlices(const ::chunkmaster::AllocateUploadSlicesReq & oReq, ::chunkmaster::AllocateUploadSlicesRsp & oResp);
+    int CalculateUploadSliceLengths(const ::chunkmaster::CalculateUploadSliceLengthsReq & oReq, ::chunkmaster::CalculateUploadSliceLengthsRsp & oResp);
+    int AllocateUploadSlice(const ::chunkmaster::AllocateUploadSliceReq & oReq, ::chunkmaster::AllocateUploadSliceRsp & oResp);
     int FinishUploadSlice(const ::chunkmaster::FinishUploadSliceReq & oReq, ::chunkmaster::FinishUploadSliceRsp & oResp);
     int ReportChunkInformation(const ::chunkmaster::ReportChunkInformationReq & oReq, ::chunkmaster::ReportChunkInformationRsp & oResp);
 };

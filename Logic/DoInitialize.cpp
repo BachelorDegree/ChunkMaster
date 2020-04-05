@@ -3,6 +3,7 @@
 #include "coredeps/TfcConfigCodec.hpp"
 
 #include "SQLite.hpp"
+#include "Global.hpp"
 
 AlohaIO::TfcConfigCodec LibConf;
 
@@ -27,6 +28,11 @@ static void CreateSQLiteTables(void)
     g_pSqliteDatabase->exec("CREATE INDEX actual_used ON chunks (actual_used);");
 }
 
+static void InitializeGlobalVariables(void)
+{
+    g_pMutexAllChunk = new libco::CoMutex;
+}
+
 void DoInitialize(const char *apConfFile)
 {
     // Parse config file
@@ -36,6 +42,10 @@ void DoInitialize(const char *apConfFile)
     {
         throw std::runtime_error(string("Parse config file failed: ").append(apConfFile));
     }
+
+    // Initialize global vars
+    InitializeGlobalVariables();
+
     // Intialize SQLite
     InitializeSQLite();
     CreateSQLiteTables();

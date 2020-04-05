@@ -20,25 +20,29 @@
 // @@protoc_insertion_point(includes)
 
 namespace protobuf_chunkmaster_2eproto {
-extern PROTOBUF_INTERNAL_EXPORT_protobuf_chunkmaster_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_AllocateUploadSlicesRsp_Slice;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_chunkmaster_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_ChunkInformation;
 }  // namespace protobuf_chunkmaster_2eproto
 namespace chunkmaster {
-class AllocateUploadSlicesReqDefaultTypeInternal {
+class CalculateUploadSliceLengthsReqDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<AllocateUploadSlicesReq>
+  ::google::protobuf::internal::ExplicitlyConstructed<CalculateUploadSliceLengthsReq>
       _instance;
-} _AllocateUploadSlicesReq_default_instance_;
-class AllocateUploadSlicesRsp_SliceDefaultTypeInternal {
+} _CalculateUploadSliceLengthsReq_default_instance_;
+class CalculateUploadSliceLengthsRspDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<AllocateUploadSlicesRsp_Slice>
+  ::google::protobuf::internal::ExplicitlyConstructed<CalculateUploadSliceLengthsRsp>
       _instance;
-} _AllocateUploadSlicesRsp_Slice_default_instance_;
-class AllocateUploadSlicesRspDefaultTypeInternal {
+} _CalculateUploadSliceLengthsRsp_default_instance_;
+class AllocateUploadSliceReqDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<AllocateUploadSlicesRsp>
+  ::google::protobuf::internal::ExplicitlyConstructed<AllocateUploadSliceReq>
       _instance;
-} _AllocateUploadSlicesRsp_default_instance_;
+} _AllocateUploadSliceReq_default_instance_;
+class AllocateUploadSliceRspDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<AllocateUploadSliceRsp>
+      _instance;
+} _AllocateUploadSliceRsp_default_instance_;
 class FinishUploadSliceReqDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<FinishUploadSliceReq>
@@ -66,48 +70,61 @@ class ReportChunkInformationRspDefaultTypeInternal {
 } _ReportChunkInformationRsp_default_instance_;
 }  // namespace chunkmaster
 namespace protobuf_chunkmaster_2eproto {
-static void InitDefaultsAllocateUploadSlicesReq() {
+static void InitDefaultsCalculateUploadSliceLengthsReq() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::chunkmaster::_AllocateUploadSlicesReq_default_instance_;
-    new (ptr) ::chunkmaster::AllocateUploadSlicesReq();
+    void* ptr = &::chunkmaster::_CalculateUploadSliceLengthsReq_default_instance_;
+    new (ptr) ::chunkmaster::CalculateUploadSliceLengthsReq();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::chunkmaster::AllocateUploadSlicesReq::InitAsDefaultInstance();
+  ::chunkmaster::CalculateUploadSliceLengthsReq::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_AllocateUploadSlicesReq =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsAllocateUploadSlicesReq}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_CalculateUploadSliceLengthsReq =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsCalculateUploadSliceLengthsReq}, {}};
 
-static void InitDefaultsAllocateUploadSlicesRsp_Slice() {
+static void InitDefaultsCalculateUploadSliceLengthsRsp() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::chunkmaster::_AllocateUploadSlicesRsp_Slice_default_instance_;
-    new (ptr) ::chunkmaster::AllocateUploadSlicesRsp_Slice();
+    void* ptr = &::chunkmaster::_CalculateUploadSliceLengthsRsp_default_instance_;
+    new (ptr) ::chunkmaster::CalculateUploadSliceLengthsRsp();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::chunkmaster::AllocateUploadSlicesRsp_Slice::InitAsDefaultInstance();
+  ::chunkmaster::CalculateUploadSliceLengthsRsp::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_AllocateUploadSlicesRsp_Slice =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsAllocateUploadSlicesRsp_Slice}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_CalculateUploadSliceLengthsRsp =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsCalculateUploadSliceLengthsRsp}, {}};
 
-static void InitDefaultsAllocateUploadSlicesRsp() {
+static void InitDefaultsAllocateUploadSliceReq() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::chunkmaster::_AllocateUploadSlicesRsp_default_instance_;
-    new (ptr) ::chunkmaster::AllocateUploadSlicesRsp();
+    void* ptr = &::chunkmaster::_AllocateUploadSliceReq_default_instance_;
+    new (ptr) ::chunkmaster::AllocateUploadSliceReq();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::chunkmaster::AllocateUploadSlicesRsp::InitAsDefaultInstance();
+  ::chunkmaster::AllocateUploadSliceReq::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<1> scc_info_AllocateUploadSlicesRsp =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsAllocateUploadSlicesRsp}, {
-      &protobuf_chunkmaster_2eproto::scc_info_AllocateUploadSlicesRsp_Slice.base,}};
+::google::protobuf::internal::SCCInfo<0> scc_info_AllocateUploadSliceReq =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsAllocateUploadSliceReq}, {}};
+
+static void InitDefaultsAllocateUploadSliceRsp() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::chunkmaster::_AllocateUploadSliceRsp_default_instance_;
+    new (ptr) ::chunkmaster::AllocateUploadSliceRsp();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::chunkmaster::AllocateUploadSliceRsp::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_AllocateUploadSliceRsp =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsAllocateUploadSliceRsp}, {}};
 
 static void InitDefaultsFinishUploadSliceReq() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -181,9 +198,10 @@ static void InitDefaultsReportChunkInformationRsp() {
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsReportChunkInformationRsp}, {}};
 
 void InitDefaults() {
-  ::google::protobuf::internal::InitSCC(&scc_info_AllocateUploadSlicesReq.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_AllocateUploadSlicesRsp_Slice.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_AllocateUploadSlicesRsp.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_CalculateUploadSliceLengthsReq.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_CalculateUploadSliceLengthsRsp.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_AllocateUploadSliceReq.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_AllocateUploadSliceRsp.base);
   ::google::protobuf::internal::InitSCC(&scc_info_FinishUploadSliceReq.base);
   ::google::protobuf::internal::InitSCC(&scc_info_FinishUploadSliceRsp.base);
   ::google::protobuf::internal::InitSCC(&scc_info_ChunkInformation.base);
@@ -191,31 +209,36 @@ void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_ReportChunkInformationRsp.base);
 }
 
-::google::protobuf::Metadata file_level_metadata[8];
+::google::protobuf::Metadata file_level_metadata[9];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[1];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::AllocateUploadSlicesReq, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::CalculateUploadSliceLengthsReq, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::AllocateUploadSlicesReq, data_length_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::AllocateUploadSlicesReq, replica_policy_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::CalculateUploadSliceLengthsReq, data_length_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::AllocateUploadSlicesRsp_Slice, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::CalculateUploadSliceLengthsRsp, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::AllocateUploadSlicesRsp_Slice, logical_slice_id_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::AllocateUploadSlicesRsp_Slice, data_length_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::AllocateUploadSlicesRsp_Slice, physical_slice_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::CalculateUploadSliceLengthsRsp, lengths_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::AllocateUploadSlicesRsp, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::AllocateUploadSliceReq, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::AllocateUploadSlicesRsp, slices_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::AllocateUploadSliceReq, data_length_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::AllocateUploadSliceReq, replica_policy_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::AllocateUploadSliceRsp, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::AllocateUploadSliceRsp, logical_slice_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::AllocateUploadSliceRsp, physical_slice_id_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::FinishUploadSliceReq, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -249,20 +272,22 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::chunkmaster::AllocateUploadSlicesReq)},
-  { 7, -1, sizeof(::chunkmaster::AllocateUploadSlicesRsp_Slice)},
-  { 15, -1, sizeof(::chunkmaster::AllocateUploadSlicesRsp)},
-  { 21, -1, sizeof(::chunkmaster::FinishUploadSliceReq)},
-  { 27, -1, sizeof(::chunkmaster::FinishUploadSliceRsp)},
-  { 32, -1, sizeof(::chunkmaster::ChunkInformation)},
-  { 41, -1, sizeof(::chunkmaster::ReportChunkInformationReq)},
-  { 47, -1, sizeof(::chunkmaster::ReportChunkInformationRsp)},
+  { 0, -1, sizeof(::chunkmaster::CalculateUploadSliceLengthsReq)},
+  { 6, -1, sizeof(::chunkmaster::CalculateUploadSliceLengthsRsp)},
+  { 12, -1, sizeof(::chunkmaster::AllocateUploadSliceReq)},
+  { 19, -1, sizeof(::chunkmaster::AllocateUploadSliceRsp)},
+  { 26, -1, sizeof(::chunkmaster::FinishUploadSliceReq)},
+  { 32, -1, sizeof(::chunkmaster::FinishUploadSliceRsp)},
+  { 37, -1, sizeof(::chunkmaster::ChunkInformation)},
+  { 46, -1, sizeof(::chunkmaster::ReportChunkInformationReq)},
+  { 52, -1, sizeof(::chunkmaster::ReportChunkInformationRsp)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::chunkmaster::_AllocateUploadSlicesReq_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::chunkmaster::_AllocateUploadSlicesRsp_Slice_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::chunkmaster::_AllocateUploadSlicesRsp_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::chunkmaster::_CalculateUploadSliceLengthsReq_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::chunkmaster::_CalculateUploadSliceLengthsRsp_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::chunkmaster::_AllocateUploadSliceReq_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::chunkmaster::_AllocateUploadSliceRsp_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::chunkmaster::_FinishUploadSliceReq_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::chunkmaster::_FinishUploadSliceRsp_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::chunkmaster::_ChunkInformation_default_instance_),
@@ -285,41 +310,44 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 8);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 9);
 }
 
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\021chunkmaster.proto\022\013chunkmaster\"F\n\027Allo"
-      "cateUploadSlicesReq\022\023\n\013data_length\030\001 \001(\004"
-      "\022\026\n\016replica_policy\030\002 \001(\r\"\250\001\n\027AllocateUpl"
-      "oadSlicesRsp\022:\n\006slices\030\001 \003(\0132*.chunkmast"
-      "er.AllocateUploadSlicesRsp.Slice\032Q\n\005Slic"
-      "e\022\030\n\020logical_slice_id\030\001 \001(\004\022\023\n\013data_leng"
-      "th\030\002 \001(\004\022\031\n\021physical_slice_id\030\003 \003(\004\"1\n\024F"
-      "inishUploadSliceReq\022\031\n\021physical_slice_id"
-      "\030\001 \001(\004\"\026\n\024FinishUploadSliceRsp\"\203\001\n\020Chunk"
-      "Information\022\020\n\010chunk_id\030\001 \001(\004\022\032\n\022logical"
-      "_used_space\030\002 \001(\r\022\031\n\021actual_used_space\030\003"
-      " \001(\r\022&\n\005state\030\004 \001(\0162\027.chunkmaster.ChunkS"
-      "tate\"N\n\031ReportChunkInformationReq\0221\n\nchu"
-      "nk_info\030\001 \003(\0132\035.chunkmaster.ChunkInforma"
-      "tion\"\033\n\031ReportChunkInformationRsp*X\n\nChu"
-      "nkState\022\013\n\007STANDBY\020\000\022\013\n\007WRITING\020\001\022\t\n\005ERR"
-      "OR\020\002\022\n\n\006MOVING\020\003\022\t\n\005EMPTY\020\004\022\016\n\nEMPTYERRO"
-      "R\020\0052\276\002\n\022ChunkMasterService\022c\n\025AllocatedU"
-      "ploadSlices\022$.chunkmaster.AllocateUpload"
-      "SlicesReq\032$.chunkmaster.AllocateUploadSl"
-      "icesRsp\022Y\n\021FinishUploadSlice\022!.chunkmast"
-      "er.FinishUploadSliceReq\032!.chunkmaster.Fi"
-      "nishUploadSliceRsp\022h\n\026ReportChunkInforma"
-      "tion\022&.chunkmaster.ReportChunkInformatio"
-      "nReq\032&.chunkmaster.ReportChunkInformatio"
-      "nRspb\006proto3"
+      "\n\021chunkmaster.proto\022\013chunkmaster\"5\n\036Calc"
+      "ulateUploadSliceLengthsReq\022\023\n\013data_lengt"
+      "h\030\001 \001(\004\"1\n\036CalculateUploadSliceLengthsRs"
+      "p\022\017\n\007lengths\030\001 \003(\r\"E\n\026AllocateUploadSlic"
+      "eReq\022\023\n\013data_length\030\001 \001(\004\022\026\n\016replica_pol"
+      "icy\030\002 \001(\r\"M\n\026AllocateUploadSliceRsp\022\030\n\020l"
+      "ogical_slice_id\030\001 \001(\004\022\031\n\021physical_slice_"
+      "id\030\002 \003(\004\"1\n\024FinishUploadSliceReq\022\031\n\021phys"
+      "ical_slice_id\030\001 \001(\004\"\026\n\024FinishUploadSlice"
+      "Rsp\"\203\001\n\020ChunkInformation\022\020\n\010chunk_id\030\001 \001"
+      "(\004\022\032\n\022logical_used_space\030\002 \001(\r\022\031\n\021actual"
+      "_used_space\030\003 \001(\r\022&\n\005state\030\004 \001(\0162\027.chunk"
+      "master.ChunkState\"N\n\031ReportChunkInformat"
+      "ionReq\0221\n\nchunk_info\030\001 \003(\0132\035.chunkmaster"
+      ".ChunkInformation\"\033\n\031ReportChunkInformat"
+      "ionRsp*X\n\nChunkState\022\013\n\007STANDBY\020\000\022\013\n\007WRI"
+      "TING\020\001\022\t\n\005ERROR\020\002\022\n\n\006MOVING\020\003\022\t\n\005EMPTY\020\004"
+      "\022\016\n\nEMPTYERROR\020\0052\263\003\n\022ChunkMasterService\022"
+      "w\n\033CalculateUploadSliceLengths\022+.chunkma"
+      "ster.CalculateUploadSliceLengthsReq\032+.ch"
+      "unkmaster.CalculateUploadSliceLengthsRsp"
+      "\022_\n\023AllocateUploadSlice\022#.chunkmaster.Al"
+      "locateUploadSliceReq\032#.chunkmaster.Alloc"
+      "ateUploadSliceRsp\022Y\n\021FinishUploadSlice\022!"
+      ".chunkmaster.FinishUploadSliceReq\032!.chun"
+      "kmaster.FinishUploadSliceRsp\022h\n\026ReportCh"
+      "unkInformation\022&.chunkmaster.ReportChunk"
+      "InformationReq\032&.chunkmaster.ReportChunk"
+      "InformationRspb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 1012);
+      descriptor, 1142);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "chunkmaster.proto", &protobuf_RegisterTypes);
 }
@@ -357,60 +385,531 @@ bool ChunkState_IsValid(int value) {
 
 // ===================================================================
 
-void AllocateUploadSlicesReq::InitAsDefaultInstance() {
+void CalculateUploadSliceLengthsReq::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int AllocateUploadSlicesReq::kDataLengthFieldNumber;
-const int AllocateUploadSlicesReq::kReplicaPolicyFieldNumber;
+const int CalculateUploadSliceLengthsReq::kDataLengthFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-AllocateUploadSlicesReq::AllocateUploadSlicesReq()
+CalculateUploadSliceLengthsReq::CalculateUploadSliceLengthsReq()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   ::google::protobuf::internal::InitSCC(
-      &protobuf_chunkmaster_2eproto::scc_info_AllocateUploadSlicesReq.base);
+      &protobuf_chunkmaster_2eproto::scc_info_CalculateUploadSliceLengthsReq.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:chunkmaster.AllocateUploadSlicesReq)
+  // @@protoc_insertion_point(constructor:chunkmaster.CalculateUploadSliceLengthsReq)
 }
-AllocateUploadSlicesReq::AllocateUploadSlicesReq(const AllocateUploadSlicesReq& from)
+CalculateUploadSliceLengthsReq::CalculateUploadSliceLengthsReq(const CalculateUploadSliceLengthsReq& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  data_length_ = from.data_length_;
+  // @@protoc_insertion_point(copy_constructor:chunkmaster.CalculateUploadSliceLengthsReq)
+}
+
+void CalculateUploadSliceLengthsReq::SharedCtor() {
+  data_length_ = GOOGLE_ULONGLONG(0);
+}
+
+CalculateUploadSliceLengthsReq::~CalculateUploadSliceLengthsReq() {
+  // @@protoc_insertion_point(destructor:chunkmaster.CalculateUploadSliceLengthsReq)
+  SharedDtor();
+}
+
+void CalculateUploadSliceLengthsReq::SharedDtor() {
+}
+
+void CalculateUploadSliceLengthsReq::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* CalculateUploadSliceLengthsReq::descriptor() {
+  ::protobuf_chunkmaster_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_chunkmaster_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const CalculateUploadSliceLengthsReq& CalculateUploadSliceLengthsReq::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_chunkmaster_2eproto::scc_info_CalculateUploadSliceLengthsReq.base);
+  return *internal_default_instance();
+}
+
+
+void CalculateUploadSliceLengthsReq::Clear() {
+// @@protoc_insertion_point(message_clear_start:chunkmaster.CalculateUploadSliceLengthsReq)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  data_length_ = GOOGLE_ULONGLONG(0);
+  _internal_metadata_.Clear();
+}
+
+bool CalculateUploadSliceLengthsReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:chunkmaster.CalculateUploadSliceLengthsReq)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // uint64 data_length = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &data_length_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:chunkmaster.CalculateUploadSliceLengthsReq)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:chunkmaster.CalculateUploadSliceLengthsReq)
+  return false;
+#undef DO_
+}
+
+void CalculateUploadSliceLengthsReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:chunkmaster.CalculateUploadSliceLengthsReq)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint64 data_length = 1;
+  if (this->data_length() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->data_length(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:chunkmaster.CalculateUploadSliceLengthsReq)
+}
+
+::google::protobuf::uint8* CalculateUploadSliceLengthsReq::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:chunkmaster.CalculateUploadSliceLengthsReq)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint64 data_length = 1;
+  if (this->data_length() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->data_length(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:chunkmaster.CalculateUploadSliceLengthsReq)
+  return target;
+}
+
+size_t CalculateUploadSliceLengthsReq::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:chunkmaster.CalculateUploadSliceLengthsReq)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // uint64 data_length = 1;
+  if (this->data_length() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->data_length());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CalculateUploadSliceLengthsReq::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:chunkmaster.CalculateUploadSliceLengthsReq)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CalculateUploadSliceLengthsReq* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const CalculateUploadSliceLengthsReq>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:chunkmaster.CalculateUploadSliceLengthsReq)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:chunkmaster.CalculateUploadSliceLengthsReq)
+    MergeFrom(*source);
+  }
+}
+
+void CalculateUploadSliceLengthsReq::MergeFrom(const CalculateUploadSliceLengthsReq& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:chunkmaster.CalculateUploadSliceLengthsReq)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.data_length() != 0) {
+    set_data_length(from.data_length());
+  }
+}
+
+void CalculateUploadSliceLengthsReq::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:chunkmaster.CalculateUploadSliceLengthsReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CalculateUploadSliceLengthsReq::CopyFrom(const CalculateUploadSliceLengthsReq& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:chunkmaster.CalculateUploadSliceLengthsReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CalculateUploadSliceLengthsReq::IsInitialized() const {
+  return true;
+}
+
+void CalculateUploadSliceLengthsReq::Swap(CalculateUploadSliceLengthsReq* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void CalculateUploadSliceLengthsReq::InternalSwap(CalculateUploadSliceLengthsReq* other) {
+  using std::swap;
+  swap(data_length_, other->data_length_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata CalculateUploadSliceLengthsReq::GetMetadata() const {
+  protobuf_chunkmaster_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_chunkmaster_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void CalculateUploadSliceLengthsRsp::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int CalculateUploadSliceLengthsRsp::kLengthsFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+CalculateUploadSliceLengthsRsp::CalculateUploadSliceLengthsRsp()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_chunkmaster_2eproto::scc_info_CalculateUploadSliceLengthsRsp.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:chunkmaster.CalculateUploadSliceLengthsRsp)
+}
+CalculateUploadSliceLengthsRsp::CalculateUploadSliceLengthsRsp(const CalculateUploadSliceLengthsRsp& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      lengths_(from.lengths_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:chunkmaster.CalculateUploadSliceLengthsRsp)
+}
+
+void CalculateUploadSliceLengthsRsp::SharedCtor() {
+}
+
+CalculateUploadSliceLengthsRsp::~CalculateUploadSliceLengthsRsp() {
+  // @@protoc_insertion_point(destructor:chunkmaster.CalculateUploadSliceLengthsRsp)
+  SharedDtor();
+}
+
+void CalculateUploadSliceLengthsRsp::SharedDtor() {
+}
+
+void CalculateUploadSliceLengthsRsp::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* CalculateUploadSliceLengthsRsp::descriptor() {
+  ::protobuf_chunkmaster_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_chunkmaster_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const CalculateUploadSliceLengthsRsp& CalculateUploadSliceLengthsRsp::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_chunkmaster_2eproto::scc_info_CalculateUploadSliceLengthsRsp.base);
+  return *internal_default_instance();
+}
+
+
+void CalculateUploadSliceLengthsRsp::Clear() {
+// @@protoc_insertion_point(message_clear_start:chunkmaster.CalculateUploadSliceLengthsRsp)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  lengths_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool CalculateUploadSliceLengthsRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:chunkmaster.CalculateUploadSliceLengthsRsp)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated uint32 lengths = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, this->mutable_lengths())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 1, 10u, input, this->mutable_lengths())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:chunkmaster.CalculateUploadSliceLengthsRsp)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:chunkmaster.CalculateUploadSliceLengthsRsp)
+  return false;
+#undef DO_
+}
+
+void CalculateUploadSliceLengthsRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:chunkmaster.CalculateUploadSliceLengthsRsp)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated uint32 lengths = 1;
+  if (this->lengths_size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteTag(1, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
+        _lengths_cached_byte_size_));
+  }
+  for (int i = 0, n = this->lengths_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32NoTag(
+      this->lengths(i), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:chunkmaster.CalculateUploadSliceLengthsRsp)
+}
+
+::google::protobuf::uint8* CalculateUploadSliceLengthsRsp::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:chunkmaster.CalculateUploadSliceLengthsRsp)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated uint32 lengths = 1;
+  if (this->lengths_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      1,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+        static_cast< ::google::protobuf::int32>(
+            _lengths_cached_byte_size_), target);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteUInt32NoTagToArray(this->lengths_, target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:chunkmaster.CalculateUploadSliceLengthsRsp)
+  return target;
+}
+
+size_t CalculateUploadSliceLengthsRsp::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:chunkmaster.CalculateUploadSliceLengthsRsp)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // repeated uint32 lengths = 1;
+  {
+    size_t data_size = ::google::protobuf::internal::WireFormatLite::
+      UInt32Size(this->lengths_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+            static_cast< ::google::protobuf::int32>(data_size));
+    }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _lengths_cached_byte_size_ = cached_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CalculateUploadSliceLengthsRsp::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:chunkmaster.CalculateUploadSliceLengthsRsp)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CalculateUploadSliceLengthsRsp* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const CalculateUploadSliceLengthsRsp>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:chunkmaster.CalculateUploadSliceLengthsRsp)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:chunkmaster.CalculateUploadSliceLengthsRsp)
+    MergeFrom(*source);
+  }
+}
+
+void CalculateUploadSliceLengthsRsp::MergeFrom(const CalculateUploadSliceLengthsRsp& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:chunkmaster.CalculateUploadSliceLengthsRsp)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  lengths_.MergeFrom(from.lengths_);
+}
+
+void CalculateUploadSliceLengthsRsp::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:chunkmaster.CalculateUploadSliceLengthsRsp)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CalculateUploadSliceLengthsRsp::CopyFrom(const CalculateUploadSliceLengthsRsp& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:chunkmaster.CalculateUploadSliceLengthsRsp)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CalculateUploadSliceLengthsRsp::IsInitialized() const {
+  return true;
+}
+
+void CalculateUploadSliceLengthsRsp::Swap(CalculateUploadSliceLengthsRsp* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void CalculateUploadSliceLengthsRsp::InternalSwap(CalculateUploadSliceLengthsRsp* other) {
+  using std::swap;
+  lengths_.InternalSwap(&other->lengths_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata CalculateUploadSliceLengthsRsp::GetMetadata() const {
+  protobuf_chunkmaster_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_chunkmaster_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void AllocateUploadSliceReq::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int AllocateUploadSliceReq::kDataLengthFieldNumber;
+const int AllocateUploadSliceReq::kReplicaPolicyFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+AllocateUploadSliceReq::AllocateUploadSliceReq()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_chunkmaster_2eproto::scc_info_AllocateUploadSliceReq.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:chunkmaster.AllocateUploadSliceReq)
+}
+AllocateUploadSliceReq::AllocateUploadSliceReq(const AllocateUploadSliceReq& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&data_length_, &from.data_length_,
     static_cast<size_t>(reinterpret_cast<char*>(&replica_policy_) -
     reinterpret_cast<char*>(&data_length_)) + sizeof(replica_policy_));
-  // @@protoc_insertion_point(copy_constructor:chunkmaster.AllocateUploadSlicesReq)
+  // @@protoc_insertion_point(copy_constructor:chunkmaster.AllocateUploadSliceReq)
 }
 
-void AllocateUploadSlicesReq::SharedCtor() {
+void AllocateUploadSliceReq::SharedCtor() {
   ::memset(&data_length_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&replica_policy_) -
       reinterpret_cast<char*>(&data_length_)) + sizeof(replica_policy_));
 }
 
-AllocateUploadSlicesReq::~AllocateUploadSlicesReq() {
-  // @@protoc_insertion_point(destructor:chunkmaster.AllocateUploadSlicesReq)
+AllocateUploadSliceReq::~AllocateUploadSliceReq() {
+  // @@protoc_insertion_point(destructor:chunkmaster.AllocateUploadSliceReq)
   SharedDtor();
 }
 
-void AllocateUploadSlicesReq::SharedDtor() {
+void AllocateUploadSliceReq::SharedDtor() {
 }
 
-void AllocateUploadSlicesReq::SetCachedSize(int size) const {
+void AllocateUploadSliceReq::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ::google::protobuf::Descriptor* AllocateUploadSlicesReq::descriptor() {
+const ::google::protobuf::Descriptor* AllocateUploadSliceReq::descriptor() {
   ::protobuf_chunkmaster_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_chunkmaster_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const AllocateUploadSlicesReq& AllocateUploadSlicesReq::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_chunkmaster_2eproto::scc_info_AllocateUploadSlicesReq.base);
+const AllocateUploadSliceReq& AllocateUploadSliceReq::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_chunkmaster_2eproto::scc_info_AllocateUploadSliceReq.base);
   return *internal_default_instance();
 }
 
 
-void AllocateUploadSlicesReq::Clear() {
-// @@protoc_insertion_point(message_clear_start:chunkmaster.AllocateUploadSlicesReq)
+void AllocateUploadSliceReq::Clear() {
+// @@protoc_insertion_point(message_clear_start:chunkmaster.AllocateUploadSliceReq)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -421,11 +920,11 @@ void AllocateUploadSlicesReq::Clear() {
   _internal_metadata_.Clear();
 }
 
-bool AllocateUploadSlicesReq::MergePartialFromCodedStream(
+bool AllocateUploadSliceReq::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:chunkmaster.AllocateUploadSlicesReq)
+  // @@protoc_insertion_point(parse_start:chunkmaster.AllocateUploadSliceReq)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -471,17 +970,17 @@ bool AllocateUploadSlicesReq::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:chunkmaster.AllocateUploadSlicesReq)
+  // @@protoc_insertion_point(parse_success:chunkmaster.AllocateUploadSliceReq)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:chunkmaster.AllocateUploadSlicesReq)
+  // @@protoc_insertion_point(parse_failure:chunkmaster.AllocateUploadSliceReq)
   return false;
 #undef DO_
 }
 
-void AllocateUploadSlicesReq::SerializeWithCachedSizes(
+void AllocateUploadSliceReq::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:chunkmaster.AllocateUploadSlicesReq)
+  // @@protoc_insertion_point(serialize_start:chunkmaster.AllocateUploadSliceReq)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -499,13 +998,13 @@ void AllocateUploadSlicesReq::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:chunkmaster.AllocateUploadSlicesReq)
+  // @@protoc_insertion_point(serialize_end:chunkmaster.AllocateUploadSliceReq)
 }
 
-::google::protobuf::uint8* AllocateUploadSlicesReq::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* AllocateUploadSliceReq::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:chunkmaster.AllocateUploadSlicesReq)
+  // @@protoc_insertion_point(serialize_to_array_start:chunkmaster.AllocateUploadSliceReq)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -523,12 +1022,12 @@ void AllocateUploadSlicesReq::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:chunkmaster.AllocateUploadSlicesReq)
+  // @@protoc_insertion_point(serialize_to_array_end:chunkmaster.AllocateUploadSliceReq)
   return target;
 }
 
-size_t AllocateUploadSlicesReq::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:chunkmaster.AllocateUploadSlicesReq)
+size_t AllocateUploadSliceReq::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:chunkmaster.AllocateUploadSliceReq)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -555,23 +1054,23 @@ size_t AllocateUploadSlicesReq::ByteSizeLong() const {
   return total_size;
 }
 
-void AllocateUploadSlicesReq::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:chunkmaster.AllocateUploadSlicesReq)
+void AllocateUploadSliceReq::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:chunkmaster.AllocateUploadSliceReq)
   GOOGLE_DCHECK_NE(&from, this);
-  const AllocateUploadSlicesReq* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const AllocateUploadSlicesReq>(
+  const AllocateUploadSliceReq* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const AllocateUploadSliceReq>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:chunkmaster.AllocateUploadSlicesReq)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:chunkmaster.AllocateUploadSliceReq)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:chunkmaster.AllocateUploadSlicesReq)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:chunkmaster.AllocateUploadSliceReq)
     MergeFrom(*source);
   }
 }
 
-void AllocateUploadSlicesReq::MergeFrom(const AllocateUploadSlicesReq& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:chunkmaster.AllocateUploadSlicesReq)
+void AllocateUploadSliceReq::MergeFrom(const AllocateUploadSliceReq& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:chunkmaster.AllocateUploadSliceReq)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -585,36 +1084,36 @@ void AllocateUploadSlicesReq::MergeFrom(const AllocateUploadSlicesReq& from) {
   }
 }
 
-void AllocateUploadSlicesReq::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:chunkmaster.AllocateUploadSlicesReq)
+void AllocateUploadSliceReq::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:chunkmaster.AllocateUploadSliceReq)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void AllocateUploadSlicesReq::CopyFrom(const AllocateUploadSlicesReq& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:chunkmaster.AllocateUploadSlicesReq)
+void AllocateUploadSliceReq::CopyFrom(const AllocateUploadSliceReq& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:chunkmaster.AllocateUploadSliceReq)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool AllocateUploadSlicesReq::IsInitialized() const {
+bool AllocateUploadSliceReq::IsInitialized() const {
   return true;
 }
 
-void AllocateUploadSlicesReq::Swap(AllocateUploadSlicesReq* other) {
+void AllocateUploadSliceReq::Swap(AllocateUploadSliceReq* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void AllocateUploadSlicesReq::InternalSwap(AllocateUploadSlicesReq* other) {
+void AllocateUploadSliceReq::InternalSwap(AllocateUploadSliceReq* other) {
   using std::swap;
   swap(data_length_, other->data_length_);
   swap(replica_policy_, other->replica_policy_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata AllocateUploadSlicesReq::GetMetadata() const {
+::google::protobuf::Metadata AllocateUploadSliceReq::GetMetadata() const {
   protobuf_chunkmaster_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_chunkmaster_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -622,78 +1121,71 @@ void AllocateUploadSlicesReq::InternalSwap(AllocateUploadSlicesReq* other) {
 
 // ===================================================================
 
-void AllocateUploadSlicesRsp_Slice::InitAsDefaultInstance() {
+void AllocateUploadSliceRsp::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int AllocateUploadSlicesRsp_Slice::kLogicalSliceIdFieldNumber;
-const int AllocateUploadSlicesRsp_Slice::kDataLengthFieldNumber;
-const int AllocateUploadSlicesRsp_Slice::kPhysicalSliceIdFieldNumber;
+const int AllocateUploadSliceRsp::kLogicalSliceIdFieldNumber;
+const int AllocateUploadSliceRsp::kPhysicalSliceIdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-AllocateUploadSlicesRsp_Slice::AllocateUploadSlicesRsp_Slice()
+AllocateUploadSliceRsp::AllocateUploadSliceRsp()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   ::google::protobuf::internal::InitSCC(
-      &protobuf_chunkmaster_2eproto::scc_info_AllocateUploadSlicesRsp_Slice.base);
+      &protobuf_chunkmaster_2eproto::scc_info_AllocateUploadSliceRsp.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:chunkmaster.AllocateUploadSlicesRsp.Slice)
+  // @@protoc_insertion_point(constructor:chunkmaster.AllocateUploadSliceRsp)
 }
-AllocateUploadSlicesRsp_Slice::AllocateUploadSlicesRsp_Slice(const AllocateUploadSlicesRsp_Slice& from)
+AllocateUploadSliceRsp::AllocateUploadSliceRsp(const AllocateUploadSliceRsp& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       physical_slice_id_(from.physical_slice_id_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&logical_slice_id_, &from.logical_slice_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&data_length_) -
-    reinterpret_cast<char*>(&logical_slice_id_)) + sizeof(data_length_));
-  // @@protoc_insertion_point(copy_constructor:chunkmaster.AllocateUploadSlicesRsp.Slice)
+  logical_slice_id_ = from.logical_slice_id_;
+  // @@protoc_insertion_point(copy_constructor:chunkmaster.AllocateUploadSliceRsp)
 }
 
-void AllocateUploadSlicesRsp_Slice::SharedCtor() {
-  ::memset(&logical_slice_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&data_length_) -
-      reinterpret_cast<char*>(&logical_slice_id_)) + sizeof(data_length_));
+void AllocateUploadSliceRsp::SharedCtor() {
+  logical_slice_id_ = GOOGLE_ULONGLONG(0);
 }
 
-AllocateUploadSlicesRsp_Slice::~AllocateUploadSlicesRsp_Slice() {
-  // @@protoc_insertion_point(destructor:chunkmaster.AllocateUploadSlicesRsp.Slice)
+AllocateUploadSliceRsp::~AllocateUploadSliceRsp() {
+  // @@protoc_insertion_point(destructor:chunkmaster.AllocateUploadSliceRsp)
   SharedDtor();
 }
 
-void AllocateUploadSlicesRsp_Slice::SharedDtor() {
+void AllocateUploadSliceRsp::SharedDtor() {
 }
 
-void AllocateUploadSlicesRsp_Slice::SetCachedSize(int size) const {
+void AllocateUploadSliceRsp::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ::google::protobuf::Descriptor* AllocateUploadSlicesRsp_Slice::descriptor() {
+const ::google::protobuf::Descriptor* AllocateUploadSliceRsp::descriptor() {
   ::protobuf_chunkmaster_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_chunkmaster_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const AllocateUploadSlicesRsp_Slice& AllocateUploadSlicesRsp_Slice::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_chunkmaster_2eproto::scc_info_AllocateUploadSlicesRsp_Slice.base);
+const AllocateUploadSliceRsp& AllocateUploadSliceRsp::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_chunkmaster_2eproto::scc_info_AllocateUploadSliceRsp.base);
   return *internal_default_instance();
 }
 
 
-void AllocateUploadSlicesRsp_Slice::Clear() {
-// @@protoc_insertion_point(message_clear_start:chunkmaster.AllocateUploadSlicesRsp.Slice)
+void AllocateUploadSliceRsp::Clear() {
+// @@protoc_insertion_point(message_clear_start:chunkmaster.AllocateUploadSliceRsp)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   physical_slice_id_.Clear();
-  ::memset(&logical_slice_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&data_length_) -
-      reinterpret_cast<char*>(&logical_slice_id_)) + sizeof(data_length_));
+  logical_slice_id_ = GOOGLE_ULONGLONG(0);
   _internal_metadata_.Clear();
 }
 
-bool AllocateUploadSlicesRsp_Slice::MergePartialFromCodedStream(
+bool AllocateUploadSliceRsp::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:chunkmaster.AllocateUploadSlicesRsp.Slice)
+  // @@protoc_insertion_point(parse_start:chunkmaster.AllocateUploadSliceRsp)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -713,33 +1205,19 @@ bool AllocateUploadSlicesRsp_Slice::MergePartialFromCodedStream(
         break;
       }
 
-      // uint64 data_length = 2;
+      // repeated uint64 physical_slice_id = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &data_length_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // repeated uint64 physical_slice_id = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
                    ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
                  input, this->mutable_physical_slice_id())));
         } else if (
             static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
                    ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 1, 26u, input, this->mutable_physical_slice_id())));
+                 1, 18u, input, this->mutable_physical_slice_id())));
         } else {
           goto handle_unusual;
         }
@@ -758,17 +1236,17 @@ bool AllocateUploadSlicesRsp_Slice::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:chunkmaster.AllocateUploadSlicesRsp.Slice)
+  // @@protoc_insertion_point(parse_success:chunkmaster.AllocateUploadSliceRsp)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:chunkmaster.AllocateUploadSlicesRsp.Slice)
+  // @@protoc_insertion_point(parse_failure:chunkmaster.AllocateUploadSliceRsp)
   return false;
 #undef DO_
 }
 
-void AllocateUploadSlicesRsp_Slice::SerializeWithCachedSizes(
+void AllocateUploadSliceRsp::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:chunkmaster.AllocateUploadSlicesRsp.Slice)
+  // @@protoc_insertion_point(serialize_start:chunkmaster.AllocateUploadSliceRsp)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -777,14 +1255,9 @@ void AllocateUploadSlicesRsp_Slice::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->logical_slice_id(), output);
   }
 
-  // uint64 data_length = 2;
-  if (this->data_length() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->data_length(), output);
-  }
-
-  // repeated uint64 physical_slice_id = 3;
+  // repeated uint64 physical_slice_id = 2;
   if (this->physical_slice_id_size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteTag(3, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    ::google::protobuf::internal::WireFormatLite::WriteTag(2, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
     output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
         _physical_slice_id_cached_byte_size_));
   }
@@ -797,13 +1270,13 @@ void AllocateUploadSlicesRsp_Slice::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:chunkmaster.AllocateUploadSlicesRsp.Slice)
+  // @@protoc_insertion_point(serialize_end:chunkmaster.AllocateUploadSliceRsp)
 }
 
-::google::protobuf::uint8* AllocateUploadSlicesRsp_Slice::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* AllocateUploadSliceRsp::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:chunkmaster.AllocateUploadSlicesRsp.Slice)
+  // @@protoc_insertion_point(serialize_to_array_start:chunkmaster.AllocateUploadSliceRsp)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -812,15 +1285,10 @@ void AllocateUploadSlicesRsp_Slice::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->logical_slice_id(), target);
   }
 
-  // uint64 data_length = 2;
-  if (this->data_length() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->data_length(), target);
-  }
-
-  // repeated uint64 physical_slice_id = 3;
+  // repeated uint64 physical_slice_id = 2;
   if (this->physical_slice_id_size() > 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
-      3,
+      2,
       ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
       target);
     target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
@@ -834,12 +1302,12 @@ void AllocateUploadSlicesRsp_Slice::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:chunkmaster.AllocateUploadSlicesRsp.Slice)
+  // @@protoc_insertion_point(serialize_to_array_end:chunkmaster.AllocateUploadSliceRsp)
   return target;
 }
 
-size_t AllocateUploadSlicesRsp_Slice::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:chunkmaster.AllocateUploadSlicesRsp.Slice)
+size_t AllocateUploadSliceRsp::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:chunkmaster.AllocateUploadSliceRsp)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -847,7 +1315,7 @@ size_t AllocateUploadSlicesRsp_Slice::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // repeated uint64 physical_slice_id = 3;
+  // repeated uint64 physical_slice_id = 2;
   {
     size_t data_size = ::google::protobuf::internal::WireFormatLite::
       UInt64Size(this->physical_slice_id_);
@@ -870,35 +1338,28 @@ size_t AllocateUploadSlicesRsp_Slice::ByteSizeLong() const {
         this->logical_slice_id());
   }
 
-  // uint64 data_length = 2;
-  if (this->data_length() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt64Size(
-        this->data_length());
-  }
-
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
-void AllocateUploadSlicesRsp_Slice::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:chunkmaster.AllocateUploadSlicesRsp.Slice)
+void AllocateUploadSliceRsp::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:chunkmaster.AllocateUploadSliceRsp)
   GOOGLE_DCHECK_NE(&from, this);
-  const AllocateUploadSlicesRsp_Slice* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const AllocateUploadSlicesRsp_Slice>(
+  const AllocateUploadSliceRsp* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const AllocateUploadSliceRsp>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:chunkmaster.AllocateUploadSlicesRsp.Slice)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:chunkmaster.AllocateUploadSliceRsp)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:chunkmaster.AllocateUploadSlicesRsp.Slice)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:chunkmaster.AllocateUploadSliceRsp)
     MergeFrom(*source);
   }
 }
 
-void AllocateUploadSlicesRsp_Slice::MergeFrom(const AllocateUploadSlicesRsp_Slice& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:chunkmaster.AllocateUploadSlicesRsp.Slice)
+void AllocateUploadSliceRsp::MergeFrom(const AllocateUploadSliceRsp& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:chunkmaster.AllocateUploadSliceRsp)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -908,271 +1369,38 @@ void AllocateUploadSlicesRsp_Slice::MergeFrom(const AllocateUploadSlicesRsp_Slic
   if (from.logical_slice_id() != 0) {
     set_logical_slice_id(from.logical_slice_id());
   }
-  if (from.data_length() != 0) {
-    set_data_length(from.data_length());
-  }
 }
 
-void AllocateUploadSlicesRsp_Slice::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:chunkmaster.AllocateUploadSlicesRsp.Slice)
+void AllocateUploadSliceRsp::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:chunkmaster.AllocateUploadSliceRsp)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void AllocateUploadSlicesRsp_Slice::CopyFrom(const AllocateUploadSlicesRsp_Slice& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:chunkmaster.AllocateUploadSlicesRsp.Slice)
+void AllocateUploadSliceRsp::CopyFrom(const AllocateUploadSliceRsp& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:chunkmaster.AllocateUploadSliceRsp)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool AllocateUploadSlicesRsp_Slice::IsInitialized() const {
+bool AllocateUploadSliceRsp::IsInitialized() const {
   return true;
 }
 
-void AllocateUploadSlicesRsp_Slice::Swap(AllocateUploadSlicesRsp_Slice* other) {
+void AllocateUploadSliceRsp::Swap(AllocateUploadSliceRsp* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void AllocateUploadSlicesRsp_Slice::InternalSwap(AllocateUploadSlicesRsp_Slice* other) {
+void AllocateUploadSliceRsp::InternalSwap(AllocateUploadSliceRsp* other) {
   using std::swap;
   physical_slice_id_.InternalSwap(&other->physical_slice_id_);
   swap(logical_slice_id_, other->logical_slice_id_);
-  swap(data_length_, other->data_length_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata AllocateUploadSlicesRsp_Slice::GetMetadata() const {
-  protobuf_chunkmaster_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_chunkmaster_2eproto::file_level_metadata[kIndexInFileMessages];
-}
-
-
-// ===================================================================
-
-void AllocateUploadSlicesRsp::InitAsDefaultInstance() {
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int AllocateUploadSlicesRsp::kSlicesFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-AllocateUploadSlicesRsp::AllocateUploadSlicesRsp()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  ::google::protobuf::internal::InitSCC(
-      &protobuf_chunkmaster_2eproto::scc_info_AllocateUploadSlicesRsp.base);
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:chunkmaster.AllocateUploadSlicesRsp)
-}
-AllocateUploadSlicesRsp::AllocateUploadSlicesRsp(const AllocateUploadSlicesRsp& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      slices_(from.slices_) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:chunkmaster.AllocateUploadSlicesRsp)
-}
-
-void AllocateUploadSlicesRsp::SharedCtor() {
-}
-
-AllocateUploadSlicesRsp::~AllocateUploadSlicesRsp() {
-  // @@protoc_insertion_point(destructor:chunkmaster.AllocateUploadSlicesRsp)
-  SharedDtor();
-}
-
-void AllocateUploadSlicesRsp::SharedDtor() {
-}
-
-void AllocateUploadSlicesRsp::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ::google::protobuf::Descriptor* AllocateUploadSlicesRsp::descriptor() {
-  ::protobuf_chunkmaster_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_chunkmaster_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const AllocateUploadSlicesRsp& AllocateUploadSlicesRsp::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_chunkmaster_2eproto::scc_info_AllocateUploadSlicesRsp.base);
-  return *internal_default_instance();
-}
-
-
-void AllocateUploadSlicesRsp::Clear() {
-// @@protoc_insertion_point(message_clear_start:chunkmaster.AllocateUploadSlicesRsp)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  slices_.Clear();
-  _internal_metadata_.Clear();
-}
-
-bool AllocateUploadSlicesRsp::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:chunkmaster.AllocateUploadSlicesRsp)
-  for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .chunkmaster.AllocateUploadSlicesRsp.Slice slices = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-                input, add_slices()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:chunkmaster.AllocateUploadSlicesRsp)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:chunkmaster.AllocateUploadSlicesRsp)
-  return false;
-#undef DO_
-}
-
-void AllocateUploadSlicesRsp::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:chunkmaster.AllocateUploadSlicesRsp)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // repeated .chunkmaster.AllocateUploadSlicesRsp.Slice slices = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->slices_size()); i < n; i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1,
-      this->slices(static_cast<int>(i)),
-      output);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:chunkmaster.AllocateUploadSlicesRsp)
-}
-
-::google::protobuf::uint8* AllocateUploadSlicesRsp::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:chunkmaster.AllocateUploadSlicesRsp)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // repeated .chunkmaster.AllocateUploadSlicesRsp.Slice slices = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->slices_size()); i < n; i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        1, this->slices(static_cast<int>(i)), deterministic, target);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:chunkmaster.AllocateUploadSlicesRsp)
-  return target;
-}
-
-size_t AllocateUploadSlicesRsp::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:chunkmaster.AllocateUploadSlicesRsp)
-  size_t total_size = 0;
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
-  // repeated .chunkmaster.AllocateUploadSlicesRsp.Slice slices = 1;
-  {
-    unsigned int count = static_cast<unsigned int>(this->slices_size());
-    total_size += 1UL * count;
-    for (unsigned int i = 0; i < count; i++) {
-      total_size +=
-        ::google::protobuf::internal::WireFormatLite::MessageSize(
-          this->slices(static_cast<int>(i)));
-    }
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void AllocateUploadSlicesRsp::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:chunkmaster.AllocateUploadSlicesRsp)
-  GOOGLE_DCHECK_NE(&from, this);
-  const AllocateUploadSlicesRsp* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const AllocateUploadSlicesRsp>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:chunkmaster.AllocateUploadSlicesRsp)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:chunkmaster.AllocateUploadSlicesRsp)
-    MergeFrom(*source);
-  }
-}
-
-void AllocateUploadSlicesRsp::MergeFrom(const AllocateUploadSlicesRsp& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:chunkmaster.AllocateUploadSlicesRsp)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  slices_.MergeFrom(from.slices_);
-}
-
-void AllocateUploadSlicesRsp::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:chunkmaster.AllocateUploadSlicesRsp)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void AllocateUploadSlicesRsp::CopyFrom(const AllocateUploadSlicesRsp& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:chunkmaster.AllocateUploadSlicesRsp)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool AllocateUploadSlicesRsp::IsInitialized() const {
-  return true;
-}
-
-void AllocateUploadSlicesRsp::Swap(AllocateUploadSlicesRsp* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void AllocateUploadSlicesRsp::InternalSwap(AllocateUploadSlicesRsp* other) {
-  using std::swap;
-  CastToBase(&slices_)->InternalSwap(CastToBase(&other->slices_));
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-}
-
-::google::protobuf::Metadata AllocateUploadSlicesRsp::GetMetadata() const {
+::google::protobuf::Metadata AllocateUploadSliceRsp::GetMetadata() const {
   protobuf_chunkmaster_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_chunkmaster_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -2331,14 +2559,17 @@ void ReportChunkInformationRsp::InternalSwap(ReportChunkInformationRsp* other) {
 }  // namespace chunkmaster
 namespace google {
 namespace protobuf {
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::chunkmaster::AllocateUploadSlicesReq* Arena::CreateMaybeMessage< ::chunkmaster::AllocateUploadSlicesReq >(Arena* arena) {
-  return Arena::CreateInternal< ::chunkmaster::AllocateUploadSlicesReq >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::chunkmaster::CalculateUploadSliceLengthsReq* Arena::CreateMaybeMessage< ::chunkmaster::CalculateUploadSliceLengthsReq >(Arena* arena) {
+  return Arena::CreateInternal< ::chunkmaster::CalculateUploadSliceLengthsReq >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::chunkmaster::AllocateUploadSlicesRsp_Slice* Arena::CreateMaybeMessage< ::chunkmaster::AllocateUploadSlicesRsp_Slice >(Arena* arena) {
-  return Arena::CreateInternal< ::chunkmaster::AllocateUploadSlicesRsp_Slice >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::chunkmaster::CalculateUploadSliceLengthsRsp* Arena::CreateMaybeMessage< ::chunkmaster::CalculateUploadSliceLengthsRsp >(Arena* arena) {
+  return Arena::CreateInternal< ::chunkmaster::CalculateUploadSliceLengthsRsp >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::chunkmaster::AllocateUploadSlicesRsp* Arena::CreateMaybeMessage< ::chunkmaster::AllocateUploadSlicesRsp >(Arena* arena) {
-  return Arena::CreateInternal< ::chunkmaster::AllocateUploadSlicesRsp >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::chunkmaster::AllocateUploadSliceReq* Arena::CreateMaybeMessage< ::chunkmaster::AllocateUploadSliceReq >(Arena* arena) {
+  return Arena::CreateInternal< ::chunkmaster::AllocateUploadSliceReq >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::chunkmaster::AllocateUploadSliceRsp* Arena::CreateMaybeMessage< ::chunkmaster::AllocateUploadSliceRsp >(Arena* arena) {
+  return Arena::CreateInternal< ::chunkmaster::AllocateUploadSliceRsp >(arena);
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::chunkmaster::FinishUploadSliceReq* Arena::CreateMaybeMessage< ::chunkmaster::FinishUploadSliceReq >(Arena* arena) {
   return Arena::CreateInternal< ::chunkmaster::FinishUploadSliceReq >(arena);

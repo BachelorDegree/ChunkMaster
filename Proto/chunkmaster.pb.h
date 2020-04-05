@@ -39,7 +39,7 @@ namespace protobuf_chunkmaster_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[8];
+  static const ::google::protobuf::internal::ParseTable schema[9];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -47,15 +47,18 @@ struct TableStruct {
 void AddDescriptors();
 }  // namespace protobuf_chunkmaster_2eproto
 namespace chunkmaster {
-class AllocateUploadSlicesReq;
-class AllocateUploadSlicesReqDefaultTypeInternal;
-extern AllocateUploadSlicesReqDefaultTypeInternal _AllocateUploadSlicesReq_default_instance_;
-class AllocateUploadSlicesRsp;
-class AllocateUploadSlicesRspDefaultTypeInternal;
-extern AllocateUploadSlicesRspDefaultTypeInternal _AllocateUploadSlicesRsp_default_instance_;
-class AllocateUploadSlicesRsp_Slice;
-class AllocateUploadSlicesRsp_SliceDefaultTypeInternal;
-extern AllocateUploadSlicesRsp_SliceDefaultTypeInternal _AllocateUploadSlicesRsp_Slice_default_instance_;
+class AllocateUploadSliceReq;
+class AllocateUploadSliceReqDefaultTypeInternal;
+extern AllocateUploadSliceReqDefaultTypeInternal _AllocateUploadSliceReq_default_instance_;
+class AllocateUploadSliceRsp;
+class AllocateUploadSliceRspDefaultTypeInternal;
+extern AllocateUploadSliceRspDefaultTypeInternal _AllocateUploadSliceRsp_default_instance_;
+class CalculateUploadSliceLengthsReq;
+class CalculateUploadSliceLengthsReqDefaultTypeInternal;
+extern CalculateUploadSliceLengthsReqDefaultTypeInternal _CalculateUploadSliceLengthsReq_default_instance_;
+class CalculateUploadSliceLengthsRsp;
+class CalculateUploadSliceLengthsRspDefaultTypeInternal;
+extern CalculateUploadSliceLengthsRspDefaultTypeInternal _CalculateUploadSliceLengthsRsp_default_instance_;
 class ChunkInformation;
 class ChunkInformationDefaultTypeInternal;
 extern ChunkInformationDefaultTypeInternal _ChunkInformation_default_instance_;
@@ -74,9 +77,10 @@ extern ReportChunkInformationRspDefaultTypeInternal _ReportChunkInformationRsp_d
 }  // namespace chunkmaster
 namespace google {
 namespace protobuf {
-template<> ::chunkmaster::AllocateUploadSlicesReq* Arena::CreateMaybeMessage<::chunkmaster::AllocateUploadSlicesReq>(Arena*);
-template<> ::chunkmaster::AllocateUploadSlicesRsp* Arena::CreateMaybeMessage<::chunkmaster::AllocateUploadSlicesRsp>(Arena*);
-template<> ::chunkmaster::AllocateUploadSlicesRsp_Slice* Arena::CreateMaybeMessage<::chunkmaster::AllocateUploadSlicesRsp_Slice>(Arena*);
+template<> ::chunkmaster::AllocateUploadSliceReq* Arena::CreateMaybeMessage<::chunkmaster::AllocateUploadSliceReq>(Arena*);
+template<> ::chunkmaster::AllocateUploadSliceRsp* Arena::CreateMaybeMessage<::chunkmaster::AllocateUploadSliceRsp>(Arena*);
+template<> ::chunkmaster::CalculateUploadSliceLengthsReq* Arena::CreateMaybeMessage<::chunkmaster::CalculateUploadSliceLengthsReq>(Arena*);
+template<> ::chunkmaster::CalculateUploadSliceLengthsRsp* Arena::CreateMaybeMessage<::chunkmaster::CalculateUploadSliceLengthsRsp>(Arena*);
 template<> ::chunkmaster::ChunkInformation* Arena::CreateMaybeMessage<::chunkmaster::ChunkInformation>(Arena*);
 template<> ::chunkmaster::FinishUploadSliceReq* Arena::CreateMaybeMessage<::chunkmaster::FinishUploadSliceReq>(Arena*);
 template<> ::chunkmaster::FinishUploadSliceRsp* Arena::CreateMaybeMessage<::chunkmaster::FinishUploadSliceRsp>(Arena*);
@@ -113,24 +117,24 @@ inline bool ChunkState_Parse(
 }
 // ===================================================================
 
-class AllocateUploadSlicesReq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:chunkmaster.AllocateUploadSlicesReq) */ {
+class CalculateUploadSliceLengthsReq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:chunkmaster.CalculateUploadSliceLengthsReq) */ {
  public:
-  AllocateUploadSlicesReq();
-  virtual ~AllocateUploadSlicesReq();
+  CalculateUploadSliceLengthsReq();
+  virtual ~CalculateUploadSliceLengthsReq();
 
-  AllocateUploadSlicesReq(const AllocateUploadSlicesReq& from);
+  CalculateUploadSliceLengthsReq(const CalculateUploadSliceLengthsReq& from);
 
-  inline AllocateUploadSlicesReq& operator=(const AllocateUploadSlicesReq& from) {
+  inline CalculateUploadSliceLengthsReq& operator=(const CalculateUploadSliceLengthsReq& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  AllocateUploadSlicesReq(AllocateUploadSlicesReq&& from) noexcept
-    : AllocateUploadSlicesReq() {
+  CalculateUploadSliceLengthsReq(CalculateUploadSliceLengthsReq&& from) noexcept
+    : CalculateUploadSliceLengthsReq() {
     *this = ::std::move(from);
   }
 
-  inline AllocateUploadSlicesReq& operator=(AllocateUploadSlicesReq&& from) noexcept {
+  inline CalculateUploadSliceLengthsReq& operator=(CalculateUploadSliceLengthsReq&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -140,34 +144,34 @@ class AllocateUploadSlicesReq : public ::google::protobuf::Message /* @@protoc_i
   }
   #endif
   static const ::google::protobuf::Descriptor* descriptor();
-  static const AllocateUploadSlicesReq& default_instance();
+  static const CalculateUploadSliceLengthsReq& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const AllocateUploadSlicesReq* internal_default_instance() {
-    return reinterpret_cast<const AllocateUploadSlicesReq*>(
-               &_AllocateUploadSlicesReq_default_instance_);
+  static inline const CalculateUploadSliceLengthsReq* internal_default_instance() {
+    return reinterpret_cast<const CalculateUploadSliceLengthsReq*>(
+               &_CalculateUploadSliceLengthsReq_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     0;
 
-  void Swap(AllocateUploadSlicesReq* other);
-  friend void swap(AllocateUploadSlicesReq& a, AllocateUploadSlicesReq& b) {
+  void Swap(CalculateUploadSliceLengthsReq* other);
+  friend void swap(CalculateUploadSliceLengthsReq& a, CalculateUploadSliceLengthsReq& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline AllocateUploadSlicesReq* New() const final {
-    return CreateMaybeMessage<AllocateUploadSlicesReq>(NULL);
+  inline CalculateUploadSliceLengthsReq* New() const final {
+    return CreateMaybeMessage<CalculateUploadSliceLengthsReq>(NULL);
   }
 
-  AllocateUploadSlicesReq* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<AllocateUploadSlicesReq>(arena);
+  CalculateUploadSliceLengthsReq* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<CalculateUploadSliceLengthsReq>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const AllocateUploadSlicesReq& from);
-  void MergeFrom(const AllocateUploadSlicesReq& from);
+  void CopyFrom(const CalculateUploadSliceLengthsReq& from);
+  void MergeFrom(const CalculateUploadSliceLengthsReq& from);
   void Clear() final;
   bool IsInitialized() const final;
 
@@ -184,7 +188,220 @@ class AllocateUploadSlicesReq : public ::google::protobuf::Message /* @@protoc_i
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(AllocateUploadSlicesReq* other);
+  void InternalSwap(CalculateUploadSliceLengthsReq* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // uint64 data_length = 1;
+  void clear_data_length();
+  static const int kDataLengthFieldNumber = 1;
+  ::google::protobuf::uint64 data_length() const;
+  void set_data_length(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:chunkmaster.CalculateUploadSliceLengthsReq)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint64 data_length_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_chunkmaster_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class CalculateUploadSliceLengthsRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:chunkmaster.CalculateUploadSliceLengthsRsp) */ {
+ public:
+  CalculateUploadSliceLengthsRsp();
+  virtual ~CalculateUploadSliceLengthsRsp();
+
+  CalculateUploadSliceLengthsRsp(const CalculateUploadSliceLengthsRsp& from);
+
+  inline CalculateUploadSliceLengthsRsp& operator=(const CalculateUploadSliceLengthsRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  CalculateUploadSliceLengthsRsp(CalculateUploadSliceLengthsRsp&& from) noexcept
+    : CalculateUploadSliceLengthsRsp() {
+    *this = ::std::move(from);
+  }
+
+  inline CalculateUploadSliceLengthsRsp& operator=(CalculateUploadSliceLengthsRsp&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CalculateUploadSliceLengthsRsp& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const CalculateUploadSliceLengthsRsp* internal_default_instance() {
+    return reinterpret_cast<const CalculateUploadSliceLengthsRsp*>(
+               &_CalculateUploadSliceLengthsRsp_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  void Swap(CalculateUploadSliceLengthsRsp* other);
+  friend void swap(CalculateUploadSliceLengthsRsp& a, CalculateUploadSliceLengthsRsp& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CalculateUploadSliceLengthsRsp* New() const final {
+    return CreateMaybeMessage<CalculateUploadSliceLengthsRsp>(NULL);
+  }
+
+  CalculateUploadSliceLengthsRsp* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<CalculateUploadSliceLengthsRsp>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const CalculateUploadSliceLengthsRsp& from);
+  void MergeFrom(const CalculateUploadSliceLengthsRsp& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CalculateUploadSliceLengthsRsp* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated uint32 lengths = 1;
+  int lengths_size() const;
+  void clear_lengths();
+  static const int kLengthsFieldNumber = 1;
+  ::google::protobuf::uint32 lengths(int index) const;
+  void set_lengths(int index, ::google::protobuf::uint32 value);
+  void add_lengths(::google::protobuf::uint32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+      lengths() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+      mutable_lengths();
+
+  // @@protoc_insertion_point(class_scope:chunkmaster.CalculateUploadSliceLengthsRsp)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > lengths_;
+  mutable int _lengths_cached_byte_size_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_chunkmaster_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class AllocateUploadSliceReq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:chunkmaster.AllocateUploadSliceReq) */ {
+ public:
+  AllocateUploadSliceReq();
+  virtual ~AllocateUploadSliceReq();
+
+  AllocateUploadSliceReq(const AllocateUploadSliceReq& from);
+
+  inline AllocateUploadSliceReq& operator=(const AllocateUploadSliceReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  AllocateUploadSliceReq(AllocateUploadSliceReq&& from) noexcept
+    : AllocateUploadSliceReq() {
+    *this = ::std::move(from);
+  }
+
+  inline AllocateUploadSliceReq& operator=(AllocateUploadSliceReq&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const AllocateUploadSliceReq& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const AllocateUploadSliceReq* internal_default_instance() {
+    return reinterpret_cast<const AllocateUploadSliceReq*>(
+               &_AllocateUploadSliceReq_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  void Swap(AllocateUploadSliceReq* other);
+  friend void swap(AllocateUploadSliceReq& a, AllocateUploadSliceReq& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline AllocateUploadSliceReq* New() const final {
+    return CreateMaybeMessage<AllocateUploadSliceReq>(NULL);
+  }
+
+  AllocateUploadSliceReq* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<AllocateUploadSliceReq>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const AllocateUploadSliceReq& from);
+  void MergeFrom(const AllocateUploadSliceReq& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(AllocateUploadSliceReq* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -212,7 +429,7 @@ class AllocateUploadSlicesReq : public ::google::protobuf::Message /* @@protoc_i
   ::google::protobuf::uint32 replica_policy() const;
   void set_replica_policy(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:chunkmaster.AllocateUploadSlicesReq)
+  // @@protoc_insertion_point(class_scope:chunkmaster.AllocateUploadSliceReq)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -223,24 +440,24 @@ class AllocateUploadSlicesReq : public ::google::protobuf::Message /* @@protoc_i
 };
 // -------------------------------------------------------------------
 
-class AllocateUploadSlicesRsp_Slice : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:chunkmaster.AllocateUploadSlicesRsp.Slice) */ {
+class AllocateUploadSliceRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:chunkmaster.AllocateUploadSliceRsp) */ {
  public:
-  AllocateUploadSlicesRsp_Slice();
-  virtual ~AllocateUploadSlicesRsp_Slice();
+  AllocateUploadSliceRsp();
+  virtual ~AllocateUploadSliceRsp();
 
-  AllocateUploadSlicesRsp_Slice(const AllocateUploadSlicesRsp_Slice& from);
+  AllocateUploadSliceRsp(const AllocateUploadSliceRsp& from);
 
-  inline AllocateUploadSlicesRsp_Slice& operator=(const AllocateUploadSlicesRsp_Slice& from) {
+  inline AllocateUploadSliceRsp& operator=(const AllocateUploadSliceRsp& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  AllocateUploadSlicesRsp_Slice(AllocateUploadSlicesRsp_Slice&& from) noexcept
-    : AllocateUploadSlicesRsp_Slice() {
+  AllocateUploadSliceRsp(AllocateUploadSliceRsp&& from) noexcept
+    : AllocateUploadSliceRsp() {
     *this = ::std::move(from);
   }
 
-  inline AllocateUploadSlicesRsp_Slice& operator=(AllocateUploadSlicesRsp_Slice&& from) noexcept {
+  inline AllocateUploadSliceRsp& operator=(AllocateUploadSliceRsp&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -250,34 +467,34 @@ class AllocateUploadSlicesRsp_Slice : public ::google::protobuf::Message /* @@pr
   }
   #endif
   static const ::google::protobuf::Descriptor* descriptor();
-  static const AllocateUploadSlicesRsp_Slice& default_instance();
+  static const AllocateUploadSliceRsp& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const AllocateUploadSlicesRsp_Slice* internal_default_instance() {
-    return reinterpret_cast<const AllocateUploadSlicesRsp_Slice*>(
-               &_AllocateUploadSlicesRsp_Slice_default_instance_);
+  static inline const AllocateUploadSliceRsp* internal_default_instance() {
+    return reinterpret_cast<const AllocateUploadSliceRsp*>(
+               &_AllocateUploadSliceRsp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    3;
 
-  void Swap(AllocateUploadSlicesRsp_Slice* other);
-  friend void swap(AllocateUploadSlicesRsp_Slice& a, AllocateUploadSlicesRsp_Slice& b) {
+  void Swap(AllocateUploadSliceRsp* other);
+  friend void swap(AllocateUploadSliceRsp& a, AllocateUploadSliceRsp& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline AllocateUploadSlicesRsp_Slice* New() const final {
-    return CreateMaybeMessage<AllocateUploadSlicesRsp_Slice>(NULL);
+  inline AllocateUploadSliceRsp* New() const final {
+    return CreateMaybeMessage<AllocateUploadSliceRsp>(NULL);
   }
 
-  AllocateUploadSlicesRsp_Slice* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<AllocateUploadSlicesRsp_Slice>(arena);
+  AllocateUploadSliceRsp* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<AllocateUploadSliceRsp>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const AllocateUploadSlicesRsp_Slice& from);
-  void MergeFrom(const AllocateUploadSlicesRsp_Slice& from);
+  void CopyFrom(const AllocateUploadSliceRsp& from);
+  void MergeFrom(const AllocateUploadSliceRsp& from);
   void Clear() final;
   bool IsInitialized() const final;
 
@@ -294,7 +511,7 @@ class AllocateUploadSlicesRsp_Slice : public ::google::protobuf::Message /* @@pr
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(AllocateUploadSlicesRsp_Slice* other);
+  void InternalSwap(AllocateUploadSliceRsp* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -310,10 +527,10 @@ class AllocateUploadSlicesRsp_Slice : public ::google::protobuf::Message /* @@pr
 
   // accessors -------------------------------------------------------
 
-  // repeated uint64 physical_slice_id = 3;
+  // repeated uint64 physical_slice_id = 2;
   int physical_slice_id_size() const;
   void clear_physical_slice_id();
-  static const int kPhysicalSliceIdFieldNumber = 3;
+  static const int kPhysicalSliceIdFieldNumber = 2;
   ::google::protobuf::uint64 physical_slice_id(int index) const;
   void set_physical_slice_id(int index, ::google::protobuf::uint64 value);
   void add_physical_slice_id(::google::protobuf::uint64 value);
@@ -328,131 +545,13 @@ class AllocateUploadSlicesRsp_Slice : public ::google::protobuf::Message /* @@pr
   ::google::protobuf::uint64 logical_slice_id() const;
   void set_logical_slice_id(::google::protobuf::uint64 value);
 
-  // uint64 data_length = 2;
-  void clear_data_length();
-  static const int kDataLengthFieldNumber = 2;
-  ::google::protobuf::uint64 data_length() const;
-  void set_data_length(::google::protobuf::uint64 value);
-
-  // @@protoc_insertion_point(class_scope:chunkmaster.AllocateUploadSlicesRsp.Slice)
+  // @@protoc_insertion_point(class_scope:chunkmaster.AllocateUploadSliceRsp)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedField< ::google::protobuf::uint64 > physical_slice_id_;
   mutable int _physical_slice_id_cached_byte_size_;
   ::google::protobuf::uint64 logical_slice_id_;
-  ::google::protobuf::uint64 data_length_;
-  mutable ::google::protobuf::internal::CachedSize _cached_size_;
-  friend struct ::protobuf_chunkmaster_2eproto::TableStruct;
-};
-// -------------------------------------------------------------------
-
-class AllocateUploadSlicesRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:chunkmaster.AllocateUploadSlicesRsp) */ {
- public:
-  AllocateUploadSlicesRsp();
-  virtual ~AllocateUploadSlicesRsp();
-
-  AllocateUploadSlicesRsp(const AllocateUploadSlicesRsp& from);
-
-  inline AllocateUploadSlicesRsp& operator=(const AllocateUploadSlicesRsp& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  AllocateUploadSlicesRsp(AllocateUploadSlicesRsp&& from) noexcept
-    : AllocateUploadSlicesRsp() {
-    *this = ::std::move(from);
-  }
-
-  inline AllocateUploadSlicesRsp& operator=(AllocateUploadSlicesRsp&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const AllocateUploadSlicesRsp& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const AllocateUploadSlicesRsp* internal_default_instance() {
-    return reinterpret_cast<const AllocateUploadSlicesRsp*>(
-               &_AllocateUploadSlicesRsp_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    2;
-
-  void Swap(AllocateUploadSlicesRsp* other);
-  friend void swap(AllocateUploadSlicesRsp& a, AllocateUploadSlicesRsp& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline AllocateUploadSlicesRsp* New() const final {
-    return CreateMaybeMessage<AllocateUploadSlicesRsp>(NULL);
-  }
-
-  AllocateUploadSlicesRsp* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<AllocateUploadSlicesRsp>(arena);
-  }
-  void CopyFrom(const ::google::protobuf::Message& from) final;
-  void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const AllocateUploadSlicesRsp& from);
-  void MergeFrom(const AllocateUploadSlicesRsp& from);
-  void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) final;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const final;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(AllocateUploadSlicesRsp* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  typedef AllocateUploadSlicesRsp_Slice Slice;
-
-  // accessors -------------------------------------------------------
-
-  // repeated .chunkmaster.AllocateUploadSlicesRsp.Slice slices = 1;
-  int slices_size() const;
-  void clear_slices();
-  static const int kSlicesFieldNumber = 1;
-  ::chunkmaster::AllocateUploadSlicesRsp_Slice* mutable_slices(int index);
-  ::google::protobuf::RepeatedPtrField< ::chunkmaster::AllocateUploadSlicesRsp_Slice >*
-      mutable_slices();
-  const ::chunkmaster::AllocateUploadSlicesRsp_Slice& slices(int index) const;
-  ::chunkmaster::AllocateUploadSlicesRsp_Slice* add_slices();
-  const ::google::protobuf::RepeatedPtrField< ::chunkmaster::AllocateUploadSlicesRsp_Slice >&
-      slices() const;
-
-  // @@protoc_insertion_point(class_scope:chunkmaster.AllocateUploadSlicesRsp)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::chunkmaster::AllocateUploadSlicesRsp_Slice > slices_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_chunkmaster_2eproto::TableStruct;
 };
@@ -493,7 +592,7 @@ class FinishUploadSliceReq : public ::google::protobuf::Message /* @@protoc_inse
                &_FinishUploadSliceReq_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   void Swap(FinishUploadSliceReq* other);
   friend void swap(FinishUploadSliceReq& a, FinishUploadSliceReq& b) {
@@ -596,7 +695,7 @@ class FinishUploadSliceRsp : public ::google::protobuf::Message /* @@protoc_inse
                &_FinishUploadSliceRsp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   void Swap(FinishUploadSliceRsp* other);
   friend void swap(FinishUploadSliceRsp& a, FinishUploadSliceRsp& b) {
@@ -692,7 +791,7 @@ class ChunkInformation : public ::google::protobuf::Message /* @@protoc_insertio
                &_ChunkInformation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   void Swap(ChunkInformation* other);
   friend void swap(ChunkInformation& a, ChunkInformation& b) {
@@ -816,7 +915,7 @@ class ReportChunkInformationReq : public ::google::protobuf::Message /* @@protoc
                &_ReportChunkInformationReq_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   void Swap(ReportChunkInformationReq* other);
   friend void swap(ReportChunkInformationReq& a, ReportChunkInformationReq& b) {
@@ -925,7 +1024,7 @@ class ReportChunkInformationRsp : public ::google::protobuf::Message /* @@protoc
                &_ReportChunkInformationRsp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   void Swap(ReportChunkInformationRsp* other);
   friend void swap(ReportChunkInformationRsp& a, ReportChunkInformationRsp& b) {
@@ -993,130 +1092,134 @@ class ReportChunkInformationRsp : public ::google::protobuf::Message /* @@protoc
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// AllocateUploadSlicesReq
+// CalculateUploadSliceLengthsReq
 
 // uint64 data_length = 1;
-inline void AllocateUploadSlicesReq::clear_data_length() {
+inline void CalculateUploadSliceLengthsReq::clear_data_length() {
   data_length_ = GOOGLE_ULONGLONG(0);
 }
-inline ::google::protobuf::uint64 AllocateUploadSlicesReq::data_length() const {
-  // @@protoc_insertion_point(field_get:chunkmaster.AllocateUploadSlicesReq.data_length)
+inline ::google::protobuf::uint64 CalculateUploadSliceLengthsReq::data_length() const {
+  // @@protoc_insertion_point(field_get:chunkmaster.CalculateUploadSliceLengthsReq.data_length)
   return data_length_;
 }
-inline void AllocateUploadSlicesReq::set_data_length(::google::protobuf::uint64 value) {
+inline void CalculateUploadSliceLengthsReq::set_data_length(::google::protobuf::uint64 value) {
   
   data_length_ = value;
-  // @@protoc_insertion_point(field_set:chunkmaster.AllocateUploadSlicesReq.data_length)
+  // @@protoc_insertion_point(field_set:chunkmaster.CalculateUploadSliceLengthsReq.data_length)
+}
+
+// -------------------------------------------------------------------
+
+// CalculateUploadSliceLengthsRsp
+
+// repeated uint32 lengths = 1;
+inline int CalculateUploadSliceLengthsRsp::lengths_size() const {
+  return lengths_.size();
+}
+inline void CalculateUploadSliceLengthsRsp::clear_lengths() {
+  lengths_.Clear();
+}
+inline ::google::protobuf::uint32 CalculateUploadSliceLengthsRsp::lengths(int index) const {
+  // @@protoc_insertion_point(field_get:chunkmaster.CalculateUploadSliceLengthsRsp.lengths)
+  return lengths_.Get(index);
+}
+inline void CalculateUploadSliceLengthsRsp::set_lengths(int index, ::google::protobuf::uint32 value) {
+  lengths_.Set(index, value);
+  // @@protoc_insertion_point(field_set:chunkmaster.CalculateUploadSliceLengthsRsp.lengths)
+}
+inline void CalculateUploadSliceLengthsRsp::add_lengths(::google::protobuf::uint32 value) {
+  lengths_.Add(value);
+  // @@protoc_insertion_point(field_add:chunkmaster.CalculateUploadSliceLengthsRsp.lengths)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+CalculateUploadSliceLengthsRsp::lengths() const {
+  // @@protoc_insertion_point(field_list:chunkmaster.CalculateUploadSliceLengthsRsp.lengths)
+  return lengths_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+CalculateUploadSliceLengthsRsp::mutable_lengths() {
+  // @@protoc_insertion_point(field_mutable_list:chunkmaster.CalculateUploadSliceLengthsRsp.lengths)
+  return &lengths_;
+}
+
+// -------------------------------------------------------------------
+
+// AllocateUploadSliceReq
+
+// uint64 data_length = 1;
+inline void AllocateUploadSliceReq::clear_data_length() {
+  data_length_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 AllocateUploadSliceReq::data_length() const {
+  // @@protoc_insertion_point(field_get:chunkmaster.AllocateUploadSliceReq.data_length)
+  return data_length_;
+}
+inline void AllocateUploadSliceReq::set_data_length(::google::protobuf::uint64 value) {
+  
+  data_length_ = value;
+  // @@protoc_insertion_point(field_set:chunkmaster.AllocateUploadSliceReq.data_length)
 }
 
 // uint32 replica_policy = 2;
-inline void AllocateUploadSlicesReq::clear_replica_policy() {
+inline void AllocateUploadSliceReq::clear_replica_policy() {
   replica_policy_ = 0u;
 }
-inline ::google::protobuf::uint32 AllocateUploadSlicesReq::replica_policy() const {
-  // @@protoc_insertion_point(field_get:chunkmaster.AllocateUploadSlicesReq.replica_policy)
+inline ::google::protobuf::uint32 AllocateUploadSliceReq::replica_policy() const {
+  // @@protoc_insertion_point(field_get:chunkmaster.AllocateUploadSliceReq.replica_policy)
   return replica_policy_;
 }
-inline void AllocateUploadSlicesReq::set_replica_policy(::google::protobuf::uint32 value) {
+inline void AllocateUploadSliceReq::set_replica_policy(::google::protobuf::uint32 value) {
   
   replica_policy_ = value;
-  // @@protoc_insertion_point(field_set:chunkmaster.AllocateUploadSlicesReq.replica_policy)
+  // @@protoc_insertion_point(field_set:chunkmaster.AllocateUploadSliceReq.replica_policy)
 }
 
 // -------------------------------------------------------------------
 
-// AllocateUploadSlicesRsp_Slice
+// AllocateUploadSliceRsp
 
 // uint64 logical_slice_id = 1;
-inline void AllocateUploadSlicesRsp_Slice::clear_logical_slice_id() {
+inline void AllocateUploadSliceRsp::clear_logical_slice_id() {
   logical_slice_id_ = GOOGLE_ULONGLONG(0);
 }
-inline ::google::protobuf::uint64 AllocateUploadSlicesRsp_Slice::logical_slice_id() const {
-  // @@protoc_insertion_point(field_get:chunkmaster.AllocateUploadSlicesRsp.Slice.logical_slice_id)
+inline ::google::protobuf::uint64 AllocateUploadSliceRsp::logical_slice_id() const {
+  // @@protoc_insertion_point(field_get:chunkmaster.AllocateUploadSliceRsp.logical_slice_id)
   return logical_slice_id_;
 }
-inline void AllocateUploadSlicesRsp_Slice::set_logical_slice_id(::google::protobuf::uint64 value) {
+inline void AllocateUploadSliceRsp::set_logical_slice_id(::google::protobuf::uint64 value) {
   
   logical_slice_id_ = value;
-  // @@protoc_insertion_point(field_set:chunkmaster.AllocateUploadSlicesRsp.Slice.logical_slice_id)
+  // @@protoc_insertion_point(field_set:chunkmaster.AllocateUploadSliceRsp.logical_slice_id)
 }
 
-// uint64 data_length = 2;
-inline void AllocateUploadSlicesRsp_Slice::clear_data_length() {
-  data_length_ = GOOGLE_ULONGLONG(0);
-}
-inline ::google::protobuf::uint64 AllocateUploadSlicesRsp_Slice::data_length() const {
-  // @@protoc_insertion_point(field_get:chunkmaster.AllocateUploadSlicesRsp.Slice.data_length)
-  return data_length_;
-}
-inline void AllocateUploadSlicesRsp_Slice::set_data_length(::google::protobuf::uint64 value) {
-  
-  data_length_ = value;
-  // @@protoc_insertion_point(field_set:chunkmaster.AllocateUploadSlicesRsp.Slice.data_length)
-}
-
-// repeated uint64 physical_slice_id = 3;
-inline int AllocateUploadSlicesRsp_Slice::physical_slice_id_size() const {
+// repeated uint64 physical_slice_id = 2;
+inline int AllocateUploadSliceRsp::physical_slice_id_size() const {
   return physical_slice_id_.size();
 }
-inline void AllocateUploadSlicesRsp_Slice::clear_physical_slice_id() {
+inline void AllocateUploadSliceRsp::clear_physical_slice_id() {
   physical_slice_id_.Clear();
 }
-inline ::google::protobuf::uint64 AllocateUploadSlicesRsp_Slice::physical_slice_id(int index) const {
-  // @@protoc_insertion_point(field_get:chunkmaster.AllocateUploadSlicesRsp.Slice.physical_slice_id)
+inline ::google::protobuf::uint64 AllocateUploadSliceRsp::physical_slice_id(int index) const {
+  // @@protoc_insertion_point(field_get:chunkmaster.AllocateUploadSliceRsp.physical_slice_id)
   return physical_slice_id_.Get(index);
 }
-inline void AllocateUploadSlicesRsp_Slice::set_physical_slice_id(int index, ::google::protobuf::uint64 value) {
+inline void AllocateUploadSliceRsp::set_physical_slice_id(int index, ::google::protobuf::uint64 value) {
   physical_slice_id_.Set(index, value);
-  // @@protoc_insertion_point(field_set:chunkmaster.AllocateUploadSlicesRsp.Slice.physical_slice_id)
+  // @@protoc_insertion_point(field_set:chunkmaster.AllocateUploadSliceRsp.physical_slice_id)
 }
-inline void AllocateUploadSlicesRsp_Slice::add_physical_slice_id(::google::protobuf::uint64 value) {
+inline void AllocateUploadSliceRsp::add_physical_slice_id(::google::protobuf::uint64 value) {
   physical_slice_id_.Add(value);
-  // @@protoc_insertion_point(field_add:chunkmaster.AllocateUploadSlicesRsp.Slice.physical_slice_id)
+  // @@protoc_insertion_point(field_add:chunkmaster.AllocateUploadSliceRsp.physical_slice_id)
 }
 inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >&
-AllocateUploadSlicesRsp_Slice::physical_slice_id() const {
-  // @@protoc_insertion_point(field_list:chunkmaster.AllocateUploadSlicesRsp.Slice.physical_slice_id)
+AllocateUploadSliceRsp::physical_slice_id() const {
+  // @@protoc_insertion_point(field_list:chunkmaster.AllocateUploadSliceRsp.physical_slice_id)
   return physical_slice_id_;
 }
 inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
-AllocateUploadSlicesRsp_Slice::mutable_physical_slice_id() {
-  // @@protoc_insertion_point(field_mutable_list:chunkmaster.AllocateUploadSlicesRsp.Slice.physical_slice_id)
+AllocateUploadSliceRsp::mutable_physical_slice_id() {
+  // @@protoc_insertion_point(field_mutable_list:chunkmaster.AllocateUploadSliceRsp.physical_slice_id)
   return &physical_slice_id_;
-}
-
-// -------------------------------------------------------------------
-
-// AllocateUploadSlicesRsp
-
-// repeated .chunkmaster.AllocateUploadSlicesRsp.Slice slices = 1;
-inline int AllocateUploadSlicesRsp::slices_size() const {
-  return slices_.size();
-}
-inline void AllocateUploadSlicesRsp::clear_slices() {
-  slices_.Clear();
-}
-inline ::chunkmaster::AllocateUploadSlicesRsp_Slice* AllocateUploadSlicesRsp::mutable_slices(int index) {
-  // @@protoc_insertion_point(field_mutable:chunkmaster.AllocateUploadSlicesRsp.slices)
-  return slices_.Mutable(index);
-}
-inline ::google::protobuf::RepeatedPtrField< ::chunkmaster::AllocateUploadSlicesRsp_Slice >*
-AllocateUploadSlicesRsp::mutable_slices() {
-  // @@protoc_insertion_point(field_mutable_list:chunkmaster.AllocateUploadSlicesRsp.slices)
-  return &slices_;
-}
-inline const ::chunkmaster::AllocateUploadSlicesRsp_Slice& AllocateUploadSlicesRsp::slices(int index) const {
-  // @@protoc_insertion_point(field_get:chunkmaster.AllocateUploadSlicesRsp.slices)
-  return slices_.Get(index);
-}
-inline ::chunkmaster::AllocateUploadSlicesRsp_Slice* AllocateUploadSlicesRsp::add_slices() {
-  // @@protoc_insertion_point(field_add:chunkmaster.AllocateUploadSlicesRsp.slices)
-  return slices_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::chunkmaster::AllocateUploadSlicesRsp_Slice >&
-AllocateUploadSlicesRsp::slices() const {
-  // @@protoc_insertion_point(field_list:chunkmaster.AllocateUploadSlicesRsp.slices)
-  return slices_;
 }
 
 // -------------------------------------------------------------------
@@ -1242,6 +1345,8 @@ ReportChunkInformationReq::chunk_info() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

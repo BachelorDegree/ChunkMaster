@@ -1,0 +1,6 @@
+syntax = "proto3";
+package sliceindex;
+
+message SliceIdArray {
+    repeated uint64 ids = 1;
+}

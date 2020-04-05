@@ -19,7 +19,8 @@
 namespace chunkmaster {
 
 static const char* ChunkMasterService_method_names[] = {
-  "/chunkmaster.ChunkMasterService/AllocateUploadSlices",
+  "/chunkmaster.ChunkMasterService/CalculateUploadSliceLengths",
+  "/chunkmaster.ChunkMasterService/AllocateUploadSlice",
   "/chunkmaster.ChunkMasterService/FinishUploadSlice",
   "/chunkmaster.ChunkMasterService/ReportChunkInformation",
 };
@@ -31,29 +32,50 @@ std::unique_ptr< ChunkMasterService::Stub> ChunkMasterService::NewStub(const std
 }
 
 ChunkMasterService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_AllocateUploadSlices_(ChunkMasterService_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_FinishUploadSlice_(ChunkMasterService_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_ReportChunkInformation_(ChunkMasterService_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  : channel_(channel), rpcmethod_CalculateUploadSliceLengths_(ChunkMasterService_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_AllocateUploadSlice_(ChunkMasterService_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_FinishUploadSlice_(ChunkMasterService_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_ReportChunkInformation_(ChunkMasterService_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status ChunkMasterService::Stub::AllocateUploadSlices(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq& request, ::chunkmaster::AllocateUploadSlicesRsp* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_AllocateUploadSlices_, context, request, response);
+::grpc::Status ChunkMasterService::Stub::CalculateUploadSliceLengths(::grpc::ClientContext* context, const ::chunkmaster::CalculateUploadSliceLengthsReq& request, ::chunkmaster::CalculateUploadSliceLengthsRsp* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_CalculateUploadSliceLengths_, context, request, response);
 }
 
-void ChunkMasterService::Stub::experimental_async::AllocateUploadSlices(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq* request, ::chunkmaster::AllocateUploadSlicesRsp* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_AllocateUploadSlices_, context, request, response, std::move(f));
+void ChunkMasterService::Stub::experimental_async::CalculateUploadSliceLengths(::grpc::ClientContext* context, const ::chunkmaster::CalculateUploadSliceLengthsReq* request, ::chunkmaster::CalculateUploadSliceLengthsRsp* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_CalculateUploadSliceLengths_, context, request, response, std::move(f));
 }
 
-void ChunkMasterService::Stub::experimental_async::AllocateUploadSlices(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::chunkmaster::AllocateUploadSlicesRsp* response, std::function<void(::grpc::Status)> f) {
-  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_AllocateUploadSlices_, context, request, response, std::move(f));
+void ChunkMasterService::Stub::experimental_async::CalculateUploadSliceLengths(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::chunkmaster::CalculateUploadSliceLengthsRsp* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_CalculateUploadSliceLengths_, context, request, response, std::move(f));
 }
 
-::grpc::ClientAsyncResponseReader< ::chunkmaster::AllocateUploadSlicesRsp>* ChunkMasterService::Stub::AsyncAllocateUploadSlicesRaw(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::chunkmaster::AllocateUploadSlicesRsp>::Create(channel_.get(), cq, rpcmethod_AllocateUploadSlices_, context, request, true);
+::grpc::ClientAsyncResponseReader< ::chunkmaster::CalculateUploadSliceLengthsRsp>* ChunkMasterService::Stub::AsyncCalculateUploadSliceLengthsRaw(::grpc::ClientContext* context, const ::chunkmaster::CalculateUploadSliceLengthsReq& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::chunkmaster::CalculateUploadSliceLengthsRsp>::Create(channel_.get(), cq, rpcmethod_CalculateUploadSliceLengths_, context, request, true);
 }
 
-::grpc::ClientAsyncResponseReader< ::chunkmaster::AllocateUploadSlicesRsp>* ChunkMasterService::Stub::PrepareAsyncAllocateUploadSlicesRaw(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSlicesReq& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::chunkmaster::AllocateUploadSlicesRsp>::Create(channel_.get(), cq, rpcmethod_AllocateUploadSlices_, context, request, false);
+::grpc::ClientAsyncResponseReader< ::chunkmaster::CalculateUploadSliceLengthsRsp>* ChunkMasterService::Stub::PrepareAsyncCalculateUploadSliceLengthsRaw(::grpc::ClientContext* context, const ::chunkmaster::CalculateUploadSliceLengthsReq& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::chunkmaster::CalculateUploadSliceLengthsRsp>::Create(channel_.get(), cq, rpcmethod_CalculateUploadSliceLengths_, context, request, false);
+}
+
+::grpc::Status ChunkMasterService::Stub::AllocateUploadSlice(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSliceReq& request, ::chunkmaster::AllocateUploadSliceRsp* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_AllocateUploadSlice_, context, request, response);
+}
+
+void ChunkMasterService::Stub::experimental_async::AllocateUploadSlice(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSliceReq* request, ::chunkmaster::AllocateUploadSliceRsp* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_AllocateUploadSlice_, context, request, response, std::move(f));
+}
+
+void ChunkMasterService::Stub::experimental_async::AllocateUploadSlice(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::chunkmaster::AllocateUploadSliceRsp* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_AllocateUploadSlice_, context, request, response, std::move(f));
+}
+
+::grpc::ClientAsyncResponseReader< ::chunkmaster::AllocateUploadSliceRsp>* ChunkMasterService::Stub::AsyncAllocateUploadSliceRaw(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSliceReq& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::chunkmaster::AllocateUploadSliceRsp>::Create(channel_.get(), cq, rpcmethod_AllocateUploadSlice_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::chunkmaster::AllocateUploadSliceRsp>* ChunkMasterService::Stub::PrepareAsyncAllocateUploadSliceRaw(::grpc::ClientContext* context, const ::chunkmaster::AllocateUploadSliceReq& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::chunkmaster::AllocateUploadSliceRsp>::Create(channel_.get(), cq, rpcmethod_AllocateUploadSlice_, context, request, false);
 }
 
 ::grpc::Status ChunkMasterService::Stub::FinishUploadSlice(::grpc::ClientContext* context, const ::chunkmaster::FinishUploadSliceReq& request, ::chunkmaster::FinishUploadSliceRsp* response) {
@@ -100,15 +122,20 @@ ChunkMasterService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       ChunkMasterService_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< ChunkMasterService::Service, ::chunkmaster::AllocateUploadSlicesReq, ::chunkmaster::AllocateUploadSlicesRsp>(
-          std::mem_fn(&ChunkMasterService::Service::AllocateUploadSlices), this)));
+      new ::grpc::internal::RpcMethodHandler< ChunkMasterService::Service, ::chunkmaster::CalculateUploadSliceLengthsReq, ::chunkmaster::CalculateUploadSliceLengthsRsp>(
+          std::mem_fn(&ChunkMasterService::Service::CalculateUploadSliceLengths), this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       ChunkMasterService_method_names[1],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< ChunkMasterService::Service, ::chunkmaster::AllocateUploadSliceReq, ::chunkmaster::AllocateUploadSliceRsp>(
+          std::mem_fn(&ChunkMasterService::Service::AllocateUploadSlice), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      ChunkMasterService_method_names[2],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< ChunkMasterService::Service, ::chunkmaster::FinishUploadSliceReq, ::chunkmaster::FinishUploadSliceRsp>(
           std::mem_fn(&ChunkMasterService::Service::FinishUploadSlice), this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      ChunkMasterService_method_names[2],
+      ChunkMasterService_method_names[3],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< ChunkMasterService::Service, ::chunkmaster::ReportChunkInformationReq, ::chunkmaster::ReportChunkInformationRsp>(
           std::mem_fn(&ChunkMasterService::Service::ReportChunkInformation), this)));
@@ -117,7 +144,14 @@ ChunkMasterService::Service::Service() {
 ChunkMasterService::Service::~Service() {
 }
 
-::grpc::Status ChunkMasterService::Service::AllocateUploadSlices(::grpc::ServerContext* context, const ::chunkmaster::AllocateUploadSlicesReq* request, ::chunkmaster::AllocateUploadSlicesRsp* response) {
+::grpc::Status ChunkMasterService::Service::CalculateUploadSliceLengths(::grpc::ServerContext* context, const ::chunkmaster::CalculateUploadSliceLengthsReq* request, ::chunkmaster::CalculateUploadSliceLengthsRsp* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status ChunkMasterService::Service::AllocateUploadSlice(::grpc::ServerContext* context, const ::chunkmaster::AllocateUploadSliceReq* request, ::chunkmaster::AllocateUploadSliceRsp* response) {
   (void) context;
   (void) request;
   (void) response;
