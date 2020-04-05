@@ -1,5 +1,12 @@
+#include <spdlog/spdlog.h>
+#include "coredeps/SliceId.hpp"
+
 #include "ReportChunkInformationHandler.hpp"
 #include "ChunkMasterServiceImpl.hpp"
+
+#include "errcode.h"
+#include "Logic/SQLite.hpp"
+
 void ReportChunkInformationHandler::SetInterfaceName(void)
 {
     interfaceName = "ChunkMasterService.ReportChunkInformation";
@@ -19,7 +26,7 @@ void ReportChunkInformationHandler::Proceed(void)
         new ReportChunkInformationHandler(service, cq);
         this->BeforeProcess();
         // Implement your logic here
-        int iRet = ChunkMasterServiceImpl::GetInstance()->ReportChunkInformation(request, response);
+        int iRet = this->Implementation();
         this->SetReturnCode(iRet);
         this->SetStatusFinish();
         responder.Finish(response, grpc::Status::OK, this);
@@ -34,3 +41,64 @@ void ReportChunkInformationHandler::Proceed(void)
     }
 }
 
+int ReportChunkInformationHandler::Implementation(void)
+{
+    int iRet = 0;
+    for (int i = 0; i < request.chunk_info_size(); ++i)
+    {
+        auto pChunkInformation = request.mutable_chunk_info(i);
+        auto iChunkState = static_cast<int>(pChunkInformation->state());
+        Storage::SliceId oSliceId(pChunkInformation->chunk_id());
+        SQLite::Statement oStatement(*g_pSqliteDatabase, fmt::format("SELECT logical_used, actual_used, state FROM chunks WHERE chunk_id={};", pChunkInformation->chunk_id()));
+        bool bIsExecSuccess = oStatement.executeStep();
+        if (bIsExecSuccess)
+        {
+            // 已存在，检查
+            auto iStoredLogicalUsed = oStatement.getColumn(0).getUInt(); // logical used
+            auto iStoredActualUsed = oStatement.getColumn(1).getUInt(); // actual used
+            auto iStoredState = oStatement.getColumn(2).getInt(); // state
+            if (iStoredLogicalUsed != pChunkInformation->logical_used_space()
+                || iStoredActualUsed != pChunkInformation->actual_used_space()
+                || iChunkState != iStoredState)
+            {
+                // 不一致，需要更新
+                spdlog::warn("ReportChunkInformationHandler chunk info not match: local: lu={},au={},state={}; remote: lu={},au={},state={}",
+                    iStoredLogicalUsed, iStoredActualUsed, iStoredState, 
+                    pChunkInformation->logical_used_space(), pChunkInformation->actual_used_space(), iChunkState);
+                auto sSql = fmt::format("UPDATE chunks SET logical_used={}, actual_used={}, state={} WHERE chunk_id={};", 
+                    pChunkInformation->logical_used_space(), pChunkInformation->actual_used_space(), iChunkState);
+                try
+                {
+                    g_pSqliteDatabase->exec(sSql);
+                }
+                catch(const SQLite::Exception& e)
+                {
+                    spdlog::error("ReportChunkInformationHandler UPDATE FAILED: SQL={}, ERRMSG={}", sSql, e.getErrorStr());
+                    return E_SQLITE_UPDATE_FAILED;
+                }
+            }
+            else
+            {
+                continue;
+            }
+        }
+        else
+        {
+            // 不存在，插入
+            // auto sSql = fmt::format("INSERT INTO chunks (chunk_id, cluster_id, machine_id, disk_id, logical_used, actual_used, state) VALUES ({}, {}, {}, {}, {}, {}, {});",
+            auto sSql = fmt::format("INSERT INTO chunks VALUES ({}, {}, {}, {}, {}, {}, {});",
+                oSliceId.UInt(), oSliceId.Cluster(), oSliceId.Machine(), oSliceId.Disk(),
+                pChunkInformation->logical_used_space(), pChunkInformation->actual_used_space(), iChunkState);
+            try
+            {
+                g_pSqliteDatabase->exec(sSql);
+            }
+            catch(const SQLite::Exception& e)
+            {
+                spdlog::error("ReportChunkInformationHandler INSERT FAILED: SQL={}, ERRMSG={}", sSql, e.getErrorStr());
+                return E_SQLITE_INSERT_FAILED;
+            }
+        }
+    }
+    return iRet;
+}
