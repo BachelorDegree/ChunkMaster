@@ -1,0 +1,57 @@
+syntax = "proto3";
+package chunkmaster;
+
+message AllocateUploadSlicesReq {
+    uint64 data_length = 1;
+    uint32 replica_policy = 2;
+}
+
+message AllocateUploadSlicesRsp {
+    message Slice {
+        uint64 logical_slice_id = 1;
+        uint64 data_length = 2;
+        repeated uint64 physical_slice_id = 3;
+    }
+    repeated Slice slices = 1;
+}
+
+message FinishUploadSliceReq {
+    uint64 physical_slice_id = 1;
+}
+
+message FinishUploadSliceRsp {
+
+}
+
+enum ChunkState {
+    STANDBY     = 0;
+    WRITING     = 1;
+    ERROR       = 2;
+    MOVING      = 3;
+    EMPTY       = 4;
+    EMPTYERROR  = 5;
+}
+
+message ChunkInformation {
+    uint64 chunk_id = 1;
+    uint32 logical_used_space = 2;
+    uint32 actual_used_space = 3;
+    ChunkState state = 4;
+}
+
+message ReportChunkInformationReq {
+    repeated ChunkInformation = 1;
+}
+
+message ReportChunkInformationRsp {
+
+}
+
+service ChunkMasterService {
+    // rpc  (Req) returns (Rsp);
+    rpc AllocatedUploadSlices (AllocateUploadSlicesReq) returns (AllocateUploadSlicesRsp);
+    rpc FinishUploadSlice (FinishUploadSliceReq) returns (FinishUploadSliceRsp);
+
+    // For ChunkServer
+    rpc ReportChunkInformation (ReportChunkInformationReq) returns (ReportChunkInformationRsp);
+}
