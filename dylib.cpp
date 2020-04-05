@@ -1,7 +1,7 @@
 #include "dylib_export.h"
 #include "Proto/chunkmaster.grpc.pb.h"
 #include "ChunkMasterServiceImpl.hpp"
-#include "Handler/AllocatedUploadSlicesHandler.hpp"
+#include "Handler/AllocateUploadSlicesHandler.hpp"
 #include "Handler/FinishUploadSliceHandler.hpp"
 #include "Handler/ReportChunkInformationHandler.hpp"
 

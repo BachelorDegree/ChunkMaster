@@ -3,9 +3,10 @@ PROJECT(chunkmaster)
 
 SET(CMAKE_CXX_STANDARD 14)
 SET(CMAKE_CXX_FLAGS "-Wall")
-IF(CMAKE_BUILD_TYPE MATCHES DEBUG)
-    SET(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-DDEBUG")
-ENDIF(CMAKE_BUILD_TYPE MATCHES DEBUG)
+
+ADD_SUBDIRECTORY(PaxosKVServiceClient)
+ADD_SUBDIRECTORY(IdAllocatorServiceClient)
+
 INCLUDE_DIRECTORIES(/usr/local/include)
 INCLUDE_DIRECTORIES(.)
 LINK_LIBRARIES(pthread protobuf gpr grpc++ grpc++_reflection SQLiteCpp sqlite3 dl)
@@ -18,4 +19,4 @@ FILE(GLOB APP_SOURCES ${APP_SOURCES} "./*.cpp")
 INCLUDE_DIRECTORIES(".")
 ADD_LIBRARY(chunkmaster SHARED ${APP_SOURCES})
 TARGET_LINK_LIBRARIES(chunkmaster coredeps)
-
+TARGET_LINK_LIBRARIES(chunkmaster paxoskvclient idallocatorclient)
