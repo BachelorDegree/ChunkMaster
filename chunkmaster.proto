@@ -40,7 +40,7 @@ message ChunkInformation {
 }
 
 message ReportChunkInformationReq {
-    repeated ChunkInformation = 1;
+    repeated ChunkInformation chunk_info = 1;
 }
 
 message ReportChunkInformationRsp {
