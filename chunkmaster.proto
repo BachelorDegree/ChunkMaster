@@ -26,6 +26,14 @@ message FinishUploadSliceReq {
 message FinishUploadSliceRsp {
 }
 
+message BatchGetPhysicalSlicesReq {
+    repeated uint64 logical_slice_ids = 1;
+}
+
+message BatchGetPhysicalSlicesRsp {
+    repeated AllocateUploadSliceRsp results = 1;
+}
+
 enum ChunkState {
     STANDBY     = 0;
     WRITING     = 1;
@@ -55,6 +63,7 @@ service ChunkMasterService {
     rpc CalculateUploadSliceLengths (CalculateUploadSliceLengthsReq) returns (CalculateUploadSliceLengthsRsp);
     rpc AllocateUploadSlice (AllocateUploadSliceReq) returns (AllocateUploadSliceRsp);
     rpc FinishUploadSlice (FinishUploadSliceReq) returns (FinishUploadSliceRsp);
+    rpc BatchGetPhysicalSlices (BatchGetPhysicalSlicesReq) returns (BatchGetPhysicalSlicesRsp);
 
     // For ChunkServer
     rpc ReportChunkInformation (ReportChunkInformationReq) returns (ReportChunkInformationRsp);

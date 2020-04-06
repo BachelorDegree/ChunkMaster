@@ -60,10 +60,9 @@ int FinishUploadSliceHandler::Implementation(void)
         auto sSql = fmt::format("SELECT state FROM chunks WHERE chunk_id={};", oChunkId.UInt());
         spdlog::trace(sSql);
         SQLite::Statement oStatement(*g_pSqliteDatabase, sSql);
-        bool bIsExecSuccess;
         try
         {
-            bIsExecSuccess = oStatement.executeStep();
+            oStatement.executeStep();
         }
         catch(const SQLite::Exception& e)
         {

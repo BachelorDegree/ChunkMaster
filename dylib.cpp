@@ -4,6 +4,7 @@
 #include "Handler/CalculateUploadSliceLengthsHandler.hpp"
 #include "Handler/AllocateUploadSliceHandler.hpp"
 #include "Handler/FinishUploadSliceHandler.hpp"
+#include "Handler/BatchGetPhysicalSlicesHandler.hpp"
 #include "Handler/ReportChunkInformationHandler.hpp"
 
 ::chunkmaster::ChunkMasterService::AsyncService service;
@@ -37,5 +38,6 @@ void EXPORT_OnWorkerThreadStart(grpc::ServerCompletionQueue *cq)
     new CalculateUploadSliceLengthsHandler(&service, cq);
     new AllocateUploadSliceHandler(&service, cq);
     new FinishUploadSliceHandler(&service, cq);
+    new BatchGetPhysicalSlicesHandler(&service, cq);
     new ReportChunkInformationHandler(&service, cq);
 }
