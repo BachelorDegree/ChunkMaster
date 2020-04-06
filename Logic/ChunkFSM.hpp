@@ -26,4 +26,18 @@ public:
     };
 
     static Status Transit(Status iCurrentState, Action iAction);
+    inline static uint32_t Transit(uint32_t iCurrentState, Action iAction)
+    {
+        return static_cast<uint32_t>(ChunkFSM::Transit(static_cast<Status>(iCurrentState), iAction));
+    }
 };
+
+inline bool operator == (const ChunkFSM::Status& lhs, const uint32_t& rhs)
+{
+    return static_cast<uint32_t>(lhs) == rhs;
+}
+
+inline bool operator == (const uint32_t& lhs, const ChunkFSM::Status& rhs)
+{
+    return lhs == static_cast<uint32_t>(rhs);
+}

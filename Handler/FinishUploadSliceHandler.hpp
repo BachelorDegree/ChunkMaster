@@ -13,6 +13,7 @@ public:
     }
     void Proceed(void) override;
     void SetInterfaceName(void) override;
+    int  Implementation(void);
 
 private:
     ::chunkmaster::ChunkMasterService::AsyncService*                     service;
