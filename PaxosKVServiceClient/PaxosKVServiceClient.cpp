@@ -3,7 +3,8 @@
 #include <coredeps/SatelliteClient.hpp>
 #include <coredeps/ContextHelper.hpp>
 #include "PaxosKVServiceClient.hpp"
-PaxosKVServiceClient::PaxosKVServiceClient()
+PaxosKVServiceClient::PaxosKVServiceClient():
+  m_strServiceName("PaxosKVService")
 {
   m_pChannel = GetChannel();
 }

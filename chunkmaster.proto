@@ -14,13 +14,16 @@ message AllocateUploadSliceReq {
     uint32 replica_policy = 2;
 }
 
+message AllocateUploadSliceRsp {
+    uint64 logical_slice_id = 1;
+    repeated uint64 physical_slice_id = 2;
+}
+
 message FinishUploadSliceReq {
     uint64 physical_slice_id = 1;
 }
 
 message FinishUploadSliceRsp {
-    uint64 logical_slice_id = 1;
-    repeated uint64 physical_slice_id = 2;
 }
 
 enum ChunkState {

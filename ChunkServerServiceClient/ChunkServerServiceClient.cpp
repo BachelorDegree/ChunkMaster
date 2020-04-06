@@ -3,7 +3,8 @@
 #include <coredeps/SatelliteClient.hpp>
 #include <coredeps/ContextHelper.hpp>
 #include "ChunkServerServiceClient.hpp"
-ChunkServerServiceClient::ChunkServerServiceClient()
+ChunkServerServiceClient::ChunkServerServiceClient():
+  m_strServiceName("ChunkServerService")
 {
   m_pChannel = GetChannel();
 }
@@ -24,11 +25,11 @@ std::shared_ptr<grpc::Channel> ChunkServerServiceClient::GetChannel()
   std::string strServer = SatelliteClient::GetInstance().GetNode(m_strServiceName);
   return grpc::CreateChannel(strServer, grpc::InsecureChannelCredentials());
 }
-int ChunkServerServiceClient::SetChunkStatus(const ::chunkserver::SetChunkStatusReq & oReq, ::chunkserver::SetChunkStatusRsp & oResp)
+int ChunkServerServiceClient::SetChunkState(const ::chunkserver::SetChunkStateReq & oReq, ::chunkserver::SetChunkStateRsp & oResp)
 {
   ::chunkserver::ChunkServerService::Stub oStub{m_pChannel};
   grpc::ClientContext oContext;
-  auto oStatus = oStub.SetChunkStatus(&oContext, oReq, &oResp);
+  auto oStatus = oStub.SetChunkState(&oContext, oReq, &oResp);
   if (oStatus.ok() == false)
   {
     return -1;

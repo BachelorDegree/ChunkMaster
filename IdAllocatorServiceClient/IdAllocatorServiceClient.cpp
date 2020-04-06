@@ -3,7 +3,8 @@
 #include <coredeps/SatelliteClient.hpp>
 #include <coredeps/ContextHelper.hpp>
 #include "IdAllocatorServiceClient.hpp"
-IdAllocatorServiceClient::IdAllocatorServiceClient()
+IdAllocatorServiceClient::IdAllocatorServiceClient():
+  m_strServiceName("IdAllocatorService")
 {
   m_pChannel = GetChannel();
 }
