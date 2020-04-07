@@ -73,7 +73,7 @@ int AllocateUploadSliceHandler::Implementation(void)
         auto iAllocateIdRet = oClient.AllocateId(oAllocateIdReq, oAllocateIdRsp);
         if (iAllocateIdRet != 0)
         {
-            spdlog::error("AllocateUploadSlice - Allocated logical ID failed, retcode={}", iAllocateIdRet);
+            spdlog::error("AllocateUploadSlice - Allocate logical ID failed, retcode={}", iAllocateIdRet);
             return E_IDALLOCATOR_ALLOCATE_ID_RPC_FAILED;
         }
         response.set_logical_slice_id(oAllocateIdRsp.id());
@@ -113,8 +113,7 @@ int AllocateUploadSliceHandler::Implementation(void)
             for (const auto iChunkId: vecChunks)
             {
                 Storage::SliceId oChunkId(iChunkId);
-                auto sCanonicalName = fmt::format("ChunkServerService.{}.{}", oChunkId.Cluster(), oChunkId.Machine());
-                ChunkServerServiceClient oClient(sCanonicalName);
+                ChunkServerServiceClient oClient(CanonicalChunkServerName(iChunkId));
                 oReq.set_chunk_id(iChunkId);
                 auto iAllocateInodeRet = oClient.AllocateInode(oReq, oRsp);
                 if (iAllocateInodeRet != 0)

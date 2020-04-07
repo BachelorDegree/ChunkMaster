@@ -21,6 +21,7 @@ message AllocateUploadSliceRsp {
 
 message FinishUploadSliceReq {
     uint64 physical_slice_id = 1;
+    bool is_normal_exit = 2;
 }
 
 message FinishUploadSliceRsp {

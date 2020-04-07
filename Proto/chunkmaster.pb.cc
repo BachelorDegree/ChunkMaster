@@ -287,6 +287,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::FinishUploadSliceReq, physical_slice_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::FinishUploadSliceReq, is_normal_exit_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::FinishUploadSliceRsp, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -331,12 +332,12 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 12, -1, sizeof(::chunkmaster::AllocateUploadSliceReq)},
   { 19, -1, sizeof(::chunkmaster::AllocateUploadSliceRsp)},
   { 26, -1, sizeof(::chunkmaster::FinishUploadSliceReq)},
-  { 32, -1, sizeof(::chunkmaster::FinishUploadSliceRsp)},
-  { 37, -1, sizeof(::chunkmaster::BatchGetPhysicalSlicesReq)},
-  { 43, -1, sizeof(::chunkmaster::BatchGetPhysicalSlicesRsp)},
-  { 49, -1, sizeof(::chunkmaster::ChunkInformation)},
-  { 58, -1, sizeof(::chunkmaster::ReportChunkInformationReq)},
-  { 64, -1, sizeof(::chunkmaster::ReportChunkInformationRsp)},
+  { 33, -1, sizeof(::chunkmaster::FinishUploadSliceRsp)},
+  { 38, -1, sizeof(::chunkmaster::BatchGetPhysicalSlicesReq)},
+  { 44, -1, sizeof(::chunkmaster::BatchGetPhysicalSlicesRsp)},
+  { 50, -1, sizeof(::chunkmaster::ChunkInformation)},
+  { 59, -1, sizeof(::chunkmaster::ReportChunkInformationReq)},
+  { 65, -1, sizeof(::chunkmaster::ReportChunkInformationRsp)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -381,37 +382,38 @@ void AddDescriptorsImpl() {
       "eReq\022\023\n\013data_length\030\001 \001(\004\022\026\n\016replica_pol"
       "icy\030\002 \001(\r\"M\n\026AllocateUploadSliceRsp\022\030\n\020l"
       "ogical_slice_id\030\001 \001(\004\022\031\n\021physical_slice_"
-      "id\030\002 \003(\004\"1\n\024FinishUploadSliceReq\022\031\n\021phys"
-      "ical_slice_id\030\001 \001(\004\"\026\n\024FinishUploadSlice"
-      "Rsp\"6\n\031BatchGetPhysicalSlicesReq\022\031\n\021logi"
-      "cal_slice_ids\030\001 \003(\004\"Q\n\031BatchGetPhysicalS"
-      "licesRsp\0224\n\007results\030\001 \003(\0132#.chunkmaster."
-      "AllocateUploadSliceRsp\"\203\001\n\020ChunkInformat"
-      "ion\022\020\n\010chunk_id\030\001 \001(\004\022\032\n\022logical_used_sp"
-      "ace\030\002 \001(\r\022\031\n\021actual_used_space\030\003 \001(\r\022&\n\005"
-      "state\030\004 \001(\0162\027.chunkmaster.ChunkState\"N\n\031"
-      "ReportChunkInformationReq\0221\n\nchunk_info\030"
-      "\001 \003(\0132\035.chunkmaster.ChunkInformation\"\033\n\031"
-      "ReportChunkInformationRsp*X\n\nChunkState\022"
-      "\013\n\007STANDBY\020\000\022\013\n\007WRITING\020\001\022\t\n\005ERROR\020\002\022\n\n\006"
-      "MOVING\020\003\022\t\n\005EMPTY\020\004\022\016\n\nEMPTYERROR\020\0052\235\004\n\022"
-      "ChunkMasterService\022w\n\033CalculateUploadSli"
-      "ceLengths\022+.chunkmaster.CalculateUploadS"
-      "liceLengthsReq\032+.chunkmaster.CalculateUp"
-      "loadSliceLengthsRsp\022_\n\023AllocateUploadSli"
-      "ce\022#.chunkmaster.AllocateUploadSliceReq\032"
-      "#.chunkmaster.AllocateUploadSliceRsp\022Y\n\021"
-      "FinishUploadSlice\022!.chunkmaster.FinishUp"
-      "loadSliceReq\032!.chunkmaster.FinishUploadS"
-      "liceRsp\022h\n\026BatchGetPhysicalSlices\022&.chun"
-      "kmaster.BatchGetPhysicalSlicesReq\032&.chun"
-      "kmaster.BatchGetPhysicalSlicesRsp\022h\n\026Rep"
-      "ortChunkInformation\022&.chunkmaster.Report"
-      "ChunkInformationReq\032&.chunkmaster.Report"
-      "ChunkInformationRspb\006proto3"
+      "id\030\002 \003(\004\"I\n\024FinishUploadSliceReq\022\031\n\021phys"
+      "ical_slice_id\030\001 \001(\004\022\026\n\016is_normal_exit\030\002 "
+      "\001(\010\"\026\n\024FinishUploadSliceRsp\"6\n\031BatchGetP"
+      "hysicalSlicesReq\022\031\n\021logical_slice_ids\030\001 "
+      "\003(\004\"Q\n\031BatchGetPhysicalSlicesRsp\0224\n\007resu"
+      "lts\030\001 \003(\0132#.chunkmaster.AllocateUploadSl"
+      "iceRsp\"\203\001\n\020ChunkInformation\022\020\n\010chunk_id\030"
+      "\001 \001(\004\022\032\n\022logical_used_space\030\002 \001(\r\022\031\n\021act"
+      "ual_used_space\030\003 \001(\r\022&\n\005state\030\004 \001(\0162\027.ch"
+      "unkmaster.ChunkState\"N\n\031ReportChunkInfor"
+      "mationReq\0221\n\nchunk_info\030\001 \003(\0132\035.chunkmas"
+      "ter.ChunkInformation\"\033\n\031ReportChunkInfor"
+      "mationRsp*X\n\nChunkState\022\013\n\007STANDBY\020\000\022\013\n\007"
+      "WRITING\020\001\022\t\n\005ERROR\020\002\022\n\n\006MOVING\020\003\022\t\n\005EMPT"
+      "Y\020\004\022\016\n\nEMPTYERROR\020\0052\235\004\n\022ChunkMasterServi"
+      "ce\022w\n\033CalculateUploadSliceLengths\022+.chun"
+      "kmaster.CalculateUploadSliceLengthsReq\032+"
+      ".chunkmaster.CalculateUploadSliceLengths"
+      "Rsp\022_\n\023AllocateUploadSlice\022#.chunkmaster"
+      ".AllocateUploadSliceReq\032#.chunkmaster.Al"
+      "locateUploadSliceRsp\022Y\n\021FinishUploadSlic"
+      "e\022!.chunkmaster.FinishUploadSliceReq\032!.c"
+      "hunkmaster.FinishUploadSliceRsp\022h\n\026Batch"
+      "GetPhysicalSlices\022&.chunkmaster.BatchGet"
+      "PhysicalSlicesReq\032&.chunkmaster.BatchGet"
+      "PhysicalSlicesRsp\022h\n\026ReportChunkInformat"
+      "ion\022&.chunkmaster.ReportChunkInformation"
+      "Req\032&.chunkmaster.ReportChunkInformation"
+      "Rspb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 1387);
+      descriptor, 1411);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "chunkmaster.proto", &protobuf_RegisterTypes);
 }
@@ -1476,6 +1478,7 @@ void FinishUploadSliceReq::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int FinishUploadSliceReq::kPhysicalSliceIdFieldNumber;
+const int FinishUploadSliceReq::kIsNormalExitFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 FinishUploadSliceReq::FinishUploadSliceReq()
@@ -1489,12 +1492,16 @@ FinishUploadSliceReq::FinishUploadSliceReq(const FinishUploadSliceReq& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  physical_slice_id_ = from.physical_slice_id_;
+  ::memcpy(&physical_slice_id_, &from.physical_slice_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&is_normal_exit_) -
+    reinterpret_cast<char*>(&physical_slice_id_)) + sizeof(is_normal_exit_));
   // @@protoc_insertion_point(copy_constructor:chunkmaster.FinishUploadSliceReq)
 }
 
 void FinishUploadSliceReq::SharedCtor() {
-  physical_slice_id_ = GOOGLE_ULONGLONG(0);
+  ::memset(&physical_slice_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&is_normal_exit_) -
+      reinterpret_cast<char*>(&physical_slice_id_)) + sizeof(is_normal_exit_));
 }
 
 FinishUploadSliceReq::~FinishUploadSliceReq() {
@@ -1525,7 +1532,9 @@ void FinishUploadSliceReq::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  physical_slice_id_ = GOOGLE_ULONGLONG(0);
+  ::memset(&physical_slice_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&is_normal_exit_) -
+      reinterpret_cast<char*>(&physical_slice_id_)) + sizeof(is_normal_exit_));
   _internal_metadata_.Clear();
 }
 
@@ -1547,6 +1556,20 @@ bool FinishUploadSliceReq::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
                  input, &physical_slice_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bool is_normal_exit = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &is_normal_exit_)));
         } else {
           goto handle_unusual;
         }
@@ -1584,6 +1607,11 @@ void FinishUploadSliceReq::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->physical_slice_id(), output);
   }
 
+  // bool is_normal_exit = 2;
+  if (this->is_normal_exit() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->is_normal_exit(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -1601,6 +1629,11 @@ void FinishUploadSliceReq::SerializeWithCachedSizes(
   // uint64 physical_slice_id = 1;
   if (this->physical_slice_id() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->physical_slice_id(), target);
+  }
+
+  // bool is_normal_exit = 2;
+  if (this->is_normal_exit() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->is_normal_exit(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1625,6 +1658,11 @@ size_t FinishUploadSliceReq::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt64Size(
         this->physical_slice_id());
+  }
+
+  // bool is_normal_exit = 2;
+  if (this->is_normal_exit() != 0) {
+    total_size += 1 + 1;
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -1657,6 +1695,9 @@ void FinishUploadSliceReq::MergeFrom(const FinishUploadSliceReq& from) {
   if (from.physical_slice_id() != 0) {
     set_physical_slice_id(from.physical_slice_id());
   }
+  if (from.is_normal_exit() != 0) {
+    set_is_normal_exit(from.is_normal_exit());
+  }
 }
 
 void FinishUploadSliceReq::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1684,6 +1725,7 @@ void FinishUploadSliceReq::Swap(FinishUploadSliceReq* other) {
 void FinishUploadSliceReq::InternalSwap(FinishUploadSliceReq* other) {
   using std::swap;
   swap(physical_slice_id_, other->physical_slice_id_);
+  swap(is_normal_exit_, other->is_normal_exit_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 

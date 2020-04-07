@@ -69,3 +69,14 @@ int ChunkServerServiceClient::WriteSlice(const ::chunkserver::WriteSliceReq & oR
   }
   return ClientContextHelper(oContext).GetReturnCode();
 }
+int ChunkServerServiceClient::ManipulateReferenceCount(const ::chunkserver::ManipulateReferenceCountReq & oReq, ::chunkserver::ManipulateReferenceCountRsp & oResp)
+{
+  ::chunkserver::ChunkServerService::Stub oStub{m_pChannel};
+  grpc::ClientContext oContext;
+  auto oStatus = oStub.ManipulateReferenceCount(&oContext, oReq, &oResp);
+  if (oStatus.ok() == false)
+  {
+    return -1;
+  }
+  return ClientContextHelper(oContext).GetReturnCode();
+}

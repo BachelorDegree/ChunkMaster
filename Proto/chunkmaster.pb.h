@@ -658,11 +658,18 @@ class FinishUploadSliceReq : public ::google::protobuf::Message /* @@protoc_inse
   ::google::protobuf::uint64 physical_slice_id() const;
   void set_physical_slice_id(::google::protobuf::uint64 value);
 
+  // bool is_normal_exit = 2;
+  void clear_is_normal_exit();
+  static const int kIsNormalExitFieldNumber = 2;
+  bool is_normal_exit() const;
+  void set_is_normal_exit(bool value);
+
   // @@protoc_insertion_point(class_scope:chunkmaster.FinishUploadSliceReq)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint64 physical_slice_id_;
+  bool is_normal_exit_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_chunkmaster_2eproto::TableStruct;
 };
@@ -1465,6 +1472,20 @@ inline void FinishUploadSliceReq::set_physical_slice_id(::google::protobuf::uint
   
   physical_slice_id_ = value;
   // @@protoc_insertion_point(field_set:chunkmaster.FinishUploadSliceReq.physical_slice_id)
+}
+
+// bool is_normal_exit = 2;
+inline void FinishUploadSliceReq::clear_is_normal_exit() {
+  is_normal_exit_ = false;
+}
+inline bool FinishUploadSliceReq::is_normal_exit() const {
+  // @@protoc_insertion_point(field_get:chunkmaster.FinishUploadSliceReq.is_normal_exit)
+  return is_normal_exit_;
+}
+inline void FinishUploadSliceReq::set_is_normal_exit(bool value) {
+  
+  is_normal_exit_ = value;
+  // @@protoc_insertion_point(field_set:chunkmaster.FinishUploadSliceReq.is_normal_exit)
 }
 
 // -------------------------------------------------------------------

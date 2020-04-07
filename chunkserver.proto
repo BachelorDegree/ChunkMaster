@@ -1,0 +1,65 @@
+syntax = "proto3";
+package chunkserver;
+
+message SetChunkStateReq {
+    uint64 chunk_id = 1;
+    uint32 state_to_set = 2;
+}
+
+message SetChunkStateRsp {
+    
+}
+
+// 分配物理分片后，inode做标记；
+// 引用计数置 1
+message AllocateInodeReq {
+    uint64 chunk_id = 1;
+    uint32 data_length = 2;
+}
+
+message AllocateInodeRsp {
+    uint64 slice_id = 1;
+}
+
+message ReadSliceReq {
+    uint64 slice_id = 1;
+    uint32 offset = 2;
+    uint32 length_to_read = 3; // should be 4 MiB by default
+}
+
+message ReadSliceRsp {
+    uint32 data_length = 1;
+    bytes  data = 2;
+}
+
+message WriteSliceReq {
+    uint64 slice_id = 1;
+    uint32 offset = 2;
+    bytes  data = 3;
+}
+
+message WriteSliceRsp {
+
+}
+
+message ManipulateReferenceCountReq {
+    enum OperationType {
+        INCREASE = 0;
+        DECREASE = 1;
+    }
+    uint64 slice_id = 1;
+    OperationType operation = 2;
+}
+
+message ManipulateReferenceCountRsp {
+
+}
+
+service ChunkServerService {
+    // rpc  (Req) returns (Rsp);
+    rpc SetChunkState (SetChunkStateReq) returns (SetChunkStateRsp);
+    rpc AllocateInode (AllocateInodeReq) returns (AllocateInodeRsp);
+    rpc ReadSlice (ReadSliceReq) returns (ReadSliceRsp);
+    rpc WriteSlice (WriteSliceReq) returns (WriteSliceRsp);
+    rpc ManipulateReferenceCount (ManipulateReferenceCountReq) returns (ManipulateReferenceCountRsp);
+}

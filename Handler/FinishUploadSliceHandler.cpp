@@ -4,6 +4,7 @@
 #include "ChunkServerServiceClient/ChunkServerServiceClient.hpp"
 
 #include "errcode.h"
+#include "Logic/Global.hpp"
 #include "Logic/SQLite.hpp"
 #include "Logic/ChunkFSM.hpp"
 
@@ -88,12 +89,28 @@ int FinishUploadSliceHandler::Implementation(void)
         ::chunkserver::SetChunkStateRsp oRsp;
         oReq.set_chunk_id(oChunkId.UInt());
         oReq.set_state_to_set(iNextState);
-        ChunkServerServiceClient oClient;
+        auto sCanonical = CanonicalChunkServerName(oPsid.UInt());
+        ChunkServerServiceClient oClient(sCanonical);
         int iRpcRet = oClient.SetChunkState(oReq, oRsp);
         if (iRpcRet != 0)
         {
-            spdlog::error("FinishUploadSliceHandler - ChunkServerService.SetChunkState failed, retcode: {}", iRpcRet);
+            spdlog::error("FinishUploadSliceHandler - {}.SetChunkState failed, slice:{}, retcode: {}", sCanonical, oPsid.UInt(), iRpcRet);
             return E_CHUNKSERVER_SET_CHUNK_STATE_RPC_FAILED;
+        }
+        // 如果是 abnormal finish
+        // 远端引用计数还要 -1
+        if (!request.is_normal_exit())
+        {
+            ::chunkserver::ManipulateReferenceCountReq oReq;
+            ::chunkserver::ManipulateReferenceCountRsp oRsp;
+            oReq.set_slice_id(oPsid.UInt());
+            oReq.set_operation(::chunkserver::ManipulateReferenceCountReq::DECREASE);
+            iRpcRet = oClient.ManipulateReferenceCount(oReq, oRsp);
+            if (iRpcRet != 0)
+            {
+                spdlog::error("FinishUploadSliceHandler - {}.ManipulateReferenceCount failed, slice:{}, retcode: {}", sCanonical, oPsid.UInt(), iRpcRet);
+                return E_CHUNKSERVER_SET_CHUNK_STATE_RPC_FAILED;
+            }
         }
     } while (false);
     
