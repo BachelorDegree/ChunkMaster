@@ -66,6 +66,13 @@ class ChunkMasterService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::BatchGetPhysicalSlicesRsp>> PrepareAsyncBatchGetPhysicalSlices(::grpc::ClientContext* context, const ::chunkmaster::BatchGetPhysicalSlicesReq& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::BatchGetPhysicalSlicesRsp>>(PrepareAsyncBatchGetPhysicalSlicesRaw(context, request, cq));
     }
+    virtual ::grpc::Status SetReferenceCount(::grpc::ClientContext* context, const ::chunkmaster::SetReferenceCountReq& request, ::chunkmaster::SetReferenceCountRsp* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::SetReferenceCountRsp>> AsyncSetReferenceCount(::grpc::ClientContext* context, const ::chunkmaster::SetReferenceCountReq& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::SetReferenceCountRsp>>(AsyncSetReferenceCountRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::SetReferenceCountRsp>> PrepareAsyncSetReferenceCount(::grpc::ClientContext* context, const ::chunkmaster::SetReferenceCountReq& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::SetReferenceCountRsp>>(PrepareAsyncSetReferenceCountRaw(context, request, cq));
+    }
     // For ChunkServer
     virtual ::grpc::Status ReportChunkInformation(::grpc::ClientContext* context, const ::chunkmaster::ReportChunkInformationReq& request, ::chunkmaster::ReportChunkInformationRsp* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::ReportChunkInformationRsp>> AsyncReportChunkInformation(::grpc::ClientContext* context, const ::chunkmaster::ReportChunkInformationReq& request, ::grpc::CompletionQueue* cq) {
@@ -86,6 +93,8 @@ class ChunkMasterService final {
       virtual void FinishUploadSlice(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::chunkmaster::FinishUploadSliceRsp* response, std::function<void(::grpc::Status)>) = 0;
       virtual void BatchGetPhysicalSlices(::grpc::ClientContext* context, const ::chunkmaster::BatchGetPhysicalSlicesReq* request, ::chunkmaster::BatchGetPhysicalSlicesRsp* response, std::function<void(::grpc::Status)>) = 0;
       virtual void BatchGetPhysicalSlices(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::chunkmaster::BatchGetPhysicalSlicesRsp* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void SetReferenceCount(::grpc::ClientContext* context, const ::chunkmaster::SetReferenceCountReq* request, ::chunkmaster::SetReferenceCountRsp* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void SetReferenceCount(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::chunkmaster::SetReferenceCountRsp* response, std::function<void(::grpc::Status)>) = 0;
       // For ChunkServer
       virtual void ReportChunkInformation(::grpc::ClientContext* context, const ::chunkmaster::ReportChunkInformationReq* request, ::chunkmaster::ReportChunkInformationRsp* response, std::function<void(::grpc::Status)>) = 0;
       virtual void ReportChunkInformation(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::chunkmaster::ReportChunkInformationRsp* response, std::function<void(::grpc::Status)>) = 0;
@@ -100,6 +109,8 @@ class ChunkMasterService final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::FinishUploadSliceRsp>* PrepareAsyncFinishUploadSliceRaw(::grpc::ClientContext* context, const ::chunkmaster::FinishUploadSliceReq& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::BatchGetPhysicalSlicesRsp>* AsyncBatchGetPhysicalSlicesRaw(::grpc::ClientContext* context, const ::chunkmaster::BatchGetPhysicalSlicesReq& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::BatchGetPhysicalSlicesRsp>* PrepareAsyncBatchGetPhysicalSlicesRaw(::grpc::ClientContext* context, const ::chunkmaster::BatchGetPhysicalSlicesReq& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::SetReferenceCountRsp>* AsyncSetReferenceCountRaw(::grpc::ClientContext* context, const ::chunkmaster::SetReferenceCountReq& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::SetReferenceCountRsp>* PrepareAsyncSetReferenceCountRaw(::grpc::ClientContext* context, const ::chunkmaster::SetReferenceCountReq& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::ReportChunkInformationRsp>* AsyncReportChunkInformationRaw(::grpc::ClientContext* context, const ::chunkmaster::ReportChunkInformationReq& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::chunkmaster::ReportChunkInformationRsp>* PrepareAsyncReportChunkInformationRaw(::grpc::ClientContext* context, const ::chunkmaster::ReportChunkInformationReq& request, ::grpc::CompletionQueue* cq) = 0;
   };
@@ -134,6 +145,13 @@ class ChunkMasterService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chunkmaster::BatchGetPhysicalSlicesRsp>> PrepareAsyncBatchGetPhysicalSlices(::grpc::ClientContext* context, const ::chunkmaster::BatchGetPhysicalSlicesReq& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chunkmaster::BatchGetPhysicalSlicesRsp>>(PrepareAsyncBatchGetPhysicalSlicesRaw(context, request, cq));
     }
+    ::grpc::Status SetReferenceCount(::grpc::ClientContext* context, const ::chunkmaster::SetReferenceCountReq& request, ::chunkmaster::SetReferenceCountRsp* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chunkmaster::SetReferenceCountRsp>> AsyncSetReferenceCount(::grpc::ClientContext* context, const ::chunkmaster::SetReferenceCountReq& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chunkmaster::SetReferenceCountRsp>>(AsyncSetReferenceCountRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chunkmaster::SetReferenceCountRsp>> PrepareAsyncSetReferenceCount(::grpc::ClientContext* context, const ::chunkmaster::SetReferenceCountReq& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chunkmaster::SetReferenceCountRsp>>(PrepareAsyncSetReferenceCountRaw(context, request, cq));
+    }
     ::grpc::Status ReportChunkInformation(::grpc::ClientContext* context, const ::chunkmaster::ReportChunkInformationReq& request, ::chunkmaster::ReportChunkInformationRsp* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chunkmaster::ReportChunkInformationRsp>> AsyncReportChunkInformation(::grpc::ClientContext* context, const ::chunkmaster::ReportChunkInformationReq& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chunkmaster::ReportChunkInformationRsp>>(AsyncReportChunkInformationRaw(context, request, cq));
@@ -152,6 +170,8 @@ class ChunkMasterService final {
       void FinishUploadSlice(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::chunkmaster::FinishUploadSliceRsp* response, std::function<void(::grpc::Status)>) override;
       void BatchGetPhysicalSlices(::grpc::ClientContext* context, const ::chunkmaster::BatchGetPhysicalSlicesReq* request, ::chunkmaster::BatchGetPhysicalSlicesRsp* response, std::function<void(::grpc::Status)>) override;
       void BatchGetPhysicalSlices(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::chunkmaster::BatchGetPhysicalSlicesRsp* response, std::function<void(::grpc::Status)>) override;
+      void SetReferenceCount(::grpc::ClientContext* context, const ::chunkmaster::SetReferenceCountReq* request, ::chunkmaster::SetReferenceCountRsp* response, std::function<void(::grpc::Status)>) override;
+      void SetReferenceCount(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::chunkmaster::SetReferenceCountRsp* response, std::function<void(::grpc::Status)>) override;
       void ReportChunkInformation(::grpc::ClientContext* context, const ::chunkmaster::ReportChunkInformationReq* request, ::chunkmaster::ReportChunkInformationRsp* response, std::function<void(::grpc::Status)>) override;
       void ReportChunkInformation(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::chunkmaster::ReportChunkInformationRsp* response, std::function<void(::grpc::Status)>) override;
      private:
@@ -173,12 +193,15 @@ class ChunkMasterService final {
     ::grpc::ClientAsyncResponseReader< ::chunkmaster::FinishUploadSliceRsp>* PrepareAsyncFinishUploadSliceRaw(::grpc::ClientContext* context, const ::chunkmaster::FinishUploadSliceReq& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::chunkmaster::BatchGetPhysicalSlicesRsp>* AsyncBatchGetPhysicalSlicesRaw(::grpc::ClientContext* context, const ::chunkmaster::BatchGetPhysicalSlicesReq& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::chunkmaster::BatchGetPhysicalSlicesRsp>* PrepareAsyncBatchGetPhysicalSlicesRaw(::grpc::ClientContext* context, const ::chunkmaster::BatchGetPhysicalSlicesReq& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::chunkmaster::SetReferenceCountRsp>* AsyncSetReferenceCountRaw(::grpc::ClientContext* context, const ::chunkmaster::SetReferenceCountReq& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::chunkmaster::SetReferenceCountRsp>* PrepareAsyncSetReferenceCountRaw(::grpc::ClientContext* context, const ::chunkmaster::SetReferenceCountReq& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::chunkmaster::ReportChunkInformationRsp>* AsyncReportChunkInformationRaw(::grpc::ClientContext* context, const ::chunkmaster::ReportChunkInformationReq& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::chunkmaster::ReportChunkInformationRsp>* PrepareAsyncReportChunkInformationRaw(::grpc::ClientContext* context, const ::chunkmaster::ReportChunkInformationReq& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_CalculateUploadSliceLengths_;
     const ::grpc::internal::RpcMethod rpcmethod_AllocateUploadSlice_;
     const ::grpc::internal::RpcMethod rpcmethod_FinishUploadSlice_;
     const ::grpc::internal::RpcMethod rpcmethod_BatchGetPhysicalSlices_;
+    const ::grpc::internal::RpcMethod rpcmethod_SetReferenceCount_;
     const ::grpc::internal::RpcMethod rpcmethod_ReportChunkInformation_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
@@ -192,6 +215,7 @@ class ChunkMasterService final {
     virtual ::grpc::Status AllocateUploadSlice(::grpc::ServerContext* context, const ::chunkmaster::AllocateUploadSliceReq* request, ::chunkmaster::AllocateUploadSliceRsp* response);
     virtual ::grpc::Status FinishUploadSlice(::grpc::ServerContext* context, const ::chunkmaster::FinishUploadSliceReq* request, ::chunkmaster::FinishUploadSliceRsp* response);
     virtual ::grpc::Status BatchGetPhysicalSlices(::grpc::ServerContext* context, const ::chunkmaster::BatchGetPhysicalSlicesReq* request, ::chunkmaster::BatchGetPhysicalSlicesRsp* response);
+    virtual ::grpc::Status SetReferenceCount(::grpc::ServerContext* context, const ::chunkmaster::SetReferenceCountReq* request, ::chunkmaster::SetReferenceCountRsp* response);
     // For ChunkServer
     virtual ::grpc::Status ReportChunkInformation(::grpc::ServerContext* context, const ::chunkmaster::ReportChunkInformationReq* request, ::chunkmaster::ReportChunkInformationRsp* response);
   };
@@ -276,12 +300,32 @@ class ChunkMasterService final {
     }
   };
   template <class BaseClass>
+  class WithAsyncMethod_SetReferenceCount : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_SetReferenceCount() {
+      ::grpc::Service::MarkMethodAsync(4);
+    }
+    ~WithAsyncMethod_SetReferenceCount() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetReferenceCount(::grpc::ServerContext* context, const ::chunkmaster::SetReferenceCountReq* request, ::chunkmaster::SetReferenceCountRsp* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSetReferenceCount(::grpc::ServerContext* context, ::chunkmaster::SetReferenceCountReq* request, ::grpc::ServerAsyncResponseWriter< ::chunkmaster::SetReferenceCountRsp>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithAsyncMethod_ReportChunkInformation : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_ReportChunkInformation() {
-      ::grpc::Service::MarkMethodAsync(4);
+      ::grpc::Service::MarkMethodAsync(5);
     }
     ~WithAsyncMethod_ReportChunkInformation() override {
       BaseClassMustBeDerivedFromService(this);
@@ -292,10 +336,10 @@ class ChunkMasterService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestReportChunkInformation(::grpc::ServerContext* context, ::chunkmaster::ReportChunkInformationReq* request, ::grpc::ServerAsyncResponseWriter< ::chunkmaster::ReportChunkInformationRsp>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_CalculateUploadSliceLengths<WithAsyncMethod_AllocateUploadSlice<WithAsyncMethod_FinishUploadSlice<WithAsyncMethod_BatchGetPhysicalSlices<WithAsyncMethod_ReportChunkInformation<Service > > > > > AsyncService;
+  typedef WithAsyncMethod_CalculateUploadSliceLengths<WithAsyncMethod_AllocateUploadSlice<WithAsyncMethod_FinishUploadSlice<WithAsyncMethod_BatchGetPhysicalSlices<WithAsyncMethod_SetReferenceCount<WithAsyncMethod_ReportChunkInformation<Service > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_CalculateUploadSliceLengths : public BaseClass {
    private:
@@ -397,12 +441,37 @@ class ChunkMasterService final {
     virtual void BatchGetPhysicalSlices(::grpc::ServerContext* context, const ::chunkmaster::BatchGetPhysicalSlicesReq* request, ::chunkmaster::BatchGetPhysicalSlicesRsp* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
+  class ExperimentalWithCallbackMethod_SetReferenceCount : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_SetReferenceCount() {
+      ::grpc::Service::experimental().MarkMethodCallback(4,
+        new ::grpc::internal::CallbackUnaryHandler< ::chunkmaster::SetReferenceCountReq, ::chunkmaster::SetReferenceCountRsp>(
+          [this](::grpc::ServerContext* context,
+                 const ::chunkmaster::SetReferenceCountReq* request,
+                 ::chunkmaster::SetReferenceCountRsp* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->SetReferenceCount(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithCallbackMethod_SetReferenceCount() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetReferenceCount(::grpc::ServerContext* context, const ::chunkmaster::SetReferenceCountReq* request, ::chunkmaster::SetReferenceCountRsp* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void SetReferenceCount(::grpc::ServerContext* context, const ::chunkmaster::SetReferenceCountReq* request, ::chunkmaster::SetReferenceCountRsp* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
   class ExperimentalWithCallbackMethod_ReportChunkInformation : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_ReportChunkInformation() {
-      ::grpc::Service::experimental().MarkMethodCallback(4,
+      ::grpc::Service::experimental().MarkMethodCallback(5,
         new ::grpc::internal::CallbackUnaryHandler< ::chunkmaster::ReportChunkInformationReq, ::chunkmaster::ReportChunkInformationRsp>(
           [this](::grpc::ServerContext* context,
                  const ::chunkmaster::ReportChunkInformationReq* request,
@@ -421,7 +490,7 @@ class ChunkMasterService final {
     }
     virtual void ReportChunkInformation(::grpc::ServerContext* context, const ::chunkmaster::ReportChunkInformationReq* request, ::chunkmaster::ReportChunkInformationRsp* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  typedef ExperimentalWithCallbackMethod_CalculateUploadSliceLengths<ExperimentalWithCallbackMethod_AllocateUploadSlice<ExperimentalWithCallbackMethod_FinishUploadSlice<ExperimentalWithCallbackMethod_BatchGetPhysicalSlices<ExperimentalWithCallbackMethod_ReportChunkInformation<Service > > > > > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_CalculateUploadSliceLengths<ExperimentalWithCallbackMethod_AllocateUploadSlice<ExperimentalWithCallbackMethod_FinishUploadSlice<ExperimentalWithCallbackMethod_BatchGetPhysicalSlices<ExperimentalWithCallbackMethod_SetReferenceCount<ExperimentalWithCallbackMethod_ReportChunkInformation<Service > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_CalculateUploadSliceLengths : public BaseClass {
    private:
@@ -491,12 +560,29 @@ class ChunkMasterService final {
     }
   };
   template <class BaseClass>
+  class WithGenericMethod_SetReferenceCount : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_SetReferenceCount() {
+      ::grpc::Service::MarkMethodGeneric(4);
+    }
+    ~WithGenericMethod_SetReferenceCount() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetReferenceCount(::grpc::ServerContext* context, const ::chunkmaster::SetReferenceCountReq* request, ::chunkmaster::SetReferenceCountRsp* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
   class WithGenericMethod_ReportChunkInformation : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_ReportChunkInformation() {
-      ::grpc::Service::MarkMethodGeneric(4);
+      ::grpc::Service::MarkMethodGeneric(5);
     }
     ~WithGenericMethod_ReportChunkInformation() override {
       BaseClassMustBeDerivedFromService(this);
@@ -588,12 +674,32 @@ class ChunkMasterService final {
     }
   };
   template <class BaseClass>
+  class WithRawMethod_SetReferenceCount : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_SetReferenceCount() {
+      ::grpc::Service::MarkMethodRaw(4);
+    }
+    ~WithRawMethod_SetReferenceCount() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetReferenceCount(::grpc::ServerContext* context, const ::chunkmaster::SetReferenceCountReq* request, ::chunkmaster::SetReferenceCountRsp* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSetReferenceCount(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithRawMethod_ReportChunkInformation : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_ReportChunkInformation() {
-      ::grpc::Service::MarkMethodRaw(4);
+      ::grpc::Service::MarkMethodRaw(5);
     }
     ~WithRawMethod_ReportChunkInformation() override {
       BaseClassMustBeDerivedFromService(this);
@@ -604,7 +710,7 @@ class ChunkMasterService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestReportChunkInformation(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -708,12 +814,37 @@ class ChunkMasterService final {
     virtual void BatchGetPhysicalSlices(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_SetReferenceCount : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_SetReferenceCount() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(4,
+        new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->SetReferenceCount(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_SetReferenceCount() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetReferenceCount(::grpc::ServerContext* context, const ::chunkmaster::SetReferenceCountReq* request, ::chunkmaster::SetReferenceCountRsp* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void SetReferenceCount(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_ReportChunkInformation : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_ReportChunkInformation() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(4,
+      ::grpc::Service::experimental().MarkMethodRawCallback(5,
         new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
           [this](::grpc::ServerContext* context,
                  const ::grpc::ByteBuffer* request,
@@ -813,12 +944,32 @@ class ChunkMasterService final {
     virtual ::grpc::Status StreamedBatchGetPhysicalSlices(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::chunkmaster::BatchGetPhysicalSlicesReq,::chunkmaster::BatchGetPhysicalSlicesRsp>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
+  class WithStreamedUnaryMethod_SetReferenceCount : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_SetReferenceCount() {
+      ::grpc::Service::MarkMethodStreamed(4,
+        new ::grpc::internal::StreamedUnaryHandler< ::chunkmaster::SetReferenceCountReq, ::chunkmaster::SetReferenceCountRsp>(std::bind(&WithStreamedUnaryMethod_SetReferenceCount<BaseClass>::StreamedSetReferenceCount, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_SetReferenceCount() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status SetReferenceCount(::grpc::ServerContext* context, const ::chunkmaster::SetReferenceCountReq* request, ::chunkmaster::SetReferenceCountRsp* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedSetReferenceCount(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::chunkmaster::SetReferenceCountReq,::chunkmaster::SetReferenceCountRsp>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_ReportChunkInformation : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_ReportChunkInformation() {
-      ::grpc::Service::MarkMethodStreamed(4,
+      ::grpc::Service::MarkMethodStreamed(5,
         new ::grpc::internal::StreamedUnaryHandler< ::chunkmaster::ReportChunkInformationReq, ::chunkmaster::ReportChunkInformationRsp>(std::bind(&WithStreamedUnaryMethod_ReportChunkInformation<BaseClass>::StreamedReportChunkInformation, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_ReportChunkInformation() override {
@@ -832,9 +983,9 @@ class ChunkMasterService final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedReportChunkInformation(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::chunkmaster::ReportChunkInformationReq,::chunkmaster::ReportChunkInformationRsp>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_CalculateUploadSliceLengths<WithStreamedUnaryMethod_AllocateUploadSlice<WithStreamedUnaryMethod_FinishUploadSlice<WithStreamedUnaryMethod_BatchGetPhysicalSlices<WithStreamedUnaryMethod_ReportChunkInformation<Service > > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_CalculateUploadSliceLengths<WithStreamedUnaryMethod_AllocateUploadSlice<WithStreamedUnaryMethod_FinishUploadSlice<WithStreamedUnaryMethod_BatchGetPhysicalSlices<WithStreamedUnaryMethod_SetReferenceCount<WithStreamedUnaryMethod_ReportChunkInformation<Service > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_CalculateUploadSliceLengths<WithStreamedUnaryMethod_AllocateUploadSlice<WithStreamedUnaryMethod_FinishUploadSlice<WithStreamedUnaryMethod_BatchGetPhysicalSlices<WithStreamedUnaryMethod_ReportChunkInformation<Service > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_CalculateUploadSliceLengths<WithStreamedUnaryMethod_AllocateUploadSlice<WithStreamedUnaryMethod_FinishUploadSlice<WithStreamedUnaryMethod_BatchGetPhysicalSlices<WithStreamedUnaryMethod_SetReferenceCount<WithStreamedUnaryMethod_ReportChunkInformation<Service > > > > > > StreamedService;
 };
 
 }  // namespace chunkmaster

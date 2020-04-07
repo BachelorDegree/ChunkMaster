@@ -64,6 +64,16 @@ class BatchGetPhysicalSlicesRspDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<BatchGetPhysicalSlicesRsp>
       _instance;
 } _BatchGetPhysicalSlicesRsp_default_instance_;
+class SetReferenceCountReqDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<SetReferenceCountReq>
+      _instance;
+} _SetReferenceCountReq_default_instance_;
+class SetReferenceCountRspDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<SetReferenceCountRsp>
+      _instance;
+} _SetReferenceCountRsp_default_instance_;
 class ChunkInformationDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<ChunkInformation>
@@ -194,6 +204,34 @@ static void InitDefaultsBatchGetPhysicalSlicesRsp() {
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsBatchGetPhysicalSlicesRsp}, {
       &protobuf_chunkmaster_2eproto::scc_info_AllocateUploadSliceRsp.base,}};
 
+static void InitDefaultsSetReferenceCountReq() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::chunkmaster::_SetReferenceCountReq_default_instance_;
+    new (ptr) ::chunkmaster::SetReferenceCountReq();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::chunkmaster::SetReferenceCountReq::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_SetReferenceCountReq =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsSetReferenceCountReq}, {}};
+
+static void InitDefaultsSetReferenceCountRsp() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::chunkmaster::_SetReferenceCountRsp_default_instance_;
+    new (ptr) ::chunkmaster::SetReferenceCountRsp();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::chunkmaster::SetReferenceCountRsp::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_SetReferenceCountRsp =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsSetReferenceCountRsp}, {}};
+
 static void InitDefaultsChunkInformation() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -246,13 +284,15 @@ void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_FinishUploadSliceRsp.base);
   ::google::protobuf::internal::InitSCC(&scc_info_BatchGetPhysicalSlicesReq.base);
   ::google::protobuf::internal::InitSCC(&scc_info_BatchGetPhysicalSlicesRsp.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_SetReferenceCountReq.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_SetReferenceCountRsp.base);
   ::google::protobuf::internal::InitSCC(&scc_info_ChunkInformation.base);
   ::google::protobuf::internal::InitSCC(&scc_info_ReportChunkInformationReq.base);
   ::google::protobuf::internal::InitSCC(&scc_info_ReportChunkInformationRsp.base);
 }
 
-::google::protobuf::Metadata file_level_metadata[11];
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[1];
+::google::protobuf::Metadata file_level_metadata[13];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[2];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
@@ -306,6 +346,18 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::BatchGetPhysicalSlicesRsp, results_),
   ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::SetReferenceCountReq, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::SetReferenceCountReq, logical_slice_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::SetReferenceCountReq, operation_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::SetReferenceCountRsp, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::chunkmaster::ChunkInformation, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -335,9 +387,11 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 33, -1, sizeof(::chunkmaster::FinishUploadSliceRsp)},
   { 38, -1, sizeof(::chunkmaster::BatchGetPhysicalSlicesReq)},
   { 44, -1, sizeof(::chunkmaster::BatchGetPhysicalSlicesRsp)},
-  { 50, -1, sizeof(::chunkmaster::ChunkInformation)},
-  { 59, -1, sizeof(::chunkmaster::ReportChunkInformationReq)},
-  { 65, -1, sizeof(::chunkmaster::ReportChunkInformationRsp)},
+  { 50, -1, sizeof(::chunkmaster::SetReferenceCountReq)},
+  { 57, -1, sizeof(::chunkmaster::SetReferenceCountRsp)},
+  { 62, -1, sizeof(::chunkmaster::ChunkInformation)},
+  { 71, -1, sizeof(::chunkmaster::ReportChunkInformationReq)},
+  { 77, -1, sizeof(::chunkmaster::ReportChunkInformationRsp)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -349,6 +403,8 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::chunkmaster::_FinishUploadSliceRsp_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::chunkmaster::_BatchGetPhysicalSlicesReq_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::chunkmaster::_BatchGetPhysicalSlicesRsp_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::chunkmaster::_SetReferenceCountReq_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::chunkmaster::_SetReferenceCountRsp_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::chunkmaster::_ChunkInformation_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::chunkmaster::_ReportChunkInformationReq_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::chunkmaster::_ReportChunkInformationRsp_default_instance_),
@@ -369,7 +425,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 11);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 13);
 }
 
 void AddDescriptorsImpl() {
@@ -388,32 +444,39 @@ void AddDescriptorsImpl() {
       "hysicalSlicesReq\022\031\n\021logical_slice_ids\030\001 "
       "\003(\004\"Q\n\031BatchGetPhysicalSlicesRsp\0224\n\007resu"
       "lts\030\001 \003(\0132#.chunkmaster.AllocateUploadSl"
-      "iceRsp\"\203\001\n\020ChunkInformation\022\020\n\010chunk_id\030"
-      "\001 \001(\004\022\032\n\022logical_used_space\030\002 \001(\r\022\031\n\021act"
-      "ual_used_space\030\003 \001(\r\022&\n\005state\030\004 \001(\0162\027.ch"
-      "unkmaster.ChunkState\"N\n\031ReportChunkInfor"
-      "mationReq\0221\n\nchunk_info\030\001 \003(\0132\035.chunkmas"
-      "ter.ChunkInformation\"\033\n\031ReportChunkInfor"
-      "mationRsp*X\n\nChunkState\022\013\n\007STANDBY\020\000\022\013\n\007"
-      "WRITING\020\001\022\t\n\005ERROR\020\002\022\n\n\006MOVING\020\003\022\t\n\005EMPT"
-      "Y\020\004\022\016\n\nEMPTYERROR\020\0052\235\004\n\022ChunkMasterServi"
-      "ce\022w\n\033CalculateUploadSliceLengths\022+.chun"
-      "kmaster.CalculateUploadSliceLengthsReq\032+"
-      ".chunkmaster.CalculateUploadSliceLengths"
-      "Rsp\022_\n\023AllocateUploadSlice\022#.chunkmaster"
-      ".AllocateUploadSliceReq\032#.chunkmaster.Al"
-      "locateUploadSliceRsp\022Y\n\021FinishUploadSlic"
-      "e\022!.chunkmaster.FinishUploadSliceReq\032!.c"
-      "hunkmaster.FinishUploadSliceRsp\022h\n\026Batch"
-      "GetPhysicalSlices\022&.chunkmaster.BatchGet"
-      "PhysicalSlicesReq\032&.chunkmaster.BatchGet"
-      "PhysicalSlicesRsp\022h\n\026ReportChunkInformat"
-      "ion\022&.chunkmaster.ReportChunkInformation"
-      "Req\032&.chunkmaster.ReportChunkInformation"
-      "Rspb\006proto3"
+      "iceRsp\"\241\001\n\024SetReferenceCountReq\022\030\n\020logic"
+      "al_slice_id\030\001 \001(\004\022B\n\toperation\030\002 \001(\0162/.c"
+      "hunkmaster.SetReferenceCountReq.Operatio"
+      "nType\"+\n\rOperationType\022\014\n\010INCREASE\020\000\022\014\n\010"
+      "DECREASE\020\001\"\026\n\024SetReferenceCountRsp\"\203\001\n\020C"
+      "hunkInformation\022\020\n\010chunk_id\030\001 \001(\004\022\032\n\022log"
+      "ical_used_space\030\002 \001(\r\022\031\n\021actual_used_spa"
+      "ce\030\003 \001(\r\022&\n\005state\030\004 \001(\0162\027.chunkmaster.Ch"
+      "unkState\"N\n\031ReportChunkInformationReq\0221\n"
+      "\nchunk_info\030\001 \003(\0132\035.chunkmaster.ChunkInf"
+      "ormation\"\033\n\031ReportChunkInformationRsp*X\n"
+      "\nChunkState\022\013\n\007STANDBY\020\000\022\013\n\007WRITING\020\001\022\t\n"
+      "\005ERROR\020\002\022\n\n\006MOVING\020\003\022\t\n\005EMPTY\020\004\022\016\n\nEMPTY"
+      "ERROR\020\0052\370\004\n\022ChunkMasterService\022w\n\033Calcul"
+      "ateUploadSliceLengths\022+.chunkmaster.Calc"
+      "ulateUploadSliceLengthsReq\032+.chunkmaster"
+      ".CalculateUploadSliceLengthsRsp\022_\n\023Alloc"
+      "ateUploadSlice\022#.chunkmaster.AllocateUpl"
+      "oadSliceReq\032#.chunkmaster.AllocateUpload"
+      "SliceRsp\022Y\n\021FinishUploadSlice\022!.chunkmas"
+      "ter.FinishUploadSliceReq\032!.chunkmaster.F"
+      "inishUploadSliceRsp\022h\n\026BatchGetPhysicalS"
+      "lices\022&.chunkmaster.BatchGetPhysicalSlic"
+      "esReq\032&.chunkmaster.BatchGetPhysicalSlic"
+      "esRsp\022Y\n\021SetReferenceCount\022!.chunkmaster"
+      ".SetReferenceCountReq\032!.chunkmaster.SetR"
+      "eferenceCountRsp\022h\n\026ReportChunkInformati"
+      "on\022&.chunkmaster.ReportChunkInformationR"
+      "eq\032&.chunkmaster.ReportChunkInformationR"
+      "spb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 1411);
+      descriptor, 1690);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "chunkmaster.proto", &protobuf_RegisterTypes);
 }
@@ -430,9 +493,30 @@ struct StaticDescriptorInitializer {
 } static_descriptor_initializer;
 }  // namespace protobuf_chunkmaster_2eproto
 namespace chunkmaster {
-const ::google::protobuf::EnumDescriptor* ChunkState_descriptor() {
+const ::google::protobuf::EnumDescriptor* SetReferenceCountReq_OperationType_descriptor() {
   protobuf_chunkmaster_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_chunkmaster_2eproto::file_level_enum_descriptors[0];
+}
+bool SetReferenceCountReq_OperationType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const SetReferenceCountReq_OperationType SetReferenceCountReq::INCREASE;
+const SetReferenceCountReq_OperationType SetReferenceCountReq::DECREASE;
+const SetReferenceCountReq_OperationType SetReferenceCountReq::OperationType_MIN;
+const SetReferenceCountReq_OperationType SetReferenceCountReq::OperationType_MAX;
+const int SetReferenceCountReq::OperationType_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* ChunkState_descriptor() {
+  protobuf_chunkmaster_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_chunkmaster_2eproto::file_level_enum_descriptors[1];
 }
 bool ChunkState_IsValid(int value) {
   switch (value) {
@@ -2393,6 +2477,452 @@ void BatchGetPhysicalSlicesRsp::InternalSwap(BatchGetPhysicalSlicesRsp* other) {
 
 // ===================================================================
 
+void SetReferenceCountReq::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int SetReferenceCountReq::kLogicalSliceIdFieldNumber;
+const int SetReferenceCountReq::kOperationFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+SetReferenceCountReq::SetReferenceCountReq()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_chunkmaster_2eproto::scc_info_SetReferenceCountReq.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:chunkmaster.SetReferenceCountReq)
+}
+SetReferenceCountReq::SetReferenceCountReq(const SetReferenceCountReq& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&logical_slice_id_, &from.logical_slice_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&operation_) -
+    reinterpret_cast<char*>(&logical_slice_id_)) + sizeof(operation_));
+  // @@protoc_insertion_point(copy_constructor:chunkmaster.SetReferenceCountReq)
+}
+
+void SetReferenceCountReq::SharedCtor() {
+  ::memset(&logical_slice_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&operation_) -
+      reinterpret_cast<char*>(&logical_slice_id_)) + sizeof(operation_));
+}
+
+SetReferenceCountReq::~SetReferenceCountReq() {
+  // @@protoc_insertion_point(destructor:chunkmaster.SetReferenceCountReq)
+  SharedDtor();
+}
+
+void SetReferenceCountReq::SharedDtor() {
+}
+
+void SetReferenceCountReq::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* SetReferenceCountReq::descriptor() {
+  ::protobuf_chunkmaster_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_chunkmaster_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const SetReferenceCountReq& SetReferenceCountReq::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_chunkmaster_2eproto::scc_info_SetReferenceCountReq.base);
+  return *internal_default_instance();
+}
+
+
+void SetReferenceCountReq::Clear() {
+// @@protoc_insertion_point(message_clear_start:chunkmaster.SetReferenceCountReq)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&logical_slice_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&operation_) -
+      reinterpret_cast<char*>(&logical_slice_id_)) + sizeof(operation_));
+  _internal_metadata_.Clear();
+}
+
+bool SetReferenceCountReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:chunkmaster.SetReferenceCountReq)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // uint64 logical_slice_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &logical_slice_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .chunkmaster.SetReferenceCountReq.OperationType operation = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_operation(static_cast< ::chunkmaster::SetReferenceCountReq_OperationType >(value));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:chunkmaster.SetReferenceCountReq)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:chunkmaster.SetReferenceCountReq)
+  return false;
+#undef DO_
+}
+
+void SetReferenceCountReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:chunkmaster.SetReferenceCountReq)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint64 logical_slice_id = 1;
+  if (this->logical_slice_id() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->logical_slice_id(), output);
+  }
+
+  // .chunkmaster.SetReferenceCountReq.OperationType operation = 2;
+  if (this->operation() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      2, this->operation(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:chunkmaster.SetReferenceCountReq)
+}
+
+::google::protobuf::uint8* SetReferenceCountReq::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:chunkmaster.SetReferenceCountReq)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint64 logical_slice_id = 1;
+  if (this->logical_slice_id() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->logical_slice_id(), target);
+  }
+
+  // .chunkmaster.SetReferenceCountReq.OperationType operation = 2;
+  if (this->operation() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      2, this->operation(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:chunkmaster.SetReferenceCountReq)
+  return target;
+}
+
+size_t SetReferenceCountReq::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:chunkmaster.SetReferenceCountReq)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // uint64 logical_slice_id = 1;
+  if (this->logical_slice_id() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->logical_slice_id());
+  }
+
+  // .chunkmaster.SetReferenceCountReq.OperationType operation = 2;
+  if (this->operation() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->operation());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void SetReferenceCountReq::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:chunkmaster.SetReferenceCountReq)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SetReferenceCountReq* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const SetReferenceCountReq>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:chunkmaster.SetReferenceCountReq)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:chunkmaster.SetReferenceCountReq)
+    MergeFrom(*source);
+  }
+}
+
+void SetReferenceCountReq::MergeFrom(const SetReferenceCountReq& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:chunkmaster.SetReferenceCountReq)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.logical_slice_id() != 0) {
+    set_logical_slice_id(from.logical_slice_id());
+  }
+  if (from.operation() != 0) {
+    set_operation(from.operation());
+  }
+}
+
+void SetReferenceCountReq::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:chunkmaster.SetReferenceCountReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SetReferenceCountReq::CopyFrom(const SetReferenceCountReq& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:chunkmaster.SetReferenceCountReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SetReferenceCountReq::IsInitialized() const {
+  return true;
+}
+
+void SetReferenceCountReq::Swap(SetReferenceCountReq* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void SetReferenceCountReq::InternalSwap(SetReferenceCountReq* other) {
+  using std::swap;
+  swap(logical_slice_id_, other->logical_slice_id_);
+  swap(operation_, other->operation_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata SetReferenceCountReq::GetMetadata() const {
+  protobuf_chunkmaster_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_chunkmaster_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void SetReferenceCountRsp::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+SetReferenceCountRsp::SetReferenceCountRsp()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_chunkmaster_2eproto::scc_info_SetReferenceCountRsp.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:chunkmaster.SetReferenceCountRsp)
+}
+SetReferenceCountRsp::SetReferenceCountRsp(const SetReferenceCountRsp& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:chunkmaster.SetReferenceCountRsp)
+}
+
+void SetReferenceCountRsp::SharedCtor() {
+}
+
+SetReferenceCountRsp::~SetReferenceCountRsp() {
+  // @@protoc_insertion_point(destructor:chunkmaster.SetReferenceCountRsp)
+  SharedDtor();
+}
+
+void SetReferenceCountRsp::SharedDtor() {
+}
+
+void SetReferenceCountRsp::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* SetReferenceCountRsp::descriptor() {
+  ::protobuf_chunkmaster_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_chunkmaster_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const SetReferenceCountRsp& SetReferenceCountRsp::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_chunkmaster_2eproto::scc_info_SetReferenceCountRsp.base);
+  return *internal_default_instance();
+}
+
+
+void SetReferenceCountRsp::Clear() {
+// @@protoc_insertion_point(message_clear_start:chunkmaster.SetReferenceCountRsp)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear();
+}
+
+bool SetReferenceCountRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:chunkmaster.SetReferenceCountRsp)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+  handle_unusual:
+    if (tag == 0) {
+      goto success;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, _internal_metadata_.mutable_unknown_fields()));
+  }
+success:
+  // @@protoc_insertion_point(parse_success:chunkmaster.SetReferenceCountRsp)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:chunkmaster.SetReferenceCountRsp)
+  return false;
+#undef DO_
+}
+
+void SetReferenceCountRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:chunkmaster.SetReferenceCountRsp)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:chunkmaster.SetReferenceCountRsp)
+}
+
+::google::protobuf::uint8* SetReferenceCountRsp::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:chunkmaster.SetReferenceCountRsp)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:chunkmaster.SetReferenceCountRsp)
+  return target;
+}
+
+size_t SetReferenceCountRsp::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:chunkmaster.SetReferenceCountRsp)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void SetReferenceCountRsp::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:chunkmaster.SetReferenceCountRsp)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SetReferenceCountRsp* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const SetReferenceCountRsp>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:chunkmaster.SetReferenceCountRsp)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:chunkmaster.SetReferenceCountRsp)
+    MergeFrom(*source);
+  }
+}
+
+void SetReferenceCountRsp::MergeFrom(const SetReferenceCountRsp& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:chunkmaster.SetReferenceCountRsp)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void SetReferenceCountRsp::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:chunkmaster.SetReferenceCountRsp)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SetReferenceCountRsp::CopyFrom(const SetReferenceCountRsp& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:chunkmaster.SetReferenceCountRsp)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SetReferenceCountRsp::IsInitialized() const {
+  return true;
+}
+
+void SetReferenceCountRsp::Swap(SetReferenceCountRsp* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void SetReferenceCountRsp::InternalSwap(SetReferenceCountRsp* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata SetReferenceCountRsp::GetMetadata() const {
+  protobuf_chunkmaster_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_chunkmaster_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
 void ChunkInformation::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -3165,6 +3695,12 @@ template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::chunkmaster::BatchGetPhysicalSli
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::chunkmaster::BatchGetPhysicalSlicesRsp* Arena::CreateMaybeMessage< ::chunkmaster::BatchGetPhysicalSlicesRsp >(Arena* arena) {
   return Arena::CreateInternal< ::chunkmaster::BatchGetPhysicalSlicesRsp >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::chunkmaster::SetReferenceCountReq* Arena::CreateMaybeMessage< ::chunkmaster::SetReferenceCountReq >(Arena* arena) {
+  return Arena::CreateInternal< ::chunkmaster::SetReferenceCountReq >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::chunkmaster::SetReferenceCountRsp* Arena::CreateMaybeMessage< ::chunkmaster::SetReferenceCountRsp >(Arena* arena) {
+  return Arena::CreateInternal< ::chunkmaster::SetReferenceCountRsp >(arena);
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::chunkmaster::ChunkInformation* Arena::CreateMaybeMessage< ::chunkmaster::ChunkInformation >(Arena* arena) {
   return Arena::CreateInternal< ::chunkmaster::ChunkInformation >(arena);

@@ -35,6 +35,19 @@ message BatchGetPhysicalSlicesRsp {
     repeated AllocateUploadSliceRsp results = 1;
 }
 
+message SetReferenceCountReq {
+    enum OperationType {
+        INCREASE = 0;
+        DECREASE = 1;
+    }
+    uint64 logical_slice_id = 1;
+    OperationType operation = 2;
+}
+
+message SetReferenceCountRsp {
+
+}
+
 enum ChunkState {
     STANDBY     = 0;
     WRITING     = 1;
@@ -65,6 +78,7 @@ service ChunkMasterService {
     rpc AllocateUploadSlice (AllocateUploadSliceReq) returns (AllocateUploadSliceRsp);
     rpc FinishUploadSlice (FinishUploadSliceReq) returns (FinishUploadSliceRsp);
     rpc BatchGetPhysicalSlices (BatchGetPhysicalSlicesReq) returns (BatchGetPhysicalSlicesRsp);
+    rpc SetReferenceCount (SetReferenceCountReq) returns (SetReferenceCountRsp);
 
     // For ChunkServer
     rpc ReportChunkInformation (ReportChunkInformationReq) returns (ReportChunkInformationRsp);

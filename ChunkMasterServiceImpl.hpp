@@ -15,5 +15,6 @@ public:
     int AllocateUploadSlice(const ::chunkmaster::AllocateUploadSliceReq & oReq, ::chunkmaster::AllocateUploadSliceRsp & oResp);
     int FinishUploadSlice(const ::chunkmaster::FinishUploadSliceReq & oReq, ::chunkmaster::FinishUploadSliceRsp & oResp);
     int BatchGetPhysicalSlices(const ::chunkmaster::BatchGetPhysicalSlicesReq & oReq, ::chunkmaster::BatchGetPhysicalSlicesRsp & oResp);
+    int SetReferenceCount(const ::chunkmaster::SetReferenceCountReq & oReq, ::chunkmaster::SetReferenceCountRsp & oResp);
     int ReportChunkInformation(const ::chunkmaster::ReportChunkInformationReq & oReq, ::chunkmaster::ReportChunkInformationRsp & oResp);
 };

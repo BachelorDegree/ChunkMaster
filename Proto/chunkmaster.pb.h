@@ -39,7 +39,7 @@ namespace protobuf_chunkmaster_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[11];
+  static const ::google::protobuf::internal::ParseTable schema[13];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -80,6 +80,12 @@ extern ReportChunkInformationReqDefaultTypeInternal _ReportChunkInformationReq_d
 class ReportChunkInformationRsp;
 class ReportChunkInformationRspDefaultTypeInternal;
 extern ReportChunkInformationRspDefaultTypeInternal _ReportChunkInformationRsp_default_instance_;
+class SetReferenceCountReq;
+class SetReferenceCountReqDefaultTypeInternal;
+extern SetReferenceCountReqDefaultTypeInternal _SetReferenceCountReq_default_instance_;
+class SetReferenceCountRsp;
+class SetReferenceCountRspDefaultTypeInternal;
+extern SetReferenceCountRspDefaultTypeInternal _SetReferenceCountRsp_default_instance_;
 }  // namespace chunkmaster
 namespace google {
 namespace protobuf {
@@ -94,10 +100,33 @@ template<> ::chunkmaster::FinishUploadSliceReq* Arena::CreateMaybeMessage<::chun
 template<> ::chunkmaster::FinishUploadSliceRsp* Arena::CreateMaybeMessage<::chunkmaster::FinishUploadSliceRsp>(Arena*);
 template<> ::chunkmaster::ReportChunkInformationReq* Arena::CreateMaybeMessage<::chunkmaster::ReportChunkInformationReq>(Arena*);
 template<> ::chunkmaster::ReportChunkInformationRsp* Arena::CreateMaybeMessage<::chunkmaster::ReportChunkInformationRsp>(Arena*);
+template<> ::chunkmaster::SetReferenceCountReq* Arena::CreateMaybeMessage<::chunkmaster::SetReferenceCountReq>(Arena*);
+template<> ::chunkmaster::SetReferenceCountRsp* Arena::CreateMaybeMessage<::chunkmaster::SetReferenceCountRsp>(Arena*);
 }  // namespace protobuf
 }  // namespace google
 namespace chunkmaster {
 
+enum SetReferenceCountReq_OperationType {
+  SetReferenceCountReq_OperationType_INCREASE = 0,
+  SetReferenceCountReq_OperationType_DECREASE = 1,
+  SetReferenceCountReq_OperationType_SetReferenceCountReq_OperationType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  SetReferenceCountReq_OperationType_SetReferenceCountReq_OperationType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool SetReferenceCountReq_OperationType_IsValid(int value);
+const SetReferenceCountReq_OperationType SetReferenceCountReq_OperationType_OperationType_MIN = SetReferenceCountReq_OperationType_INCREASE;
+const SetReferenceCountReq_OperationType SetReferenceCountReq_OperationType_OperationType_MAX = SetReferenceCountReq_OperationType_DECREASE;
+const int SetReferenceCountReq_OperationType_OperationType_ARRAYSIZE = SetReferenceCountReq_OperationType_OperationType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* SetReferenceCountReq_OperationType_descriptor();
+inline const ::std::string& SetReferenceCountReq_OperationType_Name(SetReferenceCountReq_OperationType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    SetReferenceCountReq_OperationType_descriptor(), value);
+}
+inline bool SetReferenceCountReq_OperationType_Parse(
+    const ::std::string& name, SetReferenceCountReq_OperationType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<SetReferenceCountReq_OperationType>(
+    SetReferenceCountReq_OperationType_descriptor(), name, value);
+}
 enum ChunkState {
   STANDBY = 0,
   WRITING = 1,
@@ -990,6 +1019,238 @@ class BatchGetPhysicalSlicesRsp : public ::google::protobuf::Message /* @@protoc
 };
 // -------------------------------------------------------------------
 
+class SetReferenceCountReq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:chunkmaster.SetReferenceCountReq) */ {
+ public:
+  SetReferenceCountReq();
+  virtual ~SetReferenceCountReq();
+
+  SetReferenceCountReq(const SetReferenceCountReq& from);
+
+  inline SetReferenceCountReq& operator=(const SetReferenceCountReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  SetReferenceCountReq(SetReferenceCountReq&& from) noexcept
+    : SetReferenceCountReq() {
+    *this = ::std::move(from);
+  }
+
+  inline SetReferenceCountReq& operator=(SetReferenceCountReq&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SetReferenceCountReq& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const SetReferenceCountReq* internal_default_instance() {
+    return reinterpret_cast<const SetReferenceCountReq*>(
+               &_SetReferenceCountReq_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  void Swap(SetReferenceCountReq* other);
+  friend void swap(SetReferenceCountReq& a, SetReferenceCountReq& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SetReferenceCountReq* New() const final {
+    return CreateMaybeMessage<SetReferenceCountReq>(NULL);
+  }
+
+  SetReferenceCountReq* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<SetReferenceCountReq>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const SetReferenceCountReq& from);
+  void MergeFrom(const SetReferenceCountReq& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SetReferenceCountReq* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef SetReferenceCountReq_OperationType OperationType;
+  static const OperationType INCREASE =
+    SetReferenceCountReq_OperationType_INCREASE;
+  static const OperationType DECREASE =
+    SetReferenceCountReq_OperationType_DECREASE;
+  static inline bool OperationType_IsValid(int value) {
+    return SetReferenceCountReq_OperationType_IsValid(value);
+  }
+  static const OperationType OperationType_MIN =
+    SetReferenceCountReq_OperationType_OperationType_MIN;
+  static const OperationType OperationType_MAX =
+    SetReferenceCountReq_OperationType_OperationType_MAX;
+  static const int OperationType_ARRAYSIZE =
+    SetReferenceCountReq_OperationType_OperationType_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  OperationType_descriptor() {
+    return SetReferenceCountReq_OperationType_descriptor();
+  }
+  static inline const ::std::string& OperationType_Name(OperationType value) {
+    return SetReferenceCountReq_OperationType_Name(value);
+  }
+  static inline bool OperationType_Parse(const ::std::string& name,
+      OperationType* value) {
+    return SetReferenceCountReq_OperationType_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // uint64 logical_slice_id = 1;
+  void clear_logical_slice_id();
+  static const int kLogicalSliceIdFieldNumber = 1;
+  ::google::protobuf::uint64 logical_slice_id() const;
+  void set_logical_slice_id(::google::protobuf::uint64 value);
+
+  // .chunkmaster.SetReferenceCountReq.OperationType operation = 2;
+  void clear_operation();
+  static const int kOperationFieldNumber = 2;
+  ::chunkmaster::SetReferenceCountReq_OperationType operation() const;
+  void set_operation(::chunkmaster::SetReferenceCountReq_OperationType value);
+
+  // @@protoc_insertion_point(class_scope:chunkmaster.SetReferenceCountReq)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint64 logical_slice_id_;
+  int operation_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_chunkmaster_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class SetReferenceCountRsp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:chunkmaster.SetReferenceCountRsp) */ {
+ public:
+  SetReferenceCountRsp();
+  virtual ~SetReferenceCountRsp();
+
+  SetReferenceCountRsp(const SetReferenceCountRsp& from);
+
+  inline SetReferenceCountRsp& operator=(const SetReferenceCountRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  SetReferenceCountRsp(SetReferenceCountRsp&& from) noexcept
+    : SetReferenceCountRsp() {
+    *this = ::std::move(from);
+  }
+
+  inline SetReferenceCountRsp& operator=(SetReferenceCountRsp&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SetReferenceCountRsp& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const SetReferenceCountRsp* internal_default_instance() {
+    return reinterpret_cast<const SetReferenceCountRsp*>(
+               &_SetReferenceCountRsp_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  void Swap(SetReferenceCountRsp* other);
+  friend void swap(SetReferenceCountRsp& a, SetReferenceCountRsp& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SetReferenceCountRsp* New() const final {
+    return CreateMaybeMessage<SetReferenceCountRsp>(NULL);
+  }
+
+  SetReferenceCountRsp* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<SetReferenceCountRsp>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const SetReferenceCountRsp& from);
+  void MergeFrom(const SetReferenceCountRsp& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SetReferenceCountRsp* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:chunkmaster.SetReferenceCountRsp)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_chunkmaster_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
 class ChunkInformation : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:chunkmaster.ChunkInformation) */ {
  public:
   ChunkInformation();
@@ -1025,7 +1286,7 @@ class ChunkInformation : public ::google::protobuf::Message /* @@protoc_insertio
                &_ChunkInformation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    10;
 
   void Swap(ChunkInformation* other);
   friend void swap(ChunkInformation& a, ChunkInformation& b) {
@@ -1149,7 +1410,7 @@ class ReportChunkInformationReq : public ::google::protobuf::Message /* @@protoc
                &_ReportChunkInformationReq_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    11;
 
   void Swap(ReportChunkInformationReq* other);
   friend void swap(ReportChunkInformationReq& a, ReportChunkInformationReq& b) {
@@ -1258,7 +1519,7 @@ class ReportChunkInformationRsp : public ::google::protobuf::Message /* @@protoc
                &_ReportChunkInformationRsp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    12;
 
   void Swap(ReportChunkInformationRsp* other);
   friend void swap(ReportChunkInformationRsp& a, ReportChunkInformationRsp& b) {
@@ -1562,6 +1823,42 @@ BatchGetPhysicalSlicesRsp::results() const {
 
 // -------------------------------------------------------------------
 
+// SetReferenceCountReq
+
+// uint64 logical_slice_id = 1;
+inline void SetReferenceCountReq::clear_logical_slice_id() {
+  logical_slice_id_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 SetReferenceCountReq::logical_slice_id() const {
+  // @@protoc_insertion_point(field_get:chunkmaster.SetReferenceCountReq.logical_slice_id)
+  return logical_slice_id_;
+}
+inline void SetReferenceCountReq::set_logical_slice_id(::google::protobuf::uint64 value) {
+  
+  logical_slice_id_ = value;
+  // @@protoc_insertion_point(field_set:chunkmaster.SetReferenceCountReq.logical_slice_id)
+}
+
+// .chunkmaster.SetReferenceCountReq.OperationType operation = 2;
+inline void SetReferenceCountReq::clear_operation() {
+  operation_ = 0;
+}
+inline ::chunkmaster::SetReferenceCountReq_OperationType SetReferenceCountReq::operation() const {
+  // @@protoc_insertion_point(field_get:chunkmaster.SetReferenceCountReq.operation)
+  return static_cast< ::chunkmaster::SetReferenceCountReq_OperationType >(operation_);
+}
+inline void SetReferenceCountReq::set_operation(::chunkmaster::SetReferenceCountReq_OperationType value) {
+  
+  operation_ = value;
+  // @@protoc_insertion_point(field_set:chunkmaster.SetReferenceCountReq.operation)
+}
+
+// -------------------------------------------------------------------
+
+// SetReferenceCountRsp
+
+// -------------------------------------------------------------------
+
 // ChunkInformation
 
 // uint64 chunk_id = 1;
@@ -1681,6 +1978,10 @@ ReportChunkInformationReq::chunk_info() const {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -1689,6 +1990,11 @@ ReportChunkInformationReq::chunk_info() const {
 namespace google {
 namespace protobuf {
 
+template <> struct is_proto_enum< ::chunkmaster::SetReferenceCountReq_OperationType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::chunkmaster::SetReferenceCountReq_OperationType>() {
+  return ::chunkmaster::SetReferenceCountReq_OperationType_descriptor();
+}
 template <> struct is_proto_enum< ::chunkmaster::ChunkState> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::chunkmaster::ChunkState>() {

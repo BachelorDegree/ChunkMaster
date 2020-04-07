@@ -69,7 +69,7 @@ int SliceIndexKVHelper::GetMapping(const uint64_t iLogical, std::vector<uint64_t
     if (iRpcRet != 0)
     {
         spdlog::error("SliceIndexKVHelper::GetMapping - PaxosKV Get failed, retcode: {}", iRpcRet);
-        return E_PAXOSKV_SET_RPC_FAILED;
+        return E_PAXOSKV_GET_RPC_FAILED;
     }
 
     ::sliceindex::SliceIdArray oPB;

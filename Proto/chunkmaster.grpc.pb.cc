@@ -23,6 +23,7 @@ static const char* ChunkMasterService_method_names[] = {
   "/chunkmaster.ChunkMasterService/AllocateUploadSlice",
   "/chunkmaster.ChunkMasterService/FinishUploadSlice",
   "/chunkmaster.ChunkMasterService/BatchGetPhysicalSlices",
+  "/chunkmaster.ChunkMasterService/SetReferenceCount",
   "/chunkmaster.ChunkMasterService/ReportChunkInformation",
 };
 
@@ -37,7 +38,8 @@ ChunkMasterService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>&
   , rpcmethod_AllocateUploadSlice_(ChunkMasterService_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_FinishUploadSlice_(ChunkMasterService_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_BatchGetPhysicalSlices_(ChunkMasterService_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_ReportChunkInformation_(ChunkMasterService_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SetReferenceCount_(ChunkMasterService_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_ReportChunkInformation_(ChunkMasterService_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status ChunkMasterService::Stub::CalculateUploadSliceLengths(::grpc::ClientContext* context, const ::chunkmaster::CalculateUploadSliceLengthsReq& request, ::chunkmaster::CalculateUploadSliceLengthsRsp* response) {
@@ -120,6 +122,26 @@ void ChunkMasterService::Stub::experimental_async::BatchGetPhysicalSlices(::grpc
   return ::grpc::internal::ClientAsyncResponseReaderFactory< ::chunkmaster::BatchGetPhysicalSlicesRsp>::Create(channel_.get(), cq, rpcmethod_BatchGetPhysicalSlices_, context, request, false);
 }
 
+::grpc::Status ChunkMasterService::Stub::SetReferenceCount(::grpc::ClientContext* context, const ::chunkmaster::SetReferenceCountReq& request, ::chunkmaster::SetReferenceCountRsp* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_SetReferenceCount_, context, request, response);
+}
+
+void ChunkMasterService::Stub::experimental_async::SetReferenceCount(::grpc::ClientContext* context, const ::chunkmaster::SetReferenceCountReq* request, ::chunkmaster::SetReferenceCountRsp* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SetReferenceCount_, context, request, response, std::move(f));
+}
+
+void ChunkMasterService::Stub::experimental_async::SetReferenceCount(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::chunkmaster::SetReferenceCountRsp* response, std::function<void(::grpc::Status)> f) {
+  return ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_SetReferenceCount_, context, request, response, std::move(f));
+}
+
+::grpc::ClientAsyncResponseReader< ::chunkmaster::SetReferenceCountRsp>* ChunkMasterService::Stub::AsyncSetReferenceCountRaw(::grpc::ClientContext* context, const ::chunkmaster::SetReferenceCountReq& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::chunkmaster::SetReferenceCountRsp>::Create(channel_.get(), cq, rpcmethod_SetReferenceCount_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::chunkmaster::SetReferenceCountRsp>* ChunkMasterService::Stub::PrepareAsyncSetReferenceCountRaw(::grpc::ClientContext* context, const ::chunkmaster::SetReferenceCountReq& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::chunkmaster::SetReferenceCountRsp>::Create(channel_.get(), cq, rpcmethod_SetReferenceCount_, context, request, false);
+}
+
 ::grpc::Status ChunkMasterService::Stub::ReportChunkInformation(::grpc::ClientContext* context, const ::chunkmaster::ReportChunkInformationReq& request, ::chunkmaster::ReportChunkInformationRsp* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_ReportChunkInformation_, context, request, response);
 }
@@ -164,6 +186,11 @@ ChunkMasterService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       ChunkMasterService_method_names[4],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< ChunkMasterService::Service, ::chunkmaster::SetReferenceCountReq, ::chunkmaster::SetReferenceCountRsp>(
+          std::mem_fn(&ChunkMasterService::Service::SetReferenceCount), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      ChunkMasterService_method_names[5],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< ChunkMasterService::Service, ::chunkmaster::ReportChunkInformationReq, ::chunkmaster::ReportChunkInformationRsp>(
           std::mem_fn(&ChunkMasterService::Service::ReportChunkInformation), this)));
 }
@@ -193,6 +220,13 @@ ChunkMasterService::Service::~Service() {
 }
 
 ::grpc::Status ChunkMasterService::Service::BatchGetPhysicalSlices(::grpc::ServerContext* context, const ::chunkmaster::BatchGetPhysicalSlicesReq* request, ::chunkmaster::BatchGetPhysicalSlicesRsp* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status ChunkMasterService::Service::SetReferenceCount(::grpc::ServerContext* context, const ::chunkmaster::SetReferenceCountReq* request, ::chunkmaster::SetReferenceCountRsp* response) {
   (void) context;
   (void) request;
   (void) response;
