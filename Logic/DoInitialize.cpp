@@ -24,7 +24,7 @@ static void InitializeSQLite(void)
 
 static void CreateSQLiteTables(void)
 {
-    g_pSqliteDatabase->exec("CREATE TABLE chunks (chunk_id INTEGER PRIMARY KEY, cluster_id INTERGER, machine_id INTERGER, disk_id INTERGER, logical_used INTERGER, actual_used INTERGER, state INTERGER);");
+    g_pSqliteDatabase->exec("CREATE TABLE chunks (chunk_id INTEGER PRIMARY KEY, cluster_id INTEGER, machine_id INTEGER, disk_id INTEGER, logical_used INTEGER, actual_used INTEGER, state INTEGER);");
     g_pSqliteDatabase->exec("CREATE INDEX actual_used ON chunks (actual_used);");
 }
 
