@@ -88,7 +88,7 @@ int AllocateUploadSliceHandler::Implementation(void)
         // SQLite 找物理chunk
         // 条件：chunk状态为STANDBY、不在同一machine、实际剩余空间大于等于ceil4k后的分片大小
         std::vector<uint64_t> vecChunks;
-        std::string sSql = fmt::format("SELECT chunk_id, actual_used FROM chunks WHERE state=0 AND actual_used<{} GROUP BY cluster_id, machine_id, disk_id ORDER BY actual_used ASC;", iMaximumActualUsed);
+        std::string sSql = fmt::format("SELECT chunk_id, actual_used FROM chunks WHERE state=0 AND actual_used<{} GROUP BY cluster_id, machine_id, disk_id ORDER BY actual_used ASC LIMIT {};", iMaximumActualUsed, iReplicaCount);
         SQLite::Statement oStmt(*g_pSqliteDatabase, sSql);
         spdlog::trace(sSql);
         while (oStmt.executeStep())
